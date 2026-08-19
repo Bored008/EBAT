@@ -27,9 +27,9 @@ export function WhyChoose() {
   ];
 
   return (
-    <section className="w-full flex flex-col items-center gap-[100px] px-6 max-w-[1260px] mx-auto relative">
+    <section className="w-full flex flex-col items-center px-6 max-w-[1260px] mx-auto relative">
       {/* Background connecting line */}
-      <div className="absolute top-[320px] left-1/2 -translate-x-1/2 w-full max-w-[1260px] h-[238px] -z-20 pointer-events-none hidden lg:block">
+      <div className="absolute top-[167px] left-1/2 -translate-x-1/2 w-full max-w-[1260px] h-[238px] -z-20 pointer-events-none hidden lg:block">
         <Image src="/images/why-choose/bg-line.svg" alt="Connecting line" fill className="object-cover" />
       </div>
 
@@ -39,7 +39,7 @@ export function WhyChoose() {
       </div>
 
       {/* Header Container */}
-      <div className="flex flex-col items-center gap-2 max-w-[620px] text-center">
+      <div className="flex flex-col items-center gap-2 max-w-[620px] text-center mt-0">
         <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-tight tracking-[-0.05em] text-white">
           Why Choose <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-4">EBAT</span>
         </h2>
@@ -49,7 +49,7 @@ export function WhyChoose() {
       </div>
 
       {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[40px] lg:gap-[20px] w-full mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[40px] lg:gap-[20px] w-full mt-[280px]">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col items-center text-center gap-2 max-w-[320px] mx-auto">
             {/* Icon */}
@@ -71,7 +71,7 @@ export function WhyChoose() {
       </div>
 
       {/* Request a Quote Button */}
-      <div className="mt-[-20px]">
+      <div className="mt-[41px]">
         <Button variant="filled">Request a Quote</Button>
       </div>
     </section>
