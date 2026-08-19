@@ -2,6 +2,8 @@ import { Hero } from '@/components/sections/Hero';
 import { TrustBar } from '@/components/sections/TrustBar';
 import { Products } from '@/components/sections/Products';
 import { EdgeAI } from '@/components/sections/EdgeAI';
+import { Services } from '@/components/sections/Services';
+import { WhyChoose } from '@/components/sections/WhyChoose';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center gap-[120px]">
@@ -11,6 +13,8 @@ export default function Home() {
       </div>
       <Products />
       <EdgeAI />
+      <Services />
+      <WhyChoose />
       {/* TODO: Add next sections here */}
     </main>
   );
