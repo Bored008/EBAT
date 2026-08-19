@@ -9,7 +9,13 @@ export function Hero() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center pt-[100px] overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
+      <div 
+        className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] -z-20 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0) 70%)',
+          filter: 'blur(40px)'
+        }}
+      />
 
       {/* Hero Container */}
       <div className="flex flex-col items-center gap-[16px] w-full max-w-[834px] px-4 z-10 relative">
