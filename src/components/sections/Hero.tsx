@@ -18,9 +18,9 @@ export function Hero() {
         <div className="relative w-full h-[412px] flex flex-col items-center justify-end">
           
           {/* EBAT Text (Masked) */}
-          <div className="absolute inset-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none"
+          <div className="absolute top-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none w-[834px] h-[293.63px]"
                style={{ WebkitMaskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)', maskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)' }}>
-            <span className="font-display text-[432px] leading-none text-white/90">
+            <span className="font-display text-[432.22px] leading-[293.63px] text-white/90">
               EBAT
             </span>
           </div>
