@@ -51,7 +51,15 @@ export function Products() {
   return (
     <section className="relative w-full flex flex-col items-center px-4">
       {/* Background Glow */}
-      <div className="absolute top-[14px] right-[calc(50%-494px/2-238px)] w-[494px] h-[248px] bg-[rgba(255,255,255,0.52)] blur-[111.2px] -z-20 pointer-events-none" />
+      <div 
+        className="absolute z-[-20] pointer-events-none w-[939px] h-[693px] max-w-none"
+        style={{
+          left: 'calc(50% + 231.55px)',
+          top: '-207.56px',
+        }}
+      >
+        <Image src="/images/products-glow.svg" alt="glow" fill className="object-contain" />
+      </div>
 
       <div className="flex flex-col items-center gap-[51px] w-full max-w-[1046px]">
         {/* Title Container */}
