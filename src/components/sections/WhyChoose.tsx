@@ -48,8 +48,8 @@ export function WhyChoose() {
         </p>
       </div>
 
-      {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[40px] lg:gap-[20px] w-full mt-[280px]">
+      {/* Features Grid - Mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] w-full mt-[100px] lg:hidden">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col items-center text-center gap-2 max-w-[320px] mx-auto">
             {/* Icon */}
@@ -58,7 +58,7 @@ export function WhyChoose() {
             </div>
             
             {/* Title */}
-            <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-white leading-tight">
+            <h3 className="font-sans font-bold text-[24px] text-white leading-tight">
               {feature.title}
             </h3>
             
@@ -68,6 +68,36 @@ export function WhyChoose() {
             </p>
           </div>
         ))}
+      </div>
+
+      {/* Features Layout - Desktop (Figma coordinates) */}
+      <div className="hidden lg:block relative w-full h-[316px] mt-[280px]">
+        {features.map((feature, index) => {
+          let left = '0';
+          let top = '0';
+          if (index === 0) { left = '0px'; top = '0px'; }
+          if (index === 1) { left = '272px'; top = '174px'; }
+          if (index === 2) { left = '665px'; top = '174px'; }
+          if (index === 3) { left = '940px'; top = '0px'; }
+          
+          return (
+            <div 
+              key={index} 
+              className="absolute flex flex-col items-center text-center gap-2 w-[320px]"
+              style={{ left, top }}
+            >
+              <div className="w-[44px] h-[44px] flex items-center justify-center mb-[8px]">
+                <Image src={feature.icon} alt={feature.title} width={44} height={44} />
+              </div>
+              <h3 className="font-sans font-bold text-[24px] text-white leading-tight text-left w-full flex justify-center">
+                {feature.title}
+              </h3>
+              <p className="font-sans text-[16px] text-white/75 leading-[1.5] tracking-[-0.02em]">
+                {feature.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
       {/* Request a Quote Button */}
