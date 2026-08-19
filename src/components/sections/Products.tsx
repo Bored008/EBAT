@@ -11,9 +11,10 @@ const products = [
     features: ['- Live Video feed', '- Rapid Response ', '- Precision maneuvering'],
     width: 300,
     height: 394,
-    imageHeight: 298,
-    imageRadius: '0px',
-    padding: 9,
+    imageStyle: { left: 9, top: 8.76, width: 282, height: 298, borderRadius: '0px' },
+    titleStyle: { left: 8.87, top: 314.76 },
+    featuresStyle: { left: 5, top: 342.76, width: 199 },
+    buttonStyle: { left: 198.02, top: 369 },
     isLarge: false,
   },
   {
@@ -24,22 +25,24 @@ const products = [
     features: ['- Border patrol ready', '- Wide-area coverage', '- Long-range endurance'],
     width: 406,
     height: 495,
-    imageHeight: 372,
-    imageRadius: '16px',
-    padding: 12,
+    imageStyle: { left: 12, top: 12, width: 382, height: 372, borderRadius: '16px' },
+    titleStyle: { left: 12, top: 392, width: 339 },
+    featuresStyle: { left: 16, top: 444, width: 242 },
+    buttonStyle: { left: 268, top: 464 },
     isLarge: true,
   },
   {
     id: 'edge-ai',
     title: 'Edge AI Devices',
     image: '/images/products/edge-ai-device.png',
-    bgImage: '/images/products/fpv-card-bg.svg', // Edge AI uses the same template
+    bgImage: '/images/products/fpv-card-bg.svg',
     features: ['- On-device processing', '- Offline capable', '- Real-time detection'],
     width: 300,
     height: 394,
-    imageHeight: 298,
-    imageRadius: '12px',
-    padding: 9,
+    imageStyle: { left: 9, top: 8.76, width: 282, height: 298, borderRadius: '12px' },
+    titleStyle: { left: 8.87, top: 314.76 },
+    featuresStyle: { left: 5, top: 343, width: 269 },
+    buttonStyle: { left: 198.02, top: 369 },
     isLarge: false,
   },
 ];
@@ -66,18 +69,17 @@ export function Products() {
           {products.map((product) => (
             <div 
               key={product.id}
-              className="flex flex-col text-black w-full relative bg-transparent bg-no-repeat bg-center bg-cover"
+              className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
               style={{
-                maxWidth: product.width,
+                width: product.width,
                 height: product.height,
-                padding: product.padding,
                 backgroundImage: `url('${product.bgImage}')`,
               }}
             >
               {/* Product Image */}
               <div 
-                className="relative w-full" 
-                style={{ height: product.imageHeight, borderRadius: product.imageRadius, overflow: 'hidden' }}
+                className="absolute overflow-hidden" 
+                style={product.imageStyle}
               >
                 <Image
                   src={product.image}
@@ -88,12 +90,12 @@ export function Products() {
               </div>
 
               {/* Product Title */}
-              <h3 className="font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em] mt-[8px]">
+              <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em]" style={product.titleStyle}>
                 {product.title}
               </h3>
 
               {/* Product Features */}
-              <div className="grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2] mt-[4px] w-[85%]">
+              <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2]" style={product.featuresStyle}>
                 {product.features.map((feature, idx) => (
                   <span key={idx} className="whitespace-nowrap">{feature}</span>
                 ))}
@@ -101,11 +103,11 @@ export function Products() {
               
               {/* Absolute Positioned Button */}
               {product.isLarge ? (
-                <Button variant="filled" rightIcon="top-right-arrow" className="absolute bottom-[0px] right-[8px]">
+                <Button variant="filled" rightIcon="top-right-arrow" className="absolute" style={product.buttonStyle}>
                   View Product
                 </Button>
               ) : (
-                <Button variant="filled" rightIcon="top-right-arrow" className="absolute bottom-[0px] right-[10px] h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]">
+                <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={product.buttonStyle}>
                   View Product
                 </Button>
               )}
