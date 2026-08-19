@@ -102,7 +102,7 @@ export function WhyChoose() {
 
       {/* Request a Quote Button */}
       <div className="mt-[41px]">
-        <Button variant="filled">Request a Quote</Button>
+        <Button variant="outline" className="border-t-0 border-x-[1px] border-b-[1px] text-white">Request a Quote</Button>
       </div>
     </section>
   );
