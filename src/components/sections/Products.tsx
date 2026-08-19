@@ -71,62 +71,64 @@ export function Products() {
             From close-range recon to long-range defense - proven across every mission type.
           </p>
         </div>
-
-        {/* Cards Row */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-end gap-[20px] w-full justify-center">
-          {products.map((product) => (
-            <div 
-              key={product.id}
-              className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
-              style={{
-                width: product.width,
-                height: product.height,
-                backgroundImage: `url('${product.bgImage}')`,
-              }}
-            >
-              {/* Product Image */}
-              <div 
-                className="absolute overflow-hidden" 
-                style={product.imageStyle}
+<div className='flex flex-col items-center gap-[32px] w-full'>
+  
+          {/* Cards Row */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-end gap-[20px] w-full justify-center">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
+                style={{
+                  width: product.width,
+                  height: product.height,
+                  backgroundImage: `url('${product.bgImage}')`,
+                }}
               >
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-cover"
-                />
+                {/* Product Image */}
+                <div
+                  className="absolute overflow-hidden"
+                  style={product.imageStyle}
+                >
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+  
+                {/* Product Title */}
+                <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em]" style={product.titleStyle}>
+                  {product.title}
+                </h3>
+  
+                {/* Product Features */}
+                <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2]" style={product.featuresStyle}>
+                  {product.features.map((feature, idx) => (
+                    <span key={idx} className="whitespace-nowrap">{feature}</span>
+                  ))}
+                </div>
+  
+                {/* Absolute Positioned Button */}
+                {product.isLarge ? (
+                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute" style={product.buttonStyle}>
+                    View Product
+                  </Button>
+                ) : (
+                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={product.buttonStyle}>
+                    View Product
+                  </Button>
+                )}
               </div>
-
-              {/* Product Title */}
-              <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em]" style={product.titleStyle}>
-                {product.title}
-              </h3>
-
-              {/* Product Features */}
-              <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2]" style={product.featuresStyle}>
-                {product.features.map((feature, idx) => (
-                  <span key={idx} className="whitespace-nowrap">{feature}</span>
-                ))}
-              </div>
-              
-              {/* Absolute Positioned Button */}
-              {product.isLarge ? (
-                <Button variant="filled" rightIcon="top-right-arrow" className="absolute" style={product.buttonStyle}>
-                  View Product
-                </Button>
-              ) : (
-                <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={product.buttonStyle}>
-                  View Product
-                </Button>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* View All Button */}
-        <Button variant="outline" rightIcon="top-right-arrow" className="px-[32px]">
-          View All Products
-        </Button>
+            ))}
+          </div>
+  
+          {/* View All Button */}
+          <Button variant="outline" rightIcon="top-right-arrow" className="px-[32px] !rounded-[8px] !gap-[4px] border-t-0 border-x border-b">
+            View All Products
+          </Button>
+</div>
       </div>
     </section>
   );
