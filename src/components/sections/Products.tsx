@@ -7,30 +7,39 @@ const products = [
     id: 'fpv',
     title: 'FPV Drones',
     image: '/images/products/fpv-drone.png',
-    features: ['- Live Video feed', '- Rapid Response', '- Precision maneuvering'],
+    bgImage: '/images/products/fpv-card-bg.svg',
+    features: ['- Live Video feed', '- Rapid Response ', '- Precision maneuvering'],
     width: 300,
     height: 394,
     imageHeight: 298,
+    imageRadius: '0px',
+    padding: 9,
     isLarge: false,
   },
   {
     id: 'ucav',
     title: 'Unmanned Combat Aerial Vehicle (UCAV)',
     image: '/images/products/ucav-drone.png',
-    features: ['- Long-range endurance', '- Wide-area coverage', '- Border patrol ready'],
+    bgImage: '/images/products/ucav-card-bg.svg',
+    features: ['- Border patrol ready', '- Wide-area coverage', '- Long-range endurance'],
     width: 406,
     height: 495,
     imageHeight: 372,
+    imageRadius: '16px',
+    padding: 12,
     isLarge: true,
   },
   {
     id: 'edge-ai',
     title: 'Edge AI Devices',
     image: '/images/products/edge-ai-device.png',
+    bgImage: '/images/products/fpv-card-bg.svg', // Edge AI uses the same template
     features: ['- On-device processing', '- Offline capable', '- Real-time detection'],
     width: 300,
     height: 394,
     imageHeight: 298,
+    imageRadius: '12px',
+    padding: 9,
     isLarge: false,
   },
 ];
@@ -53,21 +62,22 @@ export function Products() {
         </div>
 
         {/* Cards Row */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-end gap-[20px] w-full">
+        <div className="flex flex-col lg:flex-row items-center lg:items-end gap-[20px] w-full justify-center">
           {products.map((product) => (
             <div 
               key={product.id}
-              className="bg-white flex flex-col p-[9px] lg:p-[12px] text-black w-full"
+              className="flex flex-col text-black w-full relative bg-transparent bg-no-repeat bg-center bg-cover"
               style={{
                 maxWidth: product.width,
                 height: product.height,
-                borderRadius: product.isLarge ? '0' : '0', // Adjust if we need rounding
+                padding: product.padding,
+                backgroundImage: `url('${product.bgImage}')`,
               }}
             >
               {/* Product Image */}
               <div 
                 className="relative w-full" 
-                style={{ height: product.imageHeight, borderRadius: product.isLarge ? '16px' : '12px', overflow: 'hidden' }}
+                style={{ height: product.imageHeight, borderRadius: product.imageRadius, overflow: 'hidden' }}
               >
                 <Image
                   src={product.image}
@@ -78,28 +88,27 @@ export function Products() {
               </div>
 
               {/* Product Title */}
-              <h3 className="font-sans font-medium text-[20px] leading-tight -tracking-[0.02em] mt-3">
+              <h3 className="font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em] mt-[8px]">
                 {product.title}
               </h3>
 
-              {/* Product Features & Button */}
-              <div className="mt-auto flex flex-row items-end justify-between">
-                <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-black/75 text-[11px] leading-tight max-w-[200px]">
-                  {product.features.map((feature, idx) => (
-                    <span key={idx}>{feature}</span>
-                  ))}
-                </div>
-                
-                {product.isLarge ? (
-                  <Button variant="filled" rightIcon="top-right-arrow">
-                    View Product
-                  </Button>
-                ) : (
-                  <Button variant="filled" rightIcon="top-right-arrow" className="h-[25px] px-[10px] py-[5px] text-[10px]">
-                    View Product
-                  </Button>
-                )}
+              {/* Product Features */}
+              <div className="grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2] mt-[4px] w-[85%]">
+                {product.features.map((feature, idx) => (
+                  <span key={idx} className="whitespace-nowrap">{feature}</span>
+                ))}
               </div>
+              
+              {/* Absolute Positioned Button */}
+              {product.isLarge ? (
+                <Button variant="filled" rightIcon="top-right-arrow" className="absolute bottom-[0px] right-[8px]">
+                  View Product
+                </Button>
+              ) : (
+                <Button variant="filled" rightIcon="top-right-arrow" className="absolute bottom-[0px] right-[10px] h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]">
+                  View Product
+                </Button>
+              )}
             </div>
           ))}
         </div>
