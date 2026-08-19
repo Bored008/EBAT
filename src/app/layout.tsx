@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable} ${jersey25.variable} font-sans antialiased bg-black text-white`}
+        className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable} ${jersey25.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
       >
         <Navbar />
         {children}

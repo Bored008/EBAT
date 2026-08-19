@@ -7,15 +7,9 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center pt-[100px] overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col items-center pt-[132px]">
       {/* Background Glow */}
-      <div 
-        className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] -z-20 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0) 70%)',
-          filter: 'blur(40px)'
-        }}
-      />
+      <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
 
       {/* Hero Container */}
       <div className="flex flex-col items-center gap-[16px] w-full max-w-[834px] px-4 z-10 relative">
@@ -53,19 +47,19 @@ export function Hero() {
           initial={{ y: 30, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center gap-[18px] max-w-[813px] text-center"
+          className="flex flex-col items-center gap-[18px] w-full max-w-[813px] text-center"
         >
-          <div className="flex flex-col gap-[12px] w-full">
-            <h1 className="font-heading font-bold text-[73px] leading-tight text-white m-0">
-              Built for the Unseen <span className="font-accent italic font-normal text-[#F00511]">Threat.</span>
+          <div className="flex flex-col items-center gap-[12px] w-full">
+            <h1 className="font-heading font-bold text-[73.33px] leading-[64px] h-[64px] text-white m-0 flex items-center justify-center w-full">
+              Built for the Unseen <span className="font-accent italic font-normal text-[#F00511] ml-3">Threat.</span>
             </h1>
-            <p className="font-sans text-base text-white/75 -tracking-[0.02em] max-w-xl mx-auto">
+            <p className="font-sans text-[16px] text-white/75 -tracking-[0.02em] w-full">
               Edge AI drones that detect, track, and respond in real time — even off the grid.
             </p>
           </div>
 
           {/* Buttons Container */}
-          <div className="flex flex-row gap-[12px]">
+          <div className="flex flex-row items-center justify-center gap-[12px]">
             <Button variant="filled">
               Explore Solutions
             </Button>
