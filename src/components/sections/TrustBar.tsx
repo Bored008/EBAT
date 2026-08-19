@@ -10,7 +10,7 @@ const stats = [
 
 export function TrustBar() {
   return (
-    <section className="w-full flex justify-center mt-[36px] mb-[64px] px-4">
+    <section className="w-full flex justify-center px-4">
       <div className="flex flex-col md:flex-row items-center md:items-stretch w-full max-w-[1259px] rounded-[13px]">
         {stats.map((stat, index) => (
           <div 
