@@ -68,7 +68,7 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-[14px]">
+            <div className="flex flex-col gap-[16px]">
               {/* Row 1: First Name & Phone */}
               <div className="flex flex-row justify-between items-start gap-[14px]">
                 <div className="flex flex-col gap-[8px] w-[195px]">
@@ -90,7 +90,7 @@ export function Footer() {
               {/* Row 2: Email & Company (left col) | Message (right col) */}
               <div className="flex flex-row justify-between items-start gap-[14px]">
                 {/* Left Col */}
-                <div className="flex flex-col gap-[14px] w-[195px]">
+                <div className="flex flex-col gap-[16px] w-[195px]">
                   <div className="flex flex-col gap-[8px]">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Email</label>
                     <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
@@ -110,7 +110,7 @@ export function Footer() {
                 {/* Right Col: Message */}
                 <div className="flex flex-col gap-[8px] w-[195px]">
                   <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
-                  <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] h-[97px]">
+                  <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] h-[136px]">
                     <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
                     <textarea placeholder="Enter your message" className="bg-transparent text-[12px] text-black outline-none w-full h-full resize-none placeholder:text-black/25"></textarea>
                   </div>
@@ -119,25 +119,6 @@ export function Footer() {
             </div>
 
             <Button variant="filled" className="w-full rounded-[5px] py-[7px]">Submit</Button>
-          </div>
-
-          {/* Contact Row */}
-          <div className="absolute left-[651px] top-[370px] flex flex-row items-center gap-[17px]">
-            <span className="font-sans font-medium text-[16px] text-black/75">CONTACT :</span>
-            <div className="flex flex-row items-center gap-[22px]">
-              <div className="flex flex-row items-center gap-[8px]">
-                <Image src="/images/footer/phone-fill.svg" alt="Phone" width={22} height={22} />
-                <span className="font-sans text-[14px] text-black/75">123 456 789</span>
-              </div>
-              <div className="flex flex-row items-center gap-[8px]">
-                <Image src="/images/footer/whatsapp.svg" alt="Whatsapp" width={22} height={22} />
-                <span className="font-sans text-[14px] text-black/75">Whatsapp</span>
-              </div>
-              <div className="flex flex-row items-center gap-[8px]">
-                <Image src="/images/footer/mail.svg" alt="Email" width={22} height={22} />
-                <span className="font-sans text-[14px] text-black/75">ebat@gmail.com</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -179,25 +160,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
-          <div className="flex flex-col gap-[16px]">
-            <span className="font-sans font-medium text-[16px] text-black/75">CONTACT :</span>
-            <div className="flex flex-col gap-[12px]">
-              <div className="flex flex-row items-center gap-[8px]">
-                <Image src="/images/footer/phone-fill.svg" alt="Phone" width={22} height={22} />
-                <span className="font-sans text-[14px] text-black/75">123 456 789</span>
-              </div>
-              <div className="flex flex-row items-center gap-[8px]">
-                <Image src="/images/footer/whatsapp.svg" alt="Whatsapp" width={22} height={22} />
-                <span className="font-sans text-[14px] text-black/75">Whatsapp</span>
-              </div>
-              <div className="flex flex-row items-center gap-[8px]">
-                <Image src="/images/footer/mail.svg" alt="Email" width={22} height={22} />
-                <span className="font-sans text-[14px] text-black/75">ebat@gmail.com</span>
-              </div>
-            </div>
-          </div>
-
           {/* Form */}
           <div className="flex flex-col gap-[24px] w-full max-w-[405px]">
             <div className="flex flex-col gap-[12px]">
@@ -206,7 +168,7 @@ export function Footer() {
                 Fill up the form and our team will get back to you with in 24 hours.
               </p>
             </div>
-            <div className="flex flex-col gap-[14px]">
+            <div className="flex flex-col gap-[16px]">
               {/* Form fields mobile... */}
               <div className="flex flex-col gap-[14px]">
                 {/* Row 1: First Name & Phone */}
@@ -230,7 +192,7 @@ export function Footer() {
                 {/* Row 2: Email & Company (left) | Message (right) */}
                 <div className="flex flex-row justify-between items-start gap-[14px]">
                   {/* Left Column */}
-                  <div className="flex flex-col gap-[14px] flex-1">
+                  <div className="flex flex-col gap-[16px] flex-1">
                     <div className="flex flex-col gap-[8px]">
                       <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Email</label>
                       <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
@@ -250,7 +212,7 @@ export function Footer() {
                   {/* Right Column */}
                   <div className="flex flex-col gap-[8px] flex-1">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
-                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] h-[97px]">
+                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] h-[136px]">
                       <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
                       <textarea placeholder="Enter your message" className="bg-transparent text-[12px] text-black outline-none w-full h-full resize-none placeholder:text-black/25"></textarea>
                     </div>
@@ -268,7 +230,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-[12px] md:gap-0 w-full py-[12px]">
             <div className="flex flex-row items-center gap-[8px]">
               <Image src="/images/footer/copyright.svg" alt="Copyright" width={20} height={20} />
-              <span className="font-sans text-[16px] text-black/75">2026 EBAT. All Rights Reserved</span>
+              <span className="font-sans text-[16px] text-black/75">2026 FIRECHEM. All Rights Reserved</span>
             </div>
             <div className="flex flex-row items-center gap-[18px]">
               <span className="font-sans text-[15px] text-black/75 text-center leading-[15px]">
