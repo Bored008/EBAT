@@ -51,7 +51,8 @@ export function FAQ() {
         <div className="flex flex-col justify-between w-full lg:w-[513px] lg:h-[584px] gap-8 lg:gap-0 lg:sticky lg:top-24">
           <div className="max-w-[470px]">
             <h2 className="font-heading font-bold text-[48px] lg:text-[64px] leading-tight lg:leading-[72px] tracking-[-0.02em] text-white">
-              General Questions asked by <span className="font-accent italic font-normal text-[#F00511]/75">customers</span>.
+              General Questions asked by <span className="font-accent italic font-normal text-[#F00511]/75">customers</span>
+              <span className="font-accent font-normal text-[#F00511]/75">.</span>
             </h2>
           </div>
           
