@@ -6,8 +6,11 @@ import { Services } from '@/components/sections/Services';
 import { WhyChoose } from '@/components/sections/WhyChoose';
 import { FAQ } from '@/components/sections/FAQ';
 import { CTA } from '@/components/sections/CTA';
+import { Footer } from '@/components/sections/Footer';
+
 export default function Home() {
   return (
+    <>
     <main className="flex min-h-screen flex-col items-center gap-[120px]">
       <div className="w-full flex flex-col items-center gap-[36px]">
         <Hero />
@@ -19,7 +22,8 @@ export default function Home() {
       <WhyChoose />
       <FAQ />
       <CTA />
-      {/* TODO: Add next sections here */}
     </main>
+    <Footer />
+    </>
   );
 }
