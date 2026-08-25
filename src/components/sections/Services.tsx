@@ -5,31 +5,36 @@ import { Icon } from '@/components/icons/Icon';
 const services = [
   { 
     id: 'fpv-repair', 
-    title: 'FPV Repair', 
+    title: 'FPV Repair',
+    displayTitle: 'FPV Repair',
     subtitle: 'Rapid diagnostics and rebuild for close-range units.', 
     image: '/images/services/fpv-repair.png' 
   },
   { 
     id: 'fixed-wing', 
-    title: 'Fixed Wing Maintenance', 
+    title: 'Fixed Wing Maintenance',
+    displayTitle: <>Fixed Wing<br />Maintenance</>,
     subtitle: 'Comprehensive checks and aerodynamic tuning.', 
     image: '/images/services/fixed-wing.png' 
   },
   { 
     id: 'edge-ai', 
-    title: 'Edge AI Diagnostics', 
+    title: 'Edge AI Diagnostics',
+    displayTitle: <>Edge AI<br />Diagnostics</>,
     subtitle: 'Software updates and hardware integrity checks.', 
     image: '/images/services/edge-ai.png' 
   },
   { 
     id: 'genuine-parts', 
-    title: 'Genuine Parts', 
+    title: 'Genuine Parts',
+    displayTitle: <>Genuine<br />Parts</>,
     subtitle: 'OEM certified replacements for all models.', 
     image: '/images/services/genuine-parts.png' 
   },
   { 
     id: 'pilot-training', 
-    title: 'Pilot Training', 
+    title: 'Pilot Training',
+    displayTitle: 'Pilot Training',
     subtitle: 'Simulation and real-world flight certification.', 
     image: '/images/services/pilot-training.png' 
   },
@@ -74,38 +79,50 @@ export function Services() {
 
         {/* Services Cards */}
         <div className="flex flex-row flex-wrap justify-center xl:justify-between items-center gap-[24px] xl:gap-0 w-full">
-          {services.map((service, idx) => (
-            <div 
-              key={service.id}
-              className="group relative w-[232px] h-[278px] rounded-[12px] overflow-hidden cursor-pointer bg-[#D9D9D9]"
-            >
-              {/* Background Image */}
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
+          {services.map((service, idx) => {
+            const isFirst = idx === 0;
+            return (
+              <div 
+                key={service.id}
+                className="group relative w-[232px] h-[278px] cursor-pointer"
+              >
+                {/* Clipped Background Layer */}
+                <div 
+                  className="absolute inset-0 bg-[#D9D9D9] overflow-hidden transition-colors duration-500"
+                  style={{
+                    clipPath: 'path("M0 12C0 5.37258 5.37258 0 12 0H220C226.627 0 232 5.37258 232 12V194.79C232 205.952 222.881 215 211.72 215C188.03 215 168.676 234.204 168.676 257.894C168.676 268.998 159.674 278 148.57 278H12C5.37259 278 0 272.627 0 266V12Z")'
+                  }}
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className={`object-cover transition-all duration-500 ${isFirst ? 'opacity-100 scale-105' : 'opacity-0 group-hover:opacity-100 group-hover:scale-105'}`}
+                  />
+                  
+                  {/* Overlay Gradient (Only shows when image is visible) */}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isFirst ? 'opacity-80' : 'opacity-0 group-hover:opacity-80'}`} />
+                </div>
 
-              {/* Text Content */}
-              <div className="absolute left-[22.5px] right-[22.5px] bottom-[25px] flex flex-col gap-[4px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-[32px] group-hover:translate-y-0">
-                <h3 className="font-sans font-medium text-[24px] group-hover:text-[32px] group-hover:leading-[1.1] text-white group-hover:text-[#F00511] tracking-[-0.05em] transition-all duration-300">
-                  {service.title}
-                </h3>
-                <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                  {service.subtitle}
-                </p>
+                {/* Text Content */}
+                <div className="absolute left-[22.5px] right-[22.5px] bottom-[25px] flex flex-col gap-[4px] z-10 pointer-events-none">
+                  <h3 className={`font-sans font-medium tracking-[-0.05em] transition-all duration-300 ${isFirst ? 'text-[32px] leading-[1.1] text-[#F00511]' : 'text-[24px] text-white group-hover:text-[32px] group-hover:leading-[1.1] group-hover:text-[#F00511]'}`}>
+                    {service.displayTitle}
+                  </h3>
+                  <div className={`grid transition-all duration-300 ${isFirst ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100'}`}>
+                    <p className="overflow-hidden font-sans text-[16px] text-white/75 tracking-[-0.02em] leading-snug">
+                      {service.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <button className={`absolute right-[0px] bottom-[2px] w-[46px] h-[46px] rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg z-10 ${isFirst ? 'bg-[#F00511]' : 'bg-white group-hover:bg-[#F00511]'}`}>
+                  <Icon name="top-right-arrow" className={`w-[26.46px] h-[26.46px] transition-colors duration-300 ${isFirst ? 'text-white' : 'text-black group-hover:text-white'}`} />
+                </button>
               </div>
-
-              {/* Action Button */}
-              <button className="absolute right-[10px] bottom-[10px] w-[46px] h-[46px] rounded-full bg-white group-hover:bg-[#F00511] flex items-center justify-center transition-colors duration-300 shadow-lg z-10">
-                <Icon name="top-right-arrow" className="w-[26.46px] h-[26.46px] text-black group-hover:text-white transition-colors duration-300" />
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         {/* Decorative Line */}
