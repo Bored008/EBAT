@@ -45,10 +45,10 @@ export function FAQ() {
 
   return (
     <section className="w-full flex justify-center px-4 md:px-8">
-      <div className="flex flex-col lg:flex-row items-start justify-between w-full max-w-[1260px] gap-[40px] lg:gap-[117px]">
+      <div className="flex flex-col lg:flex-row items-stretch justify-between w-full max-w-[1260px] gap-[40px] lg:gap-[117px]">
         
         {/* Left Column - General Questions */}
-        <div className="flex flex-col justify-between w-full lg:w-[513px] lg:h-[584px] gap-8 lg:gap-0 lg:sticky lg:top-24">
+        <div className="flex flex-col justify-between w-full lg:w-[513px] gap-8 lg:gap-0">
           <div className="max-w-[470px]">
             <h2 className="font-heading font-bold text-[48px] lg:text-[64px] leading-tight lg:leading-[72px] tracking-[-0.02em] text-white">
               General Questions asked by <span className="font-accent italic font-normal text-[#F00511]/75">customers</span>
@@ -74,7 +74,7 @@ export function FAQ() {
               <div 
                 key={index} 
                 className={cn(
-                  "flex flex-col w-full rounded-[8px] py-[24px] px-[18px] transition-colors duration-300 cursor-pointer overflow-hidden",
+                  "flex flex-col w-full rounded-[8px] py-[20px] px-[18px] transition-colors duration-300 cursor-pointer overflow-hidden",
                   isOpen ? "bg-[#F00511]" : "bg-white hover:bg-gray-50"
                 )}
                 onClick={() => toggleAccordion(index)}
