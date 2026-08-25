@@ -88,7 +88,7 @@ export function Footer() {
               </div>
 
               {/* Row 2: Email & Company (left col) | Message (right col) */}
-              <div className="flex flex-row justify-between items-start gap-[14px]">
+              <div className="flex flex-row justify-between items-stretch gap-[14px]">
                 {/* Left Col */}
                 <div className="flex flex-col gap-[16px] w-[195px]">
                   <div className="flex flex-col gap-[8px]">
@@ -110,7 +110,7 @@ export function Footer() {
                 {/* Right Col: Message */}
                 <div className="flex flex-col gap-[8px] w-[195px]">
                   <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
-                  <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] h-[136px]">
+                  <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] flex-1">
                     <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
                     <textarea placeholder="Enter your message" className="bg-transparent text-[12px] text-black outline-none w-full h-full resize-none placeholder:text-black/25"></textarea>
                   </div>
@@ -190,7 +190,7 @@ export function Footer() {
                 </div>
 
                 {/* Row 2: Email & Company (left) | Message (right) */}
-                <div className="flex flex-row justify-between items-start gap-[14px]">
+                <div className="flex flex-row justify-between items-stretch gap-[14px]">
                   {/* Left Column */}
                   <div className="flex flex-col gap-[16px] flex-1">
                     <div className="flex flex-col gap-[8px]">
@@ -212,7 +212,7 @@ export function Footer() {
                   {/* Right Column */}
                   <div className="flex flex-col gap-[8px] flex-1">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
-                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] h-[136px]">
+                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] flex-1">
                       <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
                       <textarea placeholder="Enter your message" className="bg-transparent text-[12px] text-black outline-none w-full h-full resize-none placeholder:text-black/25"></textarea>
                     </div>
