@@ -74,13 +74,13 @@ export function FAQ() {
               <div 
                 key={index} 
                 className={cn(
-                  "flex flex-col w-full rounded-[8px] p-[24px_18px] transition-colors duration-300 cursor-pointer overflow-hidden",
+                  "flex flex-col w-full rounded-[8px] py-[24px] px-[18px] transition-colors duration-300 cursor-pointer overflow-hidden",
                   isOpen ? "bg-[#F00511]" : "bg-white hover:bg-gray-50"
                 )}
                 onClick={() => toggleAccordion(index)}
               >
                 <div className="flex flex-row justify-between items-start gap-[10px] w-full">
-                  <div className="flex flex-col gap-[10px] w-full pr-4">
+                  <div className="flex flex-col w-full">
                     <h3 
                       className={cn(
                         "font-sans font-medium text-[16px] leading-snug tracking-[-0.02em] transition-colors duration-300",
@@ -93,18 +93,21 @@ export function FAQ() {
                     <div 
                       className={cn(
                         "grid transition-all duration-300 ease-in-out",
-                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                        isOpen ? "grid-rows-[1fr] opacity-100 mt-[10px]" : "grid-rows-[0fr] opacity-0 mt-0"
                       )}
                     >
                       <div className="overflow-hidden">
-                        <p className="font-sans text-[16px] text-white/75 leading-snug tracking-[-0.02em] pt-[10px]">
+                        <p className={cn(
+                          "font-sans text-[16px] leading-snug tracking-[-0.02em]",
+                          isOpen ? "text-white/75" : "text-black/75"
+                        )}>
                           {faq.answer}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex-shrink-0 pt-1">
+                  <div className="flex-shrink-0">
                     {isOpen ? (
                       <div className="w-[18px] h-[18px] flex items-center justify-center rounded-[30px] border border-white">
                         <Icon name="minus" className="text-white w-full h-full" />
