@@ -123,12 +123,7 @@ export function Products() {
               </div>
             ))}
           </div>
-  
-          {/* View All Button */}
-          <Button variant="outline" rightIcon="top-right-arrow" className="px-[32px] !rounded-[8px] !gap-[4px] border-t-0 border-x border-b">
-            View All Products
-          </Button>
-</div>
+        </div>
       </div>
     </section>
   );
