@@ -111,22 +111,22 @@ export default function ContactPage() {
                   </h2>
                   <div className="flex flex-col gap-[14px]">
                     <div className="flex flex-row items-center gap-[8px]">
-                      <Image src="/images/contact/phone-fill.svg" alt="Phone" width={24} height={24} />
+                      <Image src="/images/contact/phone-fill.svg" alt="Phone" width={24} height={24} className="brightness-0 invert" />
                       <span className="font-sans text-[14px] text-white/75">123 456 789</span>
                     </div>
                     <div className="flex flex-row items-center gap-[8px]">
-                      <Image src="/images/contact/whatsapp.svg" alt="Whatsapp" width={24} height={24} />
+                      <Image src="/images/contact/whatsapp.svg" alt="Whatsapp" width={24} height={24} className="brightness-0 invert" />
                       <span className="font-sans text-[14px] text-white/75">Whatsapp</span>
                     </div>
                     <div className="flex flex-row items-center gap-[8px]">
-                      <Image src="/images/contact/mail.svg" alt="Email" width={24} height={24} />
+                      <Image src="/images/contact/mail.svg" alt="Email" width={24} height={24} className="brightness-0 invert" />
                       <span className="font-sans text-[14px] text-white/75">ebat@gmail.com</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Map Container */}
-                <div className="relative w-full h-[300px] md:h-[502px] rounded-[12px] overflow-hidden bg-white mt-auto">
+                <div className="relative w-full min-h-[300px] flex-1 rounded-[12px] overflow-hidden bg-white mt-auto">
                   <Image src="/images/contact/map.png" alt="Map" fill sizes="(max-width: 1280px) 100vw, 640px" className="object-cover" />
                   
                   {/* Map Icon inside map */}
