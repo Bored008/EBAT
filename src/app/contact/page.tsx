@@ -88,7 +88,7 @@ export default function ContactPage() {
 
                   {/* Checkbox */}
                   <div className="flex flex-row items-center gap-[8px]">
-                    <Image src="/images/contact/checkbox.svg" alt="Checkbox" width={18} height={18} className="cursor-pointer" />
+                    <Image src="/images/contact/checkbox.svg" alt="Checkbox" width={18} height={18} className="cursor-pointer brightness-0" />
                     <span className="font-sans text-[14px] leading-[20px] text-black">
                       <span className="text-black/75">I agree to the</span> Terms of Service <span className="text-black/75">and</span> Privacy Policy
                     </span>
