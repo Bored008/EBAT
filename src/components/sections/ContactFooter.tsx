@@ -14,7 +14,7 @@ export function ContactFooter() {
         <div className="flex flex-col gap-[32px] w-full xl:max-w-[345px] mb-[40px] xl:mb-0">
           <Image src="/images/footer/logo.svg" alt="FIRECHEM Logo" width={215} height={68} />
           <div className="flex flex-col gap-[12px] w-[156px]">
-            <span className="font-sans font-medium text-[16px] text-black">Follow us :</span>
+            <span className="font-sans font-medium text-[16px] text-white">Follow us :</span>
             <div className="flex flex-row justify-between items-center w-full">
               <a href="#"><Image src="/images/footer/facebook.svg" alt="Facebook" width={24} height={24} /></a>
               <a href="#"><Image src="/images/footer/instagram.svg" alt="Instagram" width={24} height={24} /></a>
@@ -29,12 +29,12 @@ export function ContactFooter() {
           
           {/* Navigation */}
           <div className="flex flex-col gap-[31px]">
-            <h3 className="font-sans font-medium text-[20px] text-black">NAVIGATIONS</h3>
+            <h3 className="font-sans font-medium text-[20px] text-white">NAVIGATIONS</h3>
             <div className="flex flex-col gap-[24px]">
-              <a href="/" className="font-sans text-[16px] text-black/75 hover:text-black transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] text-black/75 hover:text-black transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] text-black/75 hover:text-black transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] text-black/75 hover:text-black transition-colors">FAQ</a>
+              <a href="/" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">FAQ</a>
             </div>
           </div>
 
