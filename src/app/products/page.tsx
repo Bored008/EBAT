@@ -141,8 +141,7 @@ export default function ProductsPage() {
               <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center">
                 {/* Background Ambient Glow */}
                 <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[208px] h-[208px] bg-white rounded-full -z-10 pointer-events-none" 
-                  style={{ filter: 'blur(231.3px)' }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white rounded-full blur-[140px] z-0 pointer-events-none opacity-80" 
                 />
 
                 {/* Left Side Arrow Accent */}
@@ -169,7 +168,7 @@ export default function ProductsPage() {
                 <div
                   className={`relative w-full z-10 flex items-center justify-center ${
                     product.id === 'vantage'
-                      ? 'max-w-[840px] h-[380px] md:h-[480px] lg:h-[520px]'
+                      ? 'max-w-[880px] lg:max-w-[960px] h-[420px] md:h-[500px] lg:h-[560px]'
                       : product.id === 'warden'
                       ? 'max-w-[990px] h-[280px] md:h-[340px] lg:h-[360px]'
                       : 'max-w-[720px] h-[300px] md:h-[380px] lg:h-[400px]'
@@ -179,7 +178,11 @@ export default function ProductsPage() {
                     src={product.image}
                     alt={`${product.name} UAV`}
                     fill
-                    className="object-contain"
+                    className={`object-contain transition-transform duration-300 ${
+                      product.id === 'vantage'
+                        ? '-rotate-[26.6deg] scale-110 md:scale-125 lg:scale-135'
+                        : 'scale-105 md:scale-115'
+                    }`}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 990px"
                     priority
                   />
