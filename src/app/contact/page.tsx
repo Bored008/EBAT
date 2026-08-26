@@ -122,7 +122,7 @@ export default function ContactPage() {
 
                 {/* Map Container */}
                 <div className="relative w-full h-[300px] md:h-[502px] rounded-[12px] overflow-hidden bg-white mt-auto">
-                  <Image src="/images/contact/map.png" alt="Map" fill className="object-cover" />
+                  <Image src="/images/contact/map.png" alt="Map" fill sizes="(max-width: 1280px) 100vw, 640px" className="object-cover" />
                   
                   {/* Map Icon inside map */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

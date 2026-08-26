@@ -30,12 +30,12 @@ export function WhyChoose() {
     <section className="w-full flex flex-col items-center px-6 max-w-[1260px] mx-auto relative">
       {/* Background connecting line */}
       <div className="absolute top-[167px] left-1/2 -translate-x-1/2 w-full max-w-[1260px] h-[238px] -z-20 pointer-events-none hidden lg:block">
-        <Image src="/images/why-choose/bg-line.svg" alt="Connecting line" fill className="object-cover" />
+        <Image src="/images/why-choose/bg-line.svg" alt="Connecting line" fill sizes="100vw" className="object-cover" />
       </div>
 
       {/* Drone Background Image */}
       <div className="absolute top-[203px] left-1/2 -translate-x-1/2 w-full max-w-[1253px] h-[436px] -z-10 pointer-events-none hidden md:block">
-        <Image src="/images/why-choose/fixedwind2nobg.png" alt="Fixed wing drone" fill className="object-contain" />
+        <Image src="/images/why-choose/fixedwind2nobg.png" alt="Fixed wing drone" fill sizes="100vw" className="object-contain" />
       </div>
 
       {/* Header Container */}

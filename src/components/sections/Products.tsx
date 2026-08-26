@@ -58,7 +58,7 @@ export function Products() {
           top: '-207.56px',
         }}
       >
-        <Image src="/images/products-glow.svg" alt="glow" fill className="object-contain" />
+        <Image src="/images/products-glow.svg" alt="glow" fill sizes="100vw" className="object-contain" />
       </div>
 
       <div className="flex flex-col items-center gap-[51px] w-full max-w-[1046px]">

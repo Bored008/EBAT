@@ -128,7 +128,7 @@ export function Services() {
         {/* Decorative Line */}
         <div className="w-full flex justify-center mt-[-20px]">
           <div className="relative w-[685px] h-[3px]">
-            <Image src="/images/services/services-line.svg" alt="line" fill className="object-contain" />
+            <Image src="/images/services/services-line.svg" alt="line" fill sizes="685px" className="object-contain" />
           </div>
         </div>
       </div>

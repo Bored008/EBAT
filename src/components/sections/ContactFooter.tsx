@@ -5,7 +5,7 @@ export function ContactFooter() {
     <footer className="w-full max-w-[1260px] mx-auto bg-white rounded-t-[24px] relative overflow-hidden flex flex-col pt-[41px] px-[24px] md:px-[48px] pb-[24px] z-10">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-[401px]">
-        <Image src="/images/footer/bg.png" alt="Drone Background" fill className="object-cover" />
+        <Image src="/images/footer/footer-bg.png" alt="Drone Background" fill sizes="100vw" className="object-cover" />
       </div>
 
       <div className="relative z-10 w-full flex flex-col xl:flex-row xl:justify-between">

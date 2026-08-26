@@ -11,6 +11,7 @@ export function Footer() {
           src="/images/footer/footer-bg.png" 
           alt="Footer Background" 
           fill 
+          sizes="100vw"
           className="object-cover object-top"
         />
       </div>
@@ -38,7 +39,7 @@ export function Footer() {
 
             {/* Map */}
             <div className="relative w-full h-[186.94px] rounded-[10px] overflow-hidden">
-              <Image src="/images/footer/map-bg.png" alt="Map" fill className="object-cover" />
+              <Image src="/images/footer/map-bg.png" alt="Map" fill sizes="(max-width: 1260px) 100vw, 416px" className="object-cover" />
               <div className="absolute top-[11px] left-[16px] bg-white px-[10.5px] py-[4.4px] flex items-center justify-center">
                 <span className="font-sans text-[#1475EF] text-[7px]">View larger map</span>
               </div>
@@ -151,7 +152,7 @@ export function Footer() {
 
           {/* Map */}
           <div className="relative w-full h-[186.94px] rounded-[10px] overflow-hidden max-w-[400px]">
-            <Image src="/images/footer/map-bg.png" alt="Map" fill className="object-cover" />
+            <Image src="/images/footer/map-bg.png" alt="Map" fill sizes="(max-width: 1260px) 100vw, 416px" className="object-cover" />
             <div className="absolute top-[11px] left-[16px] bg-white px-[10.5px] py-[4.4px] flex items-center justify-center">
               <span className="font-sans text-[#1475EF] text-[7px]">View larger map</span>
             </div>
