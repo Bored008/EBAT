@@ -141,7 +141,7 @@ export default function ProductsPage() {
               <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center">
                 {/* Background Ambient Glow */}
                 <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-white rounded-full blur-[140px] z-0 pointer-events-none opacity-80" 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full blur-[200px] z-0 pointer-events-none opacity-30" 
                 />
 
                 {/* Left Side Arrow Accent */}
@@ -168,10 +168,10 @@ export default function ProductsPage() {
                 <div
                   className={`relative w-full z-10 flex items-center justify-center ${
                     product.id === 'vantage'
-                      ? 'max-w-[880px] lg:max-w-[960px] h-[420px] md:h-[500px] lg:h-[560px]'
+                      ? 'max-w-[720px] h-[320px] md:h-[380px] lg:h-[420px]'
                       : product.id === 'warden'
-                      ? 'max-w-[990px] h-[280px] md:h-[340px] lg:h-[360px]'
-                      : 'max-w-[720px] h-[300px] md:h-[380px] lg:h-[400px]'
+                      ? 'max-w-[860px] h-[240px] md:h-[280px] lg:h-[300px]'
+                      : 'max-w-[620px] h-[260px] md:h-[320px] lg:h-[340px]'
                   }`}
                 >
                   <Image
@@ -179,11 +179,9 @@ export default function ProductsPage() {
                     alt={`${product.name} UAV`}
                     fill
                     className={`object-contain transition-transform duration-300 ${
-                      product.id === 'vantage'
-                        ? '-rotate-[26.6deg] scale-110 md:scale-125 lg:scale-135'
-                        : 'scale-105 md:scale-115'
+                      product.id === 'vantage' ? '-rotate-[22deg]' : ''
                     }`}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 990px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 860px"
                     priority
                   />
                 </div>
