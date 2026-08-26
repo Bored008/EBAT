@@ -9,6 +9,8 @@ interface Product {
   name: string;
   tagline: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   operatingTemp: string;
   flightTime: string;
   serviceCeiling: string;
@@ -24,10 +26,12 @@ const products: Product[] = [
     name: 'SENTINEL',
     tagline: 'PERSISTENT SURVEILLANCE',
     image: '/images/products/sentinel-drone.png',
+    imageWidth: 620,
+    imageHeight: 340,
     operatingTemp: '-20°C to 50°C',
-    flightTime: '90 minutes',
-    serviceCeiling: '5,000 m',
-    payloadCapacity: '5 kilograms',
+    flightTime: '- 90 minutes',
+    serviceCeiling: '- 5,000 m',
+    payloadCapacity: '- 5 kilograms',
     maxRange: '15 kilometers',
     descriptionHighlight: 'PERSISTENT SURVEILLANCE',
     descriptionText:
@@ -38,10 +42,12 @@ const products: Product[] = [
     name: 'VANTAGE',
     tagline: 'HIGH-ALTITUDE RECONNAISSANCE',
     image: '/images/products/vantage-drone.png',
+    imageWidth: 765,
+    imageHeight: 670,
     operatingTemp: '-20°C to 50°C',
-    flightTime: '60 minutes',
-    serviceCeiling: '6,000 m',
-    payloadCapacity: '3 kilograms',
+    flightTime: '- 60 minutes',
+    serviceCeiling: '- 6,000 m',
+    payloadCapacity: '- 3 kilograms',
     maxRange: '20 kilometers',
     descriptionHighlight: 'HIGH-ALTITUDE RECONNAISSANCE',
     descriptionText:
@@ -52,10 +58,12 @@ const products: Product[] = [
     name: 'WARDEN',
     tagline: 'PERIMETER DEFENSE',
     image: '/images/products/warden-drone.png',
+    imageWidth: 989,
+    imageHeight: 299,
     operatingTemp: '-20°C to 50°C',
-    flightTime: '75 minutes',
-    serviceCeiling: '4,500 m',
-    payloadCapacity: '8 kilograms',
+    flightTime: '- 75 minutes',
+    serviceCeiling: '- 4500 m',
+    payloadCapacity: '- 8 kilograms',
     maxRange: '25 kilometers',
     descriptionHighlight: 'PERIMETER DEFENSE',
     descriptionText:
@@ -66,10 +74,12 @@ const products: Product[] = [
     name: 'EAGLE',
     tagline: 'ADVANCED ISR',
     image: '/images/products/sentinel-drone.png',
+    imageWidth: 620,
+    imageHeight: 340,
     operatingTemp: '-30°C to 60°C',
-    flightTime: '120 minutes',
-    serviceCeiling: '7,000 m',
-    payloadCapacity: '10 kilograms',
+    flightTime: '- 120 minutes',
+    serviceCeiling: '- 7,000 m',
+    payloadCapacity: '- 10 kilograms',
     maxRange: '30 kilometers',
     descriptionHighlight: 'ADVANCED ISR',
     descriptionText:
@@ -102,7 +112,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Products List */}
-        <div className="flex flex-col gap-[100px] w-full">
+        <div className="flex flex-col gap-[120px] w-full">
           {products.map((product) => (
             <article
               key={product.id}
@@ -117,72 +127,134 @@ export default function ProductsPage() {
                 <div className="flex-1 h-[1px] bg-white/15 max-w-[340px]" />
               </div>
 
-              {/* Showcase & Specs Visual Container */}
-              <div className="relative w-full min-h-[460px] md:min-h-[500px] flex flex-col items-center justify-center py-6">
+              {/* Showcase & Tactical HUD Container */}
+              <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center py-4">
                 {/* Background Ambient Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] md:w-[600px] h-[260px] md:h-[340px] bg-white/[0.06] rounded-full blur-[100px] -z-10 pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] md:w-[620px] h-[260px] md:h-[340px] bg-white/[0.07] rounded-full blur-[110px] -z-10 pointer-events-none" />
 
-                {/* Drone Image Presentation */}
-                <div className="relative w-full max-w-[840px] h-[280px] md:h-[380px] z-10 flex items-center justify-center">
+                {/* Left Side Arrow Accent */}
+                <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-[148px] h-[322px] pointer-events-none opacity-20 z-0">
+                  <Image
+                    src="/images/products/arrow-left-duotone.svg"
+                    alt=""
+                    width={148}
+                    height={322}
+                  />
+                </div>
+
+                {/* Right Side Arrow Accent */}
+                <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[148px] h-[322px] pointer-events-none opacity-20 z-0">
+                  <Image
+                    src="/images/products/arrow-right-duotone.svg"
+                    alt=""
+                    width={148}
+                    height={322}
+                  />
+                </div>
+
+                {/* Center Drone Presentation */}
+                <div className="relative w-full max-w-[620px] h-[280px] md:h-[340px] z-10 flex items-center justify-center">
                   <Image
                     src={product.image}
                     alt={`${product.name} UAV`}
                     fill
                     className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 840px"
+                    sizes="(max-width: 768px) 100vw, 620px"
                     priority
                   />
                 </div>
 
-                {/* Specs Grid / Overlay */}
-                <div className="w-full max-w-[1045px] grid grid-cols-2 md:grid-cols-5 gap-[12px] md:gap-[16px] z-20 mt-4">
-                  {/* Spec 1: Operating Temp */}
-                  <div className="flex flex-col gap-[4px] p-[16px] bg-white/[0.03] border border-white/10 backdrop-blur-md">
-                    <span className="font-sans font-semibold text-[11px] md:text-[12px] uppercase tracking-wider text-[#F00511]">
+                {/* Desktop Absolute Telemetry Positions (Figma node 304:2034) */}
+                {/* 1. Operating Temperature (Top Right) */}
+                <div className="hidden lg:flex absolute top-[10px] right-[180px] xl:right-[220px] flex-col items-start gap-[2px] z-20 text-left">
+                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                    OPERATING<br />TEMPERATURE
+                  </span>
+                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                    {product.operatingTemp}
+                  </span>
+                </div>
+
+                {/* 2. Max Flight Time (Middle Left) */}
+                <div className="hidden lg:flex absolute top-[48%] -translate-y-1/2 left-[90px] xl:left-[110px] flex-col items-end gap-[2px] z-20 text-right">
+                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                    MAX FLIGHT TIME
+                  </span>
+                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                    {product.flightTime}
+                  </span>
+                </div>
+
+                {/* 3. Service Ceiling (Middle Right) */}
+                <div className="hidden lg:flex absolute top-[48%] -translate-y-1/2 right-[90px] xl:right-[110px] flex-col items-start gap-[2px] z-20 text-left">
+                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                    SERVICE CEILING
+                  </span>
+                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                    {product.serviceCeiling}
+                  </span>
+                </div>
+
+                {/* 4. Max Range (Bottom Left) */}
+                <div className="hidden lg:flex absolute bottom-[10px] left-[180px] xl:left-[220px] flex-col items-end gap-[2px] z-20 text-right">
+                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                    MAX RANGE
+                  </span>
+                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                    {product.maxRange}
+                  </span>
+                </div>
+
+                {/* 5. Payload Capacity (Bottom Right) */}
+                <div className="hidden lg:flex absolute bottom-[10px] right-[180px] xl:right-[220px] flex-col items-start gap-[2px] z-20 text-left">
+                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                    PAYLOAD CAPACITY
+                  </span>
+                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75 leading-tight">
+                    {product.payloadCapacity}
+                  </span>
+                </div>
+
+                {/* Mobile / Tablet Responsive Fallback Grid */}
+                <div className="lg:hidden w-full grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 z-20">
+                  <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
+                    <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
                       Operating Temp
                     </span>
-                    <span className="font-sans font-medium text-[14px] md:text-[15px] text-white">
+                    <span className="font-sans font-normal text-[14px] text-white">
                       {product.operatingTemp}
                     </span>
                   </div>
-
-                  {/* Spec 2: Max Flight Time */}
-                  <div className="flex flex-col gap-[4px] p-[16px] bg-white/[0.03] border border-white/10 backdrop-blur-md">
-                    <span className="font-sans font-semibold text-[11px] md:text-[12px] uppercase tracking-wider text-[#F00511]">
+                  <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
+                    <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
                       Max Flight Time
                     </span>
-                    <span className="font-sans font-medium text-[14px] md:text-[15px] text-white">
+                    <span className="font-sans font-normal text-[14px] text-white">
                       {product.flightTime}
                     </span>
                   </div>
-
-                  {/* Spec 3: Service Ceiling */}
-                  <div className="flex flex-col gap-[4px] p-[16px] bg-white/[0.03] border border-white/10 backdrop-blur-md">
-                    <span className="font-sans font-semibold text-[11px] md:text-[12px] uppercase tracking-wider text-[#F00511]">
+                  <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
+                    <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
                       Service Ceiling
                     </span>
-                    <span className="font-sans font-medium text-[14px] md:text-[15px] text-white">
+                    <span className="font-sans font-normal text-[14px] text-white">
                       {product.serviceCeiling}
                     </span>
                   </div>
-
-                  {/* Spec 4: Payload Capacity */}
-                  <div className="flex flex-col gap-[4px] p-[16px] bg-white/[0.03] border border-white/10 backdrop-blur-md">
-                    <span className="font-sans font-semibold text-[11px] md:text-[12px] uppercase tracking-wider text-[#F00511]">
-                      Payload Capacity
-                    </span>
-                    <span className="font-sans font-medium text-[14px] md:text-[15px] text-white">
-                      {product.payloadCapacity}
-                    </span>
-                  </div>
-
-                  {/* Spec 5: Max Range */}
-                  <div className="col-span-2 md:col-span-1 flex flex-col gap-[4px] p-[16px] bg-white/[0.03] border border-white/10 backdrop-blur-md">
-                    <span className="font-sans font-semibold text-[11px] md:text-[12px] uppercase tracking-wider text-[#F00511]">
+                  <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
+                    <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
                       Max Range
                     </span>
-                    <span className="font-sans font-medium text-[14px] md:text-[15px] text-white">
+                    <span className="font-sans font-normal text-[14px] text-white">
                       {product.maxRange}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3 col-span-2 sm:col-span-1">
+                    <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
+                      Payload Capacity
+                    </span>
+                    <span className="font-sans font-normal text-[14px] text-white">
+                      {product.payloadCapacity}
                     </span>
                   </div>
                 </div>
