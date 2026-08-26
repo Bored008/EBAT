@@ -128,20 +128,20 @@ export default function ProductsPage() {
               key={product.id}
               className="flex flex-col items-center w-full gap-[36px] relative"
             >
-              {/* Product Header / Title Divider */}
+              {/* Product Header / Title Divider (Figma node 304:2682 & 304:2685) */}
               <div className="flex flex-row items-center justify-center w-full gap-[12px]">
-                <div className="w-[100px] h-[1px] bg-white/75" />
-                <h2 className="font-sans font-semibold text-[32px] md:text-[48px] tracking-[-0.05em] text-white uppercase">
+                <div className="w-[100px] h-[1px] bg-white/75 shrink-0" />
+                <h2 className="font-sans font-semibold text-[32px] md:text-[48px] tracking-[-0.05em] text-white uppercase leading-none text-center">
                   {product.name}
                 </h2>
-                <div className="w-[100px] h-[1px] bg-white/75" />
+                <div className="w-[100px] h-[1px] bg-white/75 shrink-0" />
               </div>
 
               {/* Showcase & Tactical HUD Container */}
               <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center">
                 {/* Background Ambient Glow */}
                 <div 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full blur-[200px] z-0 pointer-events-none opacity-30" 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full blur-[200px] z-0 pointer-events-none opacity-20" 
                 />
 
                 {/* Left Side Arrow Accent */}
@@ -179,7 +179,7 @@ export default function ProductsPage() {
                     alt={`${product.name} UAV`}
                     fill
                     className={`object-contain transition-transform duration-300 ${
-                      product.id === 'vantage' ? '-rotate-[22deg]' : ''
+                      product.id === 'vantage' ? '-rotate-[-22deg]' : ''
                     }`}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 860px"
                     priority
