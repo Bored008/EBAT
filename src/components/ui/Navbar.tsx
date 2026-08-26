@@ -26,7 +26,9 @@ export function Navbar() {
       </div>
 
       <div>
-        <Button variant="white" leftIcon="phone-outline">Contact Us</Button>
+        <Link href="/contact">
+          <Button variant="white" leftIcon="phone-outline">Contact Us</Button>
+        </Link>
       </div>
     </nav>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/icons/Icon';
 import { cn } from '@/lib/utils';
@@ -61,7 +62,9 @@ export function FAQ() {
               Our friendly team is always here to help you with quick, clear, and reliable answers whenever needed.
             </p>
             <div className="self-start">
-              <Button variant="filled">Contact Us</Button>
+              <Link href="/contact">
+                <Button variant="filled">Contact Us</Button>
+              </Link>
             </div>
           </div>
         </div>
