@@ -20,11 +20,11 @@ export default function ContactPage() {
               
               {/* Title Container (304:1434) */}
               <div className="flex flex-col gap-[28px] max-w-[613px]">
-                <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75 flex items-center gap-[4px]">
+                <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
                   <span className="text-[#F00511]">/</span> Contact Us
                 </span>
                 <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] md:leading-[86px] tracking-[-0.05em] text-white">
-                  Get in Touch with <span className="font-accent italic font-normal underline text-[#F00511]">Our Team</span>
+                  Get in Touch with <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Our Team</span>
                 </h1>
               </div>
 
