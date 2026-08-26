@@ -230,7 +230,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-[12px] md:gap-0 w-full py-[12px]">
             <div className="flex flex-row items-center gap-[8px]">
               <Image src="/images/footer/copyright.svg" alt="Copyright" width={20} height={20} />
-              <span className="font-sans text-[16px] text-black/75">2026 FIRECHEM. All Rights Reserved</span>
+              <span className="font-sans text-[16px] text-black/75">2026 EBAT. All Rights Reserved</span>
             </div>
             <div className="flex flex-row items-center gap-[18px]">
               <span className="font-sans text-[15px] text-black/75 text-center leading-[15px]">
