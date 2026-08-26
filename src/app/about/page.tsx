@@ -81,8 +81,8 @@ export default function AboutPage() {
         </section>
 
         {/* Section 3: Our Core Values */}
-        <section className="flex flex-col w-full gap-[32px] items-center">
-          <div className="flex flex-col gap-[10px] items-center text-center max-w-[842px]">
+        <section className="flex flex-col w-full max-w-[940px] gap-[32px] items-center">
+          <div className="flex flex-col gap-[10px] items-center text-center max-w-[816px]">
             <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
               Our Core <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Values</span>
             </h2>
@@ -91,9 +91,9 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row w-full gap-[20px]">
+          <div className="flex flex-col lg:flex-row items-center w-full gap-[20px]">
             {/* Value 1 */}
-            <div className="flex flex-col flex-1 p-[28px_20px] justify-between bg-white rounded-[12px] min-h-[349px]">
+            <div className="flex flex-col flex-1 w-full p-[28px_20px] justify-between bg-white rounded-[12px] min-h-[349px]">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-black/75">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
@@ -106,7 +106,7 @@ export default function AboutPage() {
             </div>
 
             {/* Value 2 */}
-            <div className="flex flex-col flex-1 p-[28px_20px] justify-between bg-[#F00511] rounded-[12px] min-h-[388px] lg:-mt-[20px]">
+            <div className="flex flex-col flex-1 w-full p-[28px_20px] justify-between bg-[#F00511] rounded-[12px] min-h-[388px]">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-white">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 <circle cx="12" cy="12" r="3" />
@@ -120,7 +120,7 @@ export default function AboutPage() {
             </div>
 
             {/* Value 3 */}
-            <div className="flex flex-col flex-1 p-[28px_20px] justify-between bg-white rounded-[12px] min-h-[349px]">
+            <div className="flex flex-col flex-1 w-full p-[28px_20px] justify-between bg-white rounded-[12px] min-h-[349px]">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-black/75">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
               </svg>
