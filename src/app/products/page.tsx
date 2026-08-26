@@ -92,26 +92,36 @@ export default function ProductsPage() {
     <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
       {/* Main Container */}
       <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
-        {/* Header Section */}
-        <section className="flex flex-col w-full items-center gap-[28px]">
-          <span className="self-start font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
-            <span className="text-[#F00511]">/</span> Products
-          </span>
+        {/* Header Section (Figma node 304:2772 - Main Title split with Request a Quote) */}
+        <section className="flex flex-col md:flex-row md:items-end justify-between w-full gap-[32px]">
+          <div className="flex flex-col gap-[16px] max-w-[806px]">
+            <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
+              <span className="text-[#F00511]">/</span> Products
+            </span>
 
-          <div className="flex flex-col gap-[8px] items-center text-center max-w-[842px]">
-            <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
-              Drones Engineered for{' '}
-              <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">
-                Every Mission
-              </span>
-            </h1>
-            <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white/75 max-w-[650px]">
-              From close-range precision to long-range defense - explore the EBAT fleet, built on real-time edge AI.
-            </p>
+            <div className="flex flex-col gap-[8px]">
+              <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.15] tracking-[-0.05em] text-white">
+                Drones Engineered for{' '}
+                <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">
+                  Every Mission
+                </span>
+              </h1>
+              <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white/75 max-w-[650px]">
+                From close-range precision to long-range defense - explore the EBAT fleet, built on real-time edge AI.
+              </p>
+            </div>
+          </div>
+
+          <div className="shrink-0 pb-1">
+            <Link href="/contact">
+              <Button variant="filled" rightIcon="top-right-arrow">
+                Request a Quote
+              </Button>
+            </Link>
           </div>
         </section>
 
-        {/* Products List */}
+        {/* Products List (Figma node 304:2647 - Gap 120px) */}
         <div className="flex flex-col gap-[120px] w-full">
           {products.map((product) => (
             <article
@@ -282,20 +292,6 @@ export default function ProductsPage() {
                   </>
                 )}
               </p>
-
-              {/* Action Buttons */}
-              <div className="flex flex-row flex-wrap items-center justify-center gap-[16px] pt-2">
-                <Link href="/contact">
-                  <Button variant="outline" rightIcon="right-arrow-head">
-                    View Full Specifications
-                  </Button>
-                </Link>
-                <Link href="/contact">
-                  <Button variant="white" rightIcon="top-right-arrow">
-                    Request a Quote
-                  </Button>
-                </Link>
-              </div>
             </article>
           ))}
         </div>
