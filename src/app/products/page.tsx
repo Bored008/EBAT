@@ -128,7 +128,7 @@ export default function ProductsPage() {
               </div>
 
               {/* Showcase & Tactical HUD Container */}
-              <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center py-4">
+              <div className="relative w-full min-h-[460px] lg:h-[471px] flex items-center justify-center">
                 {/* Background Ambient Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] md:w-[620px] h-[260px] md:h-[340px] bg-white/[0.07] rounded-full blur-[110px] -z-10 pointer-events-none" />
 
@@ -164,55 +164,57 @@ export default function ProductsPage() {
                   />
                 </div>
 
-                {/* Desktop Absolute Telemetry Positions (Figma node 304:2034) */}
-                {/* 1. Operating Temperature (Top Right) */}
-                <div className="hidden lg:flex absolute top-[10px] right-[180px] xl:right-[220px] flex-col items-start gap-[2px] z-20 text-left">
-                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
-                    OPERATING<br />TEMPERATURE
-                  </span>
-                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
-                    {product.operatingTemp}
-                  </span>
-                </div>
+                {/* Exact Telemetry Frame from Figma node 304:2043 (1039px x 453px) */}
+                <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 w-[1039px] h-[453px] pointer-events-none z-20">
+                  {/* 1. Operating Temperature (Top Right: x=747, y=0) */}
+                  <div className="absolute top-0 left-[747px] flex flex-col items-start gap-[4px] text-left">
+                    <span className="font-sans font-medium text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                      OPERATING<br />TEMPERATURE
+                    </span>
+                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                      {product.operatingTemp}
+                    </span>
+                  </div>
 
-                {/* 2. Max Flight Time (Middle Left) */}
-                <div className="hidden lg:flex absolute top-[48%] -translate-y-1/2 left-[90px] xl:left-[110px] flex-col items-end gap-[2px] z-20 text-right">
-                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
-                    MAX FLIGHT TIME
-                  </span>
-                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
-                    {product.flightTime}
-                  </span>
-                </div>
+                  {/* 2. Max Flight Time (Middle Left: x=0, y=215) */}
+                  <div className="absolute top-[215px] left-0 flex flex-col items-end gap-[4px] text-right">
+                    <span className="font-sans font-medium text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                      MAX FLIGHT TIME
+                    </span>
+                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                      {product.flightTime}
+                    </span>
+                  </div>
 
-                {/* 3. Service Ceiling (Middle Right) */}
-                <div className="hidden lg:flex absolute top-[48%] -translate-y-1/2 right-[90px] xl:right-[110px] flex-col items-start gap-[2px] z-20 text-left">
-                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
-                    SERVICE CEILING
-                  </span>
-                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
-                    {product.serviceCeiling}
-                  </span>
-                </div>
+                  {/* 3. Service Ceiling (Middle Right: x=854, y=215) */}
+                  <div className="absolute top-[215px] left-[854px] flex flex-col items-start gap-[4px] text-left">
+                    <span className="font-sans font-medium text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                      SERVICE CEILING
+                    </span>
+                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                      {product.serviceCeiling}
+                    </span>
+                  </div>
 
-                {/* 4. Max Range (Bottom Left) */}
-                <div className="hidden lg:flex absolute bottom-[10px] left-[180px] xl:left-[220px] flex-col items-end gap-[2px] z-20 text-right">
-                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
-                    MAX RANGE
-                  </span>
-                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
-                    {product.maxRange}
-                  </span>
-                </div>
+                  {/* 4. Max Range (Bottom Left: x=167, y=401) */}
+                  <div className="absolute top-[401px] left-[167px] flex flex-col items-end gap-[4px] text-right">
+                    <span className="font-sans font-medium text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                      MAX RANGE
+                    </span>
+                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
+                      {product.maxRange}
+                    </span>
+                  </div>
 
-                {/* 5. Payload Capacity (Bottom Right) */}
-                <div className="hidden lg:flex absolute bottom-[10px] right-[180px] xl:right-[220px] flex-col items-start gap-[2px] z-20 text-left">
-                  <span className="font-sans font-medium text-[20px] xl:text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
-                    PAYLOAD CAPACITY
-                  </span>
-                  <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75 leading-tight">
-                    {product.payloadCapacity}
-                  </span>
+                  {/* 5. Payload Capacity (Bottom Right: x=746, y=401, w=214) */}
+                  <div className="absolute top-[401px] left-[746px] w-[214px] flex flex-col items-start gap-[4px] text-left">
+                    <span className="font-sans font-medium text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                      PAYLOAD CAPACITY
+                    </span>
+                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75 leading-tight">
+                      {product.payloadCapacity}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Mobile / Tablet Responsive Fallback Grid */}
