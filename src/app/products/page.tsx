@@ -128,13 +128,25 @@ export default function ProductsPage() {
               key={product.id}
               className="flex flex-col items-center w-full gap-[36px] relative"
             >
-              {/* Product Header / Title Divider (Figma node 304:2682 & 304:2685) */}
+              {/* Product Header / Title Divider (Figma node 304:2682 & 304:2654) */}
               <div className="flex flex-row items-center justify-center w-full gap-[12px]">
-                <div className="w-[100px] h-[1px] bg-white/75 shrink-0" />
+                <Image
+                  src="/images/products/title-line-left.svg"
+                  alt=""
+                  width={100}
+                  height={1}
+                  className="shrink-0 h-[1px] w-[100px]"
+                />
                 <h2 className="font-sans font-semibold text-[32px] md:text-[48px] tracking-[-0.05em] text-white uppercase leading-none text-center">
                   {product.name}
                 </h2>
-                <div className="w-[100px] h-[1px] bg-white/75 shrink-0" />
+                <Image
+                  src="/images/products/title-line-right.svg"
+                  alt=""
+                  width={100}
+                  height={1}
+                  className="shrink-0 h-[1px] w-[100px]"
+                />
               </div>
 
               {/* Showcase & Tactical HUD Container */}
