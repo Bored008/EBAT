@@ -211,7 +211,7 @@ export default function ProductsPage() {
                     <span className="font-sans font-medium text-[24px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
                       PAYLOAD CAPACITY
                     </span>
-                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75 leading-tight">
+                    <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white leading-tight">
                       {product.payloadCapacity}
                     </span>
                   </div>
