@@ -25,7 +25,7 @@ const products: Product[] = [
     id: 'sentinel',
     name: 'SENTINEL',
     tagline: 'PERSISTENT SURVEILLANCE',
-    image: '/images/products/sentinel-drone-node.png',
+    image: '/images/products/sentinel-drone-6f8425.png',
     imageWidth: 620,
     imageHeight: 340,
     operatingTemp: '-20°C to 50°C',
@@ -41,7 +41,7 @@ const products: Product[] = [
     id: 'vantage',
     name: 'VANTAGE',
     tagline: 'HIGH-ALTITUDE RECONNAISSANCE',
-    image: '/images/products/vantage-drone-node.png',
+    image: '/images/products/vantage-drone-32279b.png',
     imageWidth: 765,
     imageHeight: 670,
     operatingTemp: '-20°C to 50°C',
@@ -129,18 +129,21 @@ export default function ProductsPage() {
               className="flex flex-col items-center w-full gap-[36px] relative"
             >
               {/* Product Header / Title Divider */}
-              <div className="flex items-center justify-center w-full gap-[24px]">
-                <div className="flex-1 h-[1px] bg-white/15 max-w-[340px]" />
-                <h2 className="font-heading font-bold text-[32px] md:text-[44px] tracking-[0.15em] text-white uppercase">
+              <div className="flex flex-row items-center justify-center w-full gap-[12px]">
+                <div className="w-[100px] h-[1px] bg-white/75" />
+                <h2 className="font-sans font-semibold text-[32px] md:text-[48px] tracking-[-0.05em] text-white uppercase">
                   {product.name}
                 </h2>
-                <div className="flex-1 h-[1px] bg-white/15 max-w-[340px]" />
+                <div className="w-[100px] h-[1px] bg-white/75" />
               </div>
 
               {/* Showcase & Tactical HUD Container */}
-              <div className="relative w-full min-h-[460px] lg:h-[471px] flex items-center justify-center">
+              <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center">
                 {/* Background Ambient Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] md:w-[620px] h-[260px] md:h-[340px] bg-white/[0.07] rounded-full blur-[110px] -z-10 pointer-events-none" />
+                <div 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[208px] h-[208px] bg-white rounded-full -z-10 pointer-events-none" 
+                  style={{ filter: 'blur(231.3px)' }}
+                />
 
                 {/* Left Side Arrow Accent */}
                 <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-[148px] h-[322px] pointer-events-none opacity-20 z-0">
@@ -163,13 +166,21 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Center Drone Presentation */}
-                <div className="relative w-full max-w-[620px] h-[280px] md:h-[340px] z-10 flex items-center justify-center">
+                <div
+                  className={`relative w-full z-10 flex items-center justify-center ${
+                    product.id === 'vantage'
+                      ? 'max-w-[840px] h-[380px] md:h-[480px] lg:h-[520px]'
+                      : product.id === 'warden'
+                      ? 'max-w-[990px] h-[280px] md:h-[340px] lg:h-[360px]'
+                      : 'max-w-[720px] h-[300px] md:h-[380px] lg:h-[400px]'
+                  }`}
+                >
                   <Image
                     src={product.image}
                     alt={`${product.name} UAV`}
                     fill
                     className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 620px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 990px"
                     priority
                   />
                 </div>
@@ -301,3 +312,4 @@ export default function ProductsPage() {
     </main>
   );
 }
+
