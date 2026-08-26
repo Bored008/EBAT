@@ -28,20 +28,20 @@ export function ContactFooter() {
           </div>
 
           {/* Navigation */}
-          <div className="absolute left-[405px] top-0 flex flex-col items-center gap-[31px]">
-            <h3 className="font-sans font-medium text-[20px] text-white">NAVIGATIONS</h3>
+          <div className="absolute left-[405px] top-0 flex flex-col gap-[18px]">
+            <h3 className="font-sans font-medium text-[20px] tracking-[-0.02em] text-white">NAVIGATIONS</h3>
             <div className="flex flex-col gap-[24px]">
-              <a href="/" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">FAQ</a>
+              <a href="/" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">FAQ</a>
             </div>
           </div>
 
           {/* Contact */}
-          <div className="absolute left-[746px] top-0 flex flex-col justify-center gap-[17px]">
+          <div className="absolute left-[746px] top-0 flex flex-col gap-[18px]">
             <h3 className="font-sans font-medium text-[16px] text-black/75">CONTACT :</h3>
-            <div className="flex flex-col justify-center gap-[22px]">
+            <div className="flex flex-col gap-[22px]">
               <div className="flex flex-row items-center gap-[8px]">
                 <Image src="/images/contact/phone-fill.svg" alt="Phone" width={22} height={22} />
                 <span className="font-sans text-[14px] text-black/75">123 456 789</span>
@@ -84,20 +84,20 @@ export function ContactFooter() {
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-col gap-[31px]">
-            <h3 className="font-sans font-medium text-[20px] text-white">NAVIGATIONS</h3>
+          <div className="flex flex-col gap-[18px]">
+            <h3 className="font-sans font-medium text-[20px] tracking-[-0.02em] text-white">NAVIGATIONS</h3>
             <div className="flex flex-col gap-[24px]">
-              <a href="/" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">FAQ</a>
+              <a href="/" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">FAQ</a>
             </div>
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col justify-center gap-[17px]">
+          <div className="flex flex-col gap-[18px]">
             <h3 className="font-sans font-medium text-[16px] text-black/75">CONTACT :</h3>
-            <div className="flex flex-col justify-center gap-[22px]">
+            <div className="flex flex-col gap-[22px]">
               <div className="flex flex-row items-center gap-[8px]">
                 <Image src="/images/contact/phone-fill.svg" alt="Phone" width={22} height={22} />
                 <span className="font-sans text-[14px] text-black/75">123 456 789</span>

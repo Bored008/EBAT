@@ -50,13 +50,13 @@ export function Footer() {
           </div>
 
           {/* Navigation Column */}
-          <div className="absolute left-[405px] top-0 flex flex-col items-center gap-[31px]">
-            <h3 className="font-sans font-medium text-[20px] text-white">NAVIGATIONS</h3>
+          <div className="absolute left-[405px] top-0 flex flex-col gap-[31px]">
+            <h3 className="font-sans font-medium text-[20px] tracking-[-0.02em] text-white">NAVIGATIONS</h3>
             <div className="flex flex-col gap-[24px]">
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">FAQ</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">FAQ</a>
             </div>
           </div>
 
@@ -140,13 +140,13 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-col gap-[20px]">
-            <h3 className="font-sans font-medium text-[20px] text-white">NAVIGATIONS</h3>
-            <div className="flex flex-col gap-[16px]">
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] text-white/75 hover:text-white transition-colors">FAQ</a>
+          <div className="flex flex-col gap-[31px]">
+            <h3 className="font-sans font-medium text-[20px] tracking-[-0.02em] text-white">NAVIGATIONS</h3>
+            <div className="flex flex-col gap-[24px]">
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">FAQ</a>
             </div>
           </div>
 
