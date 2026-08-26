@@ -153,7 +153,7 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Bottom Section */}
-          <div className="flex flex-col w-full max-w-[1260px] gap-[32px] mt-[40px]">
+          <div className="flex flex-col w-full max-w-[1260px] gap-[32px]">
             <div className="w-full h-[1px] bg-white/50"></div>
             
             {/* Red Box with Info */}
