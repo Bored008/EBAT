@@ -81,7 +81,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 3: Our Core Values */}
-        <section className="flex flex-col w-full max-w-[940px] gap-[32px] items-center">
+        <section className="flex flex-col w-full max-w-[940px] mx-auto gap-[32px] items-center">
           <div className="flex flex-col gap-[10px] items-center text-center max-w-[816px]">
             <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
               Our Core <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Values</span>
