@@ -138,7 +138,7 @@ export default function ContactPage() {
                   <div className="absolute bottom-[18px] left-[18px] right-[18px] flex flex-col p-[16px] gap-[10px] bg-white rounded-[12px] shadow-lg">
                     <h3 className="font-sans font-medium text-[18px] text-black">Visit our Office</h3>
                     <div className="flex flex-row items-center gap-[4px]">
-                      <Image src="/images/contact/location.svg" alt="Location" width={14} height={14} className="brightness-0" />
+                      <Image src="/images/contact/location-red.svg" alt="Location" width={14} height={14} />
                       <span className="font-sans text-[12px] tracking-[-0.02em] text-black/75">Sonipat, Murthal Khas, Haryana 131039</span>
                     </div>
                     <button className="flex flex-row items-center justify-center gap-[3px] border border-black/50 rounded-[4px] py-[6px] px-[12px] w-[116px] text-black/50 hover:bg-black/5 transition-colors">
