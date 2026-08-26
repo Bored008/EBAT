@@ -4,10 +4,10 @@ import { ContactFooter } from '@/components/sections/ContactFooter';
 
 export default function ContactPage() {
   return (
-    <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[32px] px-[24px] md:px-[90px]">
+    <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
       
       {/* Main Container */}
-      <div className="flex flex-col gap-[86px] w-full max-w-[1260px] mx-auto pb-[120px]">
+      <div className="flex flex-col gap-[86px] w-full max-w-[1260px] mx-auto pb-[86px]">
         
         {/* Content Container */}
         <div className="flex flex-col w-full items-center gap-[32px]">
