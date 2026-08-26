@@ -28,14 +28,16 @@ export default function AboutPage() {
       <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
         
         {/* Section 1: Trust Across Industries */}
-        <section className="flex flex-col w-full gap-[64px]">
-          <div className="flex flex-col gap-[28px] max-w-[842px]">
-            <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
-              <span className="text-[#F00511]">/</span> About Us
-            </span>
-            <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
-              Trust Across <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Industries</span>
-            </h1>
+        <section className="flex flex-col w-full gap-[56px] items-center">
+          <div className="flex flex-col gap-[16px] items-center text-center max-w-[842px]">
+            <div className="flex flex-col gap-[28px] items-center text-center">
+              <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
+                <span className="text-[#F00511]">/</span> About Us
+              </span>
+              <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
+                Trust Across <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Industries</span>
+              </h1>
+            </div>
             <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white/75 max-w-[613px]">
               We&apos;re proud to work alongside partners and certification bodies who share our commitment to reliability, precision, and mission-readiness.
             </p>
@@ -52,8 +54,8 @@ export default function AboutPage() {
         </section>
 
         {/* Section 2: Meet the Team */}
-        <section className="flex flex-col w-full gap-[64px]">
-          <div className="flex flex-col gap-[16px] max-w-[842px]">
+        <section className="flex flex-col w-full gap-[32px] items-center">
+          <div className="flex flex-col gap-[8px] items-center text-center max-w-[842px]">
             <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
               Meet the <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Team</span>
             </h2>
@@ -62,7 +64,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] w-full">
             {team.map((member, index) => (
               <div key={index} className="flex flex-col gap-[20px] w-full">
                 {/* Member Image Placeholder */}
@@ -79,8 +81,8 @@ export default function AboutPage() {
         </section>
 
         {/* Section 3: Our Core Values */}
-        <section className="flex flex-col w-full gap-[64px]">
-          <div className="flex flex-col gap-[16px] max-w-[842px]">
+        <section className="flex flex-col w-full gap-[32px] items-center">
+          <div className="flex flex-col gap-[10px] items-center text-center max-w-[842px]">
             <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
               Our Core <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Values</span>
             </h2>
