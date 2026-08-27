@@ -40,13 +40,13 @@ export default function ServicesPage() {
         </div>
 
         {/* Masonry Grid Section */}
-        <div className="flex flex-col md:flex-row gap-[20px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px]">
+        <div className="flex flex-col md:flex-row gap-[20px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px] h-auto md:h-[782px]">
           {/* Left Column */}
-          <div className="flex flex-col gap-[20px] flex-1 md:w-[407px]">
+          <div className="flex flex-col gap-[20px] w-full md:w-[407px] h-full">
             {/* FPV Repair */}
-            <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px] h-full max-h-[300px]">
-              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
+                <Image src="/images/services/icons/wrench.svg" alt="Repair" width={22} height={22} />
               </div>
               <div className="flex flex-col gap-[6px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">FPV Repair</h3>
@@ -55,9 +55,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Fixed Wing Maintenance */}
-            <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[34px] h-full max-h-[300px]">
-              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.7l-1.3 2.6c-.2.4-.1 1 .3 1.3L9 14l-4 4-3-1-2 2 4 4 2-2-1-3 4-4 3.2 6.3c.3.4.9.5 1.3.3l2.6-1.3c.5-.2.8-.6.7-1.1z"/></svg>
+            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
+                <Image src="/images/services/icons/plane.svg" alt="Maintenance" width={25} height={25} />
               </div>
               <div className="flex flex-col gap-[5px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Fixed Wing Maintenance</h3>
@@ -66,7 +66,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Image 54 */}
-            <div className="relative w-full h-[328px] bg-[#1D1D1F] overflow-hidden">
+            <div className="relative w-full h-[328px] bg-[#1D1D1F] overflow-hidden shrink-0">
               <Image 
                 src="/images/services/image_54-73f691.png"
                 alt="Maintenance Details"
@@ -77,8 +77,8 @@ export default function ServicesPage() {
           </div>
 
           {/* Middle Column */}
-          <div className="flex-1 md:w-[406px]">
-            <div className="relative w-full h-full min-h-[782px] overflow-hidden">
+          <div className="w-full md:flex-1 h-[400px] md:h-full">
+            <div className="relative w-full h-full overflow-hidden">
               <Image 
                 src="/images/services/image_45.png"
                 alt="Engineer working on drone"
@@ -89,9 +89,9 @@ export default function ServicesPage() {
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col gap-[20px] flex-1 md:w-[407px]">
+          <div className="flex flex-col gap-[20px] w-full md:w-[407px] h-full">
             {/* Image 61 */}
-            <div className="relative w-full h-[356px] bg-[#1D1D1F] overflow-hidden">
+            <div className="relative w-full h-[356px] bg-[#1D1D1F] overflow-hidden shrink-0">
               <Image 
                 src="/images/services/image_61.png"
                 alt="Drone parts"
@@ -101,9 +101,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Genuine Parts */}
-            <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px] h-[193px]">
-              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
+                <Image src="/images/services/icons/certificate.svg" alt="Genuine Parts" width={25} height={25} />
               </div>
               <div className="flex flex-col gap-[6px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Genuine Parts</h3>
@@ -112,9 +112,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Pilot Training */}
-            <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px] h-[193px]">
-              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
+                <Image src="/images/services/icons/certificate.svg" alt="Pilot Training" width={25} height={25} />
               </div>
               <div className="flex flex-col gap-[6px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Pilot Training</h3>
