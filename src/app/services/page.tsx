@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -115,8 +115,8 @@ export default function ServicesPage() {
           </div>
 
           {/* Middle Column */}
-          <div className="w-full md:flex-1 h-[400px] md:h-full">
-            <div className="relative w-full h-full overflow-hidden">
+          <div className="w-full md:flex-1 h-[400px] md:h-[782px]">
+            <div className="relative w-full h-full min-h-[400px] md:min-h-[782px] overflow-hidden">
               <Image 
                 src="/images/services/image_45.png"
                 alt="Engineer working on drone"
@@ -175,7 +175,7 @@ export default function ServicesPage() {
               </p>
               <div className="flex items-center gap-[12px]">
                 <div className="w-[44px] h-[44px] rounded-full bg-[#F00511] flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95">
-                  <ArrowRight className="text-white" size={20} />
+                  <ArrowLeft className="text-white" size={20} />
                 </div>
                 <div className="w-[44px] h-[44px] rounded-full border border-[#F00511] flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95">
                   <ArrowRight className="text-white" size={20} />
@@ -202,7 +202,7 @@ export default function ServicesPage() {
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
                     className="absolute inset-0 flex flex-col gap-[5px] z-0 pointer-events-none"
                   >
-                    <div className="relative w-full h-[418px] overflow-hidden bg-white">
+                    <div className="relative w-full h-[418px] overflow-hidden bg-[#1D1D1F]">
                       <Image
                         src={card.image}
                         alt={card.title}
@@ -210,17 +210,18 @@ export default function ServicesPage() {
                         sizes="(max-width: 768px) 100vw, 407px"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
-                      {/* Inactive Arrow - Inside the image, bottom right (matches the hardcoded version) */}
-                      <div className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex items-center justify-center transition-colors duration-300 bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511]">
+                      {/* Inactive Arrow - Inside the image, bottom right */}
+                      <div className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex items-center justify-center transition-colors duration-300 group-hover:bg-[#F00511]">
                         <svg
                           width="20"
                           height="20"
                           viewBox="0 0 24 24"
                           fill="none"
-                          stroke="white"
+                          stroke="#F00511"
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
+                          className="group-hover:stroke-white transition-colors"
                         >
                           <path d="M7 17L17 7" />
                           <path d="M7 7h10v10" />
@@ -234,12 +235,12 @@ export default function ServicesPage() {
                     </div>
                   </motion.div>
 
-                  {/* Active State (Red Background + Centered Content) */}
+                  {/* Active State (Red Background + Top Left Content) */}
                   <motion.div
                     initial={false}
                     animate={{ opacity: isActive ? 1 : 0 }}
                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    className="absolute inset-0 bg-[#F00511] z-10 flex flex-col justify-center px-[24px] md:px-[40px] pointer-events-none"
+                    className="absolute inset-0 bg-[#F00511] z-10 flex flex-col justify-start px-[24px] md:px-[40px] pt-[32px] md:pt-[40px] pointer-events-none"
                   >
                     <motion.div
                       initial={false}
@@ -255,13 +256,13 @@ export default function ServicesPage() {
                       </p>
                       <div className="font-sans text-[16px] leading-[1.5] text-white/90 tracking-[-0.02em] flex flex-col gap-[4px] mt-[10px]">
                         {card.bullets.map((bullet, idx) => (
-                          <p key={idx}>- {bullet}</p>
+                          <p key={idx}>• {bullet}</p>
                         ))}
                       </div>
                     </motion.div>
 
-                    {/* Active Arrow - Bottom Left */}
-                    <div className="absolute bottom-[40px] left-[24px] md:left-[40px]">
+                    {/* Active Arrow - Bottom Right */}
+                    <div className="absolute bottom-[40px] right-[24px] md:right-[40px]">
                       <div className="w-[46px] h-[46px] rounded-full border border-white flex items-center justify-center transition-transform hover:scale-105 active:scale-95">
                         <svg
                           width="20"
