@@ -9,15 +9,15 @@ export default function ServicesPage() {
       <main className="flex-1 flex flex-col items-center pt-[32px]">
         {/* Header Section */}
         <div className="flex flex-col items-center gap-[16px] w-full max-w-[1260px] px-4 md:px-0">
-          <div className="flex flex-col items-center gap-[28px] text-center">
-            <p className="font-sans text-[16px] leading-tight text-white/75 tracking-[-0.05em]">
+          <div className="flex flex-col items-center gap-[28px] w-full">
+            <p className="w-full text-left font-sans text-[16px] font-normal text-white/75 tracking-[-0.05em]">
               <span className="text-[#F00511]">/</span> Services
             </p>
-            <h1 className="font-oswald font-bold text-[48px] md:text-[64px] leading-[1.2] md:leading-[86px] tracking-[-0.05em] text-white">
+            <h1 className="font-heading font-bold text-[64px] leading-[86px] tracking-[-0.05em] text-white text-center">
               Support That Keeps You <span className="font-accent italic font-normal text-[#F00511] underline">Flying</span>
             </h1>
           </div>
-          <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] text-center max-w-[600px]">
+          <p className="font-sans text-[16px] font-normal text-white/75 tracking-[-0.02em] text-center">
             From repairs and part replacements to pilot training, we keep every fleet mission-ready.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <div className="flex flex-col gap-[6px]">
-                <h3 className="font-oswald font-semibold text-[32px] tracking-[-0.02em] text-white">FPV Repair</h3>
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">FPV Repair</h3>
                 <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">Rapid diagnostics and rebuild for close-range units.</p>
               </div>
             </div>
@@ -43,7 +43,7 @@ export default function ServicesPage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.7l-1.3 2.6c-.2.4-.1 1 .3 1.3L9 14l-4 4-3-1-2 2 4 4 2-2-1-3 4-4 3.2 6.3c.3.4.9.5 1.3.3l2.6-1.3c.5-.2.8-.6.7-1.1z"/></svg>
               </div>
               <div className="flex flex-col gap-[5px]">
-                <h3 className="font-oswald font-semibold text-[32px] tracking-[-0.02em] text-white">Fixed Wing Maintenance</h3>
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Fixed Wing Maintenance</h3>
                 <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">Structural checks and airframe servicing.</p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function ServicesPage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
               </div>
               <div className="flex flex-col gap-[6px]">
-                <h3 className="font-oswald font-semibold text-[32px] tracking-[-0.02em] text-white">Genuine Parts</h3>
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Genuine Parts</h3>
                 <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">OEM-grade components, always in stock.</p>
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function ServicesPage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
               </div>
               <div className="flex flex-col gap-[6px]">
-                <h3 className="font-oswald font-semibold text-[32px] tracking-[-0.02em] text-white">Pilot Training</h3>
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Pilot Training</h3>
                 <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">Certification for pilots and technicians.</p>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function ServicesPage() {
         {/* Fixed Wing Support Section */}
         <div className="flex flex-col gap-[36px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px]">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-            <h2 className="font-oswald font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
+            <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
               Fixed Wing <span className="font-accent italic font-normal text-[#F00511] underline">Support</span>,<br />
               Built for <span className="font-accent italic font-normal text-[#F00511] underline">Endurance</span>
             </h2>
@@ -133,7 +133,7 @@ export default function ServicesPage() {
             {/* Red Card */}
             <div className="flex flex-col justify-end p-[24px_20px] md:p-[40px_20px] bg-[#F00511] rounded-xl flex-1 md:w-[384px] min-h-[418px]">
               <div className="flex flex-col gap-[15px]">
-                <h3 className="font-oswald font-bold text-[64px] leading-[1] text-white">Repair</h3>
+                <h3 className="font-heading font-bold text-[64px] leading-[1] text-white">Repair</h3>
                 <p className="font-sans text-[16px] text-white tracking-[-0.02em]">
                   Structural and airframe repairs to handle wear from extended flight hours.
                 </p>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                 </button>
               </div>
-              <h3 className="font-oswald font-bold text-[64px] leading-[1] text-[#F00511]">Maintenance</h3>
+              <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">Maintenance</h3>
             </div>
 
             {/* Genuine Parts Image Card */}
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
                 </button>
               </div>
-              <h3 className="font-oswald font-bold text-[64px] leading-[1] text-[#F00511]">Genuine Parts</h3>
+              <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">Genuine Parts</h3>
             </div>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function ServicesPage() {
         {/* Certification Section */}
         <div className="flex flex-col gap-[36px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px] mb-[120px]">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-            <h2 className="font-oswald font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
+            <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
               From First <span className="font-accent italic font-normal text-[#F00511] underline">Flight</span>,<br />
               to Full <span className="font-accent italic font-normal text-[#F00511] underline">Certification</span>
             </h2>
@@ -202,7 +202,7 @@ export default function ServicesPage() {
               <div className="relative w-[255px] h-[188px] rounded-lg overflow-hidden shrink-0">
                 <Image src="/images/services/image_66-151826.png" alt="Enrollment" fill className="object-cover" />
               </div>
-              <h3 className="font-oswald font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em] flex-1 max-w-[311px]">
+              <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em] flex-1 max-w-[311px]">
                 Enrollment & Assessment
               </h3>
               <p className="font-sans text-[16px] text-white/90 tracking-[-0.02em] md:w-[297px]">
@@ -213,8 +213,8 @@ export default function ServicesPage() {
             {/* Step 2 */}
             <div className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] rounded-xl min-h-[234px] gap-6">
               <div className="flex items-center gap-[53px] flex-1">
-                <span className="font-oswald font-bold text-[36px] text-white tracking-[-0.05em]">02</span>
-                <h3 className="font-oswald font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
+                <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">02</span>
+                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
                   Ground Training
                 </h3>
               </div>
@@ -226,8 +226,8 @@ export default function ServicesPage() {
             {/* Step 3 */}
             <div className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] rounded-xl min-h-[234px] gap-6">
               <div className="flex items-center gap-[53px] flex-1">
-                <span className="font-oswald font-bold text-[36px] text-white tracking-[-0.05em]">03</span>
-                <h3 className="font-oswald font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
+                <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">03</span>
+                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
                   Flight Simulation
                 </h3>
               </div>
@@ -239,8 +239,8 @@ export default function ServicesPage() {
             {/* Step 4 */}
             <div className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] rounded-xl min-h-[234px] gap-6">
               <div className="flex items-center gap-[53px] flex-1">
-                <span className="font-oswald font-bold text-[36px] text-white tracking-[-0.05em]">04</span>
-                <h3 className="font-oswald font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
+                <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">04</span>
+                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
                   Certification &<br />Deployment
                 </h3>
               </div>
@@ -256,4 +256,5 @@ export default function ServicesPage() {
     </div>
   );
 }
+
 
