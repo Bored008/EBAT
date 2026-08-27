@@ -178,12 +178,30 @@ export default function ServicesPage() {
                   Keep every long-range mission airborne — repairs, maintenance, and genuine parts built for the demands of extended flight.
                 </p>
                 <div className="flex items-center gap-[12px]">
-                  <div className="w-[44px] h-[44px] rounded-full bg-[#F00511] flex items-center justify-center cursor-pointer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                  <div className="w-[44px] h-[44px] rounded-full border border-[#F00511] flex items-center justify-center cursor-pointer hover:bg-[#F00511]/10 transition-colors">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
+                  <button
+                    className="w-[28px] h-[28px] md:w-[32px] md:h-[32px] rounded-full flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity shrink-0"
+                    aria-label="Previous"
+                  >
+                    <Image
+                      src="/images/services/slider-btn-prev.svg"
+                      alt="Previous"
+                      width={28}
+                      height={28}
+                      className="w-full h-full"
+                    />
+                  </button>
+                  <button
+                    className="w-[30px] h-[30px] md:w-[34px] md:h-[34px] rounded-full flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity shrink-0"
+                    aria-label="Next"
+                  >
+                    <Image
+                      src="/images/services/slider-btn-next.svg"
+                      alt="Next"
+                      width={30}
+                      height={30}
+                      className="w-full h-full"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
