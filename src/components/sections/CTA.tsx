@@ -1,11 +1,17 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export function CTA() {
   return (
     <section className="w-full flex justify-center px-4 md:px-8">
-      <div 
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, type: 'spring' }}
         className="flex flex-col items-center justify-center w-full max-w-[1260px] bg-white rounded-[24px] border-[3px] border-black/25 relative overflow-hidden"
         style={{
           boxShadow: '0px 0.3px 1.9px 0px rgba(255, 255, 255, 0.05), 0px 1.7px 3.8px 0px rgba(255, 255, 255, 0.07), 0px 5.1px 7.5px 0px rgba(255, 255, 255, 0.09), 0px 14px 17.2px 0px rgba(255, 255, 255, 0.11), 0px 48px 56px 0px rgba(255, 255, 255, 0.16)',
@@ -30,7 +36,8 @@ export function CTA() {
             </Button>
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
+

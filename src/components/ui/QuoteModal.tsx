@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 
 export function QuoteModalContent() {
@@ -21,18 +22,28 @@ export function QuoteModalContent() {
     router.push(`${pathname}?${newParams.toString()}`);
   };
 
-  if (!mounted || !isOpen) return null;
+  if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-40 flex items-end justify-center pt-[90px] md:pt-[100px]">
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-40 flex items-end justify-center pt-[90px] md:pt-[100px]">
       {/* Background Blur Overlay */}
-      <div 
-        className="absolute inset-0 bg-black/40 backdrop-blur-[12.5px]"
-        onClick={closeModal}
-      />
+      <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/40 backdrop-blur-[12.5px]"
+            onClick={closeModal}
+          />
       
       {/* Form Container */}
-      <div className="relative w-full max-w-[833px] h-full bg-white rounded-t-[12px] border border-black/60 border-b-0 p-[32px] md:p-[32px_44px] flex flex-col gap-[32px] overflow-y-auto shadow-2xl pb-[120px]">
+      <motion.div 
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="relative w-full max-w-[833px] h-full bg-white rounded-t-[12px] border border-black/60 border-b-0 p-[32px] md:p-[32px_44px] flex flex-col gap-[32px] overflow-y-auto shadow-2xl pb-[120px]">
         {/* Info Section */}
         <div className="flex flex-col gap-[15px]">
           <h2 className="font-sans font-semibold text-[24px] text-[#F00511]">
@@ -235,14 +246,18 @@ export function QuoteModalContent() {
         </div>
 
         {/* Submit Button */}
-        <button 
+        <motion.button 
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.98 }}
           onClick={closeModal}
-          className="w-full bg-[#F00511] hover:bg-[#D0040E] transition-colors duration-200 text-white font-medium text-[14px] py-[12px] rounded-lg mt-2 mb-4"
+          className="w-full bg-[#F00511] text-white font-medium text-[14px] py-[12px] rounded-lg mt-2 mb-4"
         >
           Submit Quote Request
-        </button>
-      </div>
-    </div>
+        </motion.button>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -253,3 +268,4 @@ export function QuoteModal() {
     </React.Suspense>
   );
 }
+

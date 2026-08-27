@@ -1,454 +1,276 @@
 'use client';
-
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Footer } from '@/components/sections/Footer';
 
-interface ServiceCardData {
-  id: 'repair' | 'maintenance' | 'parts';
-  title: string;
-  image: string;
-  description: string;
-  bullets: string[];
-}
-
-const serviceCards: ServiceCardData[] = [
-  {
-    id: 'repair',
-    title: 'Repair',
-    image: '/images/services/services-center.png',
-    description: 'Structural and airframe repairs to handle wear from extended flight hours.',
-    bullets: [
-      'Airframe & wing repair',
-      'Motor & propulsion servicing',
-      'Fast diagnostics turnaround',
-    ],
-  },
-  {
-    id: 'maintenance',
-    title: 'Maintenance',
-    image: '/images/services/image_63.png',
-    description: 'Routine servicing and comprehensive diagnostics to guarantee continuous operational readiness.',
-    bullets: [
-      'Scheduled pre-flight inspections',
-      'Avionics & edge-AI calibration',
-      'Battery health & power checks',
-    ],
-  },
-  {
-    id: 'parts',
-    title: 'Genuine Parts',
-    image: '/images/services/image_65-500d9f.png',
-    description: 'OEM-grade replacement components engineered specifically for EBAT endurance airframes.',
-    bullets: [
-      'Factory-certified spares in stock',
-      'High-capacity power packs',
-      'Rapid dispatch and global delivery',
-    ],
-  },
-];
-
 export default function ServicesPage() {
-  const [activeCard, setActiveCard] = useState<'repair' | 'maintenance' | 'parts'>('repair');
+  const heroRef = useRef(null);
 
-  const cardIds: Array<'repair' | 'maintenance' | 'parts'> = ['repair', 'maintenance', 'parts'];
-
-  const handlePrev = () => {
-    const currentIndex = cardIds.indexOf(activeCard);
-    const prevIndex = (currentIndex - 1 + cardIds.length) % cardIds.length;
-    setActiveCard(cardIds[prevIndex]);
-  };
-
-  const handleNext = () => {
-    const currentIndex = cardIds.indexOf(activeCard);
-    const nextIndex = (currentIndex + 1) % cardIds.length;
-    setActiveCard(cardIds[nextIndex]);
-  };
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.hero-text',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out' }
+      );
+    }, heroRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <>
-      <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
-        {/* Main Container */}
-        <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
-          {/* Top Section with 36px Spacing */}
-          <div className="flex flex-col gap-[36px] w-full">
-            {/* Header Section */}
-            <section className="flex flex-col w-full items-center gap-[28px]">
-              <span className="self-start font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
-                <span className="text-[#F00511]">/</span> Services
-              </span>
+    <div className="flex flex-col min-h-screen bg-black">
+      <main className="flex-1 flex flex-col items-center pt-[32px]">
+        {/* Header Section */}
+        <div ref={heroRef} className="flex flex-col items-center gap-[8px] w-full max-w-[1260px] px-4 md:px-0">
+          <div className="flex flex-col items-center gap-[28px] w-full">
+            <p className="hero-text w-full text-left font-sans text-[16px] font-normal text-white/75 tracking-[-0.05em]">
+              <span className="text-[#F00511]">/</span> Services
+            </p>
+            <h1 className="hero-text font-heading font-bold text-[64px] leading-[86px] tracking-[-0.05em] text-white text-center">
+              Support That Keeps You <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">Flying</span>
+            </h1>
+          </div>
+          <p className="hero-text font-sans text-[16px] font-normal text-white/75 tracking-[-0.02em] text-center">
+            From repairs and part replacements to pilot training, we keep every fleet mission-ready.
+          </p>
+        </div>
 
-              <div className="flex flex-col gap-[8px] items-center text-center max-w-[842px]">
-                <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
-                  Support That Keeps You{' '}
-                  <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
-                    Flying
-                  </span>
-                </h1>
-                <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white/75 max-w-[650px]">
-                  From repairs and part replacements to pilot training, we keep every fleet mission-ready.
-                </p>
+        {/* Masonry Grid Section */}
+        <div className="flex flex-col md:flex-row gap-[20px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px]">
+          {/* Left Column */}
+          <div className="flex flex-col gap-[20px] flex-1 md:w-[407px]">
+            {/* FPV Repair */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px] rounded-xl h-full max-h-[300px]">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               </div>
-            </section>
-
-            {/* Bento Grid Section (Figma node 426:1306) */}
-            <section className="flex flex-col lg:flex-row gap-[20px] w-full max-w-[1260px] mx-auto items-stretch">
-              {/* Left Column (407px) */}
-              <div className="flex flex-col gap-[20px] w-full lg:w-[407px] shrink-0">
-                {/* Card 1: FPV Repair */}
-                <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px]">
-                  <div className="w-[46px] h-[46px] rounded-full bg-[#333335] flex items-center justify-center shrink-0">
-                    <Image
-                      src="/images/services/icon-tool.svg"
-                      alt="Tool Icon"
-                      width={24}
-                      height={24}
-                      className="w-auto h-auto"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">
-                      FPV Repair
-                    </h3>
-                    <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">
-                      Rapid diagnostics and rebuild for close-range units.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card 2: Fixed Wing Maintenance */}
-                <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[34px]">
-                  <div className="w-[46px] h-[46px] rounded-full bg-[#333335] flex items-center justify-center shrink-0">
-                    <Image
-                      src="/images/services/icon-plane.svg"
-                      alt="Plane Icon"
-                      width={24}
-                      height={24}
-                      className="w-auto h-auto"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">
-                      Fixed Wing Maintenance
-                    </h3>
-                    <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">
-                      Structural checks and airframe servicing.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Image 54 */}
-                <div className="relative w-full h-[328px] bg-[#1D1D1F] overflow-hidden">
-                  <Image
-                    src="/images/services/services-left-bottom.png"
-                    alt="Maintenance Details"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 407px"
-                    className="object-cover"
-                  />
-                </div>
+              <div className="flex flex-col gap-[6px]">
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">FPV Repair</h3>
+                <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">Rapid diagnostics and rebuild for close-range units.</p>
               </div>
+            </motion.div>
 
-              {/* Middle Column (406px) */}
-              <div className="w-full lg:w-[406px] shrink-0">
-                <div className="relative w-full h-[500px] lg:h-full min-h-[500px] lg:min-h-[782px] overflow-hidden bg-[#1D1D1F]">
-                  <Image
-                    src="/images/services/services-center.png"
-                    alt="Engineer working on drone"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 406px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+            {/* Fixed Wing Maintenance */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[34px] rounded-xl h-full max-h-[300px]">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.7l-1.3 2.6c-.2.4-.1 1 .3 1.3L9 14l-4 4-3-1-2 2 4 4 2-2-1-3 4-4 3.2 6.3c.3.4.9.5 1.3.3l2.6-1.3c.5-.2.8-.6.7-1.1z"/></svg>
               </div>
-
-              {/* Right Column (407px) */}
-              <div className="flex flex-col gap-[20px] w-full lg:w-[407px] shrink-0">
-                {/* Image 61 */}
-                <div className="relative w-full h-[356px] bg-[#1D1D1F] overflow-hidden">
-                  <Image
-                    src="/images/services/services-right-top.png"
-                    alt="Drone components"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 407px"
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Card 3: Genuine Parts */}
-                <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px]">
-                  <div className="w-[46px] h-[46px] rounded-full bg-[#333335] flex items-center justify-center shrink-0">
-                    <Image
-                      src="/images/services/icon-parts.svg"
-                      alt="Parts Icon"
-                      width={24}
-                      height={24}
-                      className="w-auto h-auto"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">
-                      Genuine Parts
-                    </h3>
-                    <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">
-                      OEM-grade components, always in stock.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card 4: Pilot Training */}
-                <div className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px]">
-                  <div className="w-[46px] h-[46px] rounded-full bg-[#333335] flex items-center justify-center shrink-0">
-                    <Image
-                      src="/images/services/icon-training.svg"
-                      alt="Training Icon"
-                      width={24}
-                      height={24}
-                      className="w-auto h-auto"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-[6px]">
-                    <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">
-                      Pilot Training
-                    </h3>
-                    <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">
-                      Certification for pilots and technicians.
-                    </p>
-                  </div>
-                </div>
+              <div className="flex flex-col gap-[5px]">
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Fixed Wing Maintenance</h3>
+                <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">Structural checks and airframe servicing.</p>
               </div>
-            </section>
+            </motion.div>
+
+            {/* Image 54 */}
+            <div className="relative w-full h-[328px] bg-[#1D1D1F] rounded-xl overflow-hidden">
+              <Image 
+                src="/images/services/image_54-73f691.png"
+                alt="Maintenance Details"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
 
-          {/* Section 2: Fixed Wing Support Section (Interactive State Cards, Figma node 426:1348) */}
-          <section className="flex flex-col gap-[36px] w-full max-w-[1260px] mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-              <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.15] tracking-[-0.05em] text-white">
-                Fixed Wing{' '}
-                <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
-                  Support
-                </span>
-                ,<br />
-                Built for{' '}
-                <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
-                  Endurance
-                </span>
-              </h2>
-              <div className="flex flex-col gap-[12px] max-w-[404px]">
-                <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em]">
-                  Keep every long-range mission airborne — repairs, maintenance, and genuine parts built for the demands of extended flight.
-                </p>
-                <div className="flex items-center gap-[12px]">
-                  <button
-                    onClick={handlePrev}
-                    className="w-[28px] h-[28px] md:w-[32px] md:h-[32px] rounded-full flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity shrink-0"
-                    aria-label="Previous service"
-                  >
-                    <Image
-                      src="/images/services/slider-btn-prev.svg"
-                      alt="Previous"
-                      width={28}
-                      height={28}
-                      className="w-full h-full"
-                    />
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="w-[30px] h-[30px] md:w-[34px] md:h-[34px] rounded-full flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity shrink-0"
-                    aria-label="Next service"
-                  >
-                    <Image
-                      src="/images/services/slider-btn-next.svg"
-                      alt="Next"
-                      width={30}
-                      height={30}
-                      className="w-full h-full"
-                    />
-                  </button>
-                </div>
+          {/* Middle Column */}
+          <div className="flex-1 md:w-[406px]">
+            <div className="relative w-full h-full min-h-[782px] rounded-xl overflow-hidden">
+              <Image 
+                src="/images/services/image_45.png"
+                alt="Engineer working on drone"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="flex flex-col gap-[20px] flex-1 md:w-[407px]">
+            {/* Image 61 */}
+            <div className="relative w-full h-[356px] bg-[#1D1D1F] rounded-xl overflow-hidden">
+              <Image 
+                src="/images/services/image_61.png"
+                alt="Drone parts"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Genuine Parts */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px] rounded-xl h-[193px]">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
               </div>
-            </div>
+              <div className="flex flex-col gap-[6px]">
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Genuine Parts</h3>
+                <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">OEM-grade components, always in stock.</p>
+              </div>
+            </motion.div>
 
-            {/* Interactive 3-Card Deck with Smooth Crossfade and Fixed Height Container */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[31px]">
-              {serviceCards.map((card) => {
-                const isActive = activeCard === card.id;
+            {/* Pilot Training */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col bg-[#1D1D1F] p-[24px_27px] gap-[33px] rounded-xl h-[193px]">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <div className="flex flex-col gap-[6px]">
+                <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Pilot Training</h3>
+                <p className="font-sans text-[16px] tracking-[-0.02em] text-white/75">Certification for pilots and technicians.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
 
-                return (
-                  <div
-                    key={card.id}
-                    onClick={() => setActiveCard(card.id)}
-                    className="relative h-[504px] w-full cursor-pointer select-none overflow-hidden"
-                  >
-                    <AnimatePresence mode="wait" initial={false}>
-                      {isActive ? (
-                        <motion.div
-                          key={`active-${card.id}`}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute inset-0 flex flex-col justify-end p-[32px_24px] md:p-[40px_24px] bg-[#F00511] h-full"
-                        >
-                          <div className="flex flex-col gap-[15px] z-10">
-                            <h3 className="font-heading font-bold text-[56px] md:text-[64px] leading-[1] text-white tracking-[-0.05em]">
-                              {card.title}
-                            </h3>
-                            <p className="font-sans text-[16px] leading-[1.4] text-white tracking-[-0.02em]">
-                              {card.description}
-                            </p>
-                            <div className="font-sans text-[16px] leading-[1.5] text-white/75 tracking-[-0.02em] flex flex-col gap-1">
-                              {card.bullets.map((bullet, idx) => (
-                                <p key={idx}>- {bullet}</p>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Arrow Positioned at Bottom-Right in Active Card (Figma node 426:1354) */}
-                          <div className="absolute bottom-[20px] right-[20px] z-20">
-                            <div className="w-[46px] h-[46px] rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition-colors">
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="white"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <path d="M7 7h10v10" />
-                                <path d="M7 17 17 7" />
-                              </svg>
-                            </div>
-                          </div>
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key={`inactive-${card.id}`}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute inset-0 flex flex-col gap-[5px] h-full group"
-                        >
-                          <div className="relative w-full h-[418px] bg-[#1D1D1F] overflow-hidden">
-                            <Image
-                              src={card.image}
-                              alt={card.title}
-                              fill
-                              sizes="(max-width: 768px) 100vw, 407px"
-                              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                            />
-                            {/* Arrow Positioned at Bottom-Right in Inactive Card (Figma node 426:1358 / 426:1363) */}
-                            <div className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex items-center justify-center bg-black/30 backdrop-blur-md group-hover:bg-[#F00511] transition-all duration-300 z-20">
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="text-white transition-colors"
-                              >
-                                <path d="M7 7h10v10" />
-                                <path d="M7 17 17 7" />
-                              </svg>
-                            </div>
-                          </div>
-                          <h3 className="font-heading font-bold text-[56px] md:text-[64px] leading-[1] text-[#F00511] tracking-[-0.05em] pt-[4px]">
-                            {card.title}
-                          </h3>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* Section 3: Certification Section */}
-          <section className="flex flex-col gap-[36px] w-full max-w-[1260px] mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-              <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.15] tracking-[-0.05em] text-white">
-                From First{' '}
-                <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
-                  Flight
-                </span>
-                ,<br />
-                to Full{' '}
-                <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
-                  Certification
-                </span>
-              </h2>
-              <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] font-medium">
-                A structured path to mission-ready pilot certification.
+        {/* Fixed Wing Support Section */}
+        <div className="flex flex-col gap-[36px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px]">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
+            <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
+              Fixed Wing <span className="font-accent italic font-normal text-[#F00511] underline">Support</span>,<br />
+              Built for <span className="font-accent italic font-normal text-[#F00511] underline">Endurance</span>
+            </h2>
+            <div className="flex flex-col gap-[12px] max-w-[404px]">
+              <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em]">
+                Keep every long-range mission airborne — repairs, maintenance, and genuine parts built for the demands of extended flight.
               </p>
+              <div className="flex items-center gap-[12px]">
+                <motion.div whileHover={{ scale: 1.1 }} className="w-[44px] h-[44px] rounded-full bg-[#F00511] flex items-center justify-center cursor-pointer">
+                  <ArrowRight className="text-white" size={20} />
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.1 }} className="w-[44px] h-[44px] rounded-full border border-[#F00511] flex items-center justify-center cursor-pointer">
+                  <ArrowRight className="text-white" size={20} />
+                </motion.div>
+              </div>
             </div>
+          </div>
 
-            <div className="flex flex-col gap-[20px]">
-              {/* Step 1 */}
-              <div className="flex flex-col md:flex-row items-center justify-between p-[16px_40px] bg-[#F00511] min-h-[234px] gap-6">
-                <div className="relative w-[255px] h-[188px] overflow-hidden shrink-0">
-                  <Image src="/images/services/image_66-151826.png" alt="Enrollment" fill className="object-cover" />
+          <div className="flex flex-col md:flex-row gap-[31px]">
+            {/* Red Card */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col justify-end p-[24px_20px] md:p-[40px_20px] bg-[#F00511] rounded-xl flex-1 md:w-[384px] min-h-[418px]">
+              <div className="flex flex-col gap-[15px]">
+                <h3 className="font-heading font-bold text-[64px] leading-[1] text-white">Repair</h3>
+                <p className="font-sans text-[16px] text-white tracking-[-0.02em]">
+                  Structural and airframe repairs to handle wear from extended flight hours.
+                </p>
+                <div className="font-sans text-[16px] text-white/75 tracking-[-0.02em]">
+                  <p>- Airframe & wing repair</p>
+                  <p>- Motor & propulsion servicing</p>
+                  <p>- Fast diagnostics turnaround</p>
                 </div>
-                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em] flex-1 max-w-[311px]">
-                  Enrollment & Assessment
+                <div className="mt-4">
+                  <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="w-[46px] h-[46px] rounded-full border border-white flex justify-center items-center">
+                    <ArrowUpRight className="text-white" size={20} />
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Maintenance Image Card */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col gap-[5px] flex-1 md:w-[406px]">
+              <div className="relative w-full h-[418px] bg-white rounded-xl overflow-hidden group">
+                <Image 
+                  src="/images/services/image_63.png"
+                  alt="Maintenance"
+                  fill
+                  className="object-cover"
+                />
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex justify-center items-center bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511] transition-colors">
+                  <ArrowUpRight className="text-white" size={20} />
+                </motion.button>
+              </div>
+              <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">Maintenance</h3>
+            </motion.div>
+
+            {/* Genuine Parts Image Card */}
+            <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col gap-[5px] flex-1 md:w-[407px]">
+              <div className="relative w-full h-[418px] bg-white rounded-xl overflow-hidden group">
+                <Image 
+                  src="/images/services/image_65-500d9f.png"
+                  alt="Genuine Parts"
+                  fill
+                  className="object-cover"
+                />
+                <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex justify-center items-center bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511] transition-colors">
+                  <ArrowUpRight className="text-white" size={20} />
+                </motion.button>
+              </div>
+              <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">Genuine Parts</h3>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Certification Section */}
+        <div className="flex flex-col gap-[36px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px] mb-[120px]">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
+            <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
+              From First <span className="font-accent italic font-normal text-[#F00511] underline">Flight</span>,<br />
+              to Full <span className="font-accent italic font-normal text-[#F00511] underline">Certification</span>
+            </h2>
+            <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] font-medium">
+              A structured path to mission-ready pilot certification.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[20px]">
+            {/* Step 1 */}
+            <motion.div whileHover={{ scale: 1.01 }} className="flex flex-col md:flex-row items-center justify-between p-[16px_40px] bg-[#F00511] rounded-xl min-h-[234px] gap-6">
+              <div className="relative w-[255px] h-[188px] rounded-lg overflow-hidden shrink-0">
+                <Image src="/images/services/image_66-151826.png" alt="Enrollment" fill className="object-cover" />
+              </div>
+              <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em] flex-1 max-w-[311px]">
+                Enrollment & Assessment
+              </h3>
+              <p className="font-sans text-[16px] text-white/90 tracking-[-0.02em] md:w-[297px]">
+                Register for the program and complete a baseline skills assessment to determine your starting point.
+              </p>
+            </motion.div>
+
+            {/* Step 2 */}
+            <motion.div whileHover={{ scale: 1.01 }} className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] rounded-xl min-h-[234px] gap-6">
+              <div className="flex items-center gap-[53px] flex-1">
+                <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">02</span>
+                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
+                  Ground Training
                 </h3>
-                <p className="font-sans text-[16px] text-white/90 tracking-[-0.02em] md:w-[297px]">
-                  Register for the program and complete a baseline skills assessment to determine your starting point.
-                </p>
               </div>
+              <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] md:w-[297px]">
+                Learn drone systems, flight regulations, safety protocols, and mission planning fundamentals before ever taking the controls.
+              </p>
+            </motion.div>
 
-              {/* Step 2 */}
-              <div className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] min-h-[234px] gap-6">
-                <div className="flex items-center gap-[53px] flex-1">
-                  <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">02</span>
-                  <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
-                    Ground Training
-                  </h3>
-                </div>
-                <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] md:w-[297px]">
-                  Learn drone systems, flight regulations, safety protocols, and mission planning fundamentals before ever taking the controls.
-                </p>
+            {/* Step 3 */}
+            <motion.div whileHover={{ scale: 1.01 }} className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] rounded-xl min-h-[234px] gap-6">
+              <div className="flex items-center gap-[53px] flex-1">
+                <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">03</span>
+                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
+                  Flight Simulation
+                </h3>
               </div>
+              <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] md:w-[297px]">
+                Supervised, hands-on flight practice across FPV and fixed wing units, guided by certified instructors.
+              </p>
+            </motion.div>
 
-              {/* Step 3 */}
-              <div className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] min-h-[234px] gap-6">
-                <div className="flex items-center gap-[53px] flex-1">
-                  <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">03</span>
-                  <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
-                    Flight Simulation
-                  </h3>
-                </div>
-                <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] md:w-[297px]">
-                  Supervised, hands-on flight practice across FPV and fixed wing units, guided by certified instructors.
-                </p>
+            {/* Step 4 */}
+            <motion.div whileHover={{ scale: 1.01 }} className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] rounded-xl min-h-[234px] gap-6">
+              <div className="flex items-center gap-[53px] flex-1">
+                <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">04</span>
+                <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
+                  Certification &<br />Deployment
+                </h3>
               </div>
-
-              {/* Step 4 */}
-              <div className="flex flex-col md:flex-row items-center justify-between p-[40px] bg-[#1D1D1F] min-h-[234px] gap-6">
-                <div className="flex items-center gap-[53px] flex-1">
-                  <span className="font-heading font-bold text-[36px] text-white tracking-[-0.05em]">04</span>
-                  <h3 className="font-heading font-bold text-[36px] md:text-[48px] leading-[1.1] text-white tracking-[-0.05em]">
-                    Certification &<br />Deployment
-                  </h3>
-                </div>
-                <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] md:w-[297px]">
-                  Pass your final assessment, receive EBAT certification, and get cleared for real-world mission deployment.
-                </p>
-              </div>
-            </div>
-          </section>
+              <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] md:w-[297px]">
+                Pass your final assessment, receive EBAT certification, and get cleared for real-world mission deployment.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </main>
-
+      
       <Footer />
-    </>
+    </div>
   );
 }
