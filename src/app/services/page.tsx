@@ -8,27 +8,29 @@ export default function ServicesPage() {
       <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
         {/* Main Container */}
         <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
-          {/* Header Section */}
-          <section className="flex flex-col w-full items-center gap-[28px]">
-            <span className="self-start font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
-              <span className="text-[#F00511]">/</span> Services
-            </span>
+          {/* Top Section with 36px Spacing */}
+          <div className="flex flex-col gap-[36px] w-full">
+            {/* Header Section */}
+            <section className="flex flex-col w-full items-center gap-[28px]">
+              <span className="self-start font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
+                <span className="text-[#F00511]">/</span> Services
+              </span>
 
-            <div className="flex flex-col gap-[8px] items-center text-center max-w-[842px]">
-              <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
-                Support That Keeps You{' '}
-                <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
-                  Flying
-                </span>
-              </h1>
-              <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white/75 max-w-[650px]">
-                From repairs and part replacements to pilot training, we keep every fleet mission-ready.
-              </p>
-            </div>
-          </section>
+              <div className="flex flex-col gap-[8px] items-center text-center max-w-[842px]">
+                <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
+                  Support That Keeps You{' '}
+                  <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
+                    Flying
+                  </span>
+                </h1>
+                <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white/75 max-w-[650px]">
+                  From repairs and part replacements to pilot training, we keep every fleet mission-ready.
+                </p>
+              </div>
+            </section>
 
-          {/* Bento Grid Section (Figma node 426:1306) */}
-          <section className="flex flex-col lg:flex-row gap-[20px] w-full max-w-[1260px] mx-auto items-stretch">
+            {/* Bento Grid Section (Figma node 426:1306) */}
+            <section className="flex flex-col lg:flex-row gap-[20px] w-full max-w-[1260px] mx-auto items-stretch">
             {/* Left Column (407px) */}
             <div className="flex flex-col gap-[20px] w-full lg:w-[407px] shrink-0">
               {/* Card 1: FPV Repair */}
@@ -155,6 +157,7 @@ export default function ServicesPage() {
               </div>
             </div>
           </section>
+        </div>
 
           {/* Section 2: Fixed Wing Support Section */}
           <section className="flex flex-col gap-[36px] w-full max-w-[1260px] mx-auto">
