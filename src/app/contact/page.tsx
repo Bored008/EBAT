@@ -4,6 +4,7 @@ import { ContactFooter } from '@/components/sections/ContactFooter';
 
 export default function ContactPage() {
   return (
+    <>
     <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
       
       {/* Main Container */}
@@ -202,8 +203,8 @@ export default function ContactPage() {
           
         </div>
       </div>
-      
-      <ContactFooter />
     </main>
+    <ContactFooter />
+    </>
   );
 }

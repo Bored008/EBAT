@@ -89,6 +89,7 @@ const products: Product[] = [
 
 export default function ProductsPage() {
   return (
+    <>
     <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
       {/* Main Container */}
       <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
@@ -113,7 +114,7 @@ export default function ProductsPage() {
           </div>
 
           <div className="shrink-0 pb-1">
-            <Link href="/contact">
+            <Link href="?quote=true">
               <Button variant="filled" rightIcon="top-right-arrow">
                 Request a Quote
               </Button>
@@ -320,9 +321,9 @@ export default function ProductsPage() {
           ))}
         </div>
       </div>
-
-      <Footer />
     </main>
+    <Footer />
+    </>
   );
 }
 

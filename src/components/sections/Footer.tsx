@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="w-full max-w-[1260px] mx-auto mt-[120px] bg-white rounded-t-[24px] relative overflow-hidden flex flex-col pt-[41px] px-[24px] md:px-[48px] pb-[24px] z-10">
       {/* Background Image */}
-      <div className="absolute top-0 left-0 w-full h-full lg:h-[497px] -z-10">
+      <div className="absolute top-0 left-0 w-full h-full lg:h-[497px] -z-10 pointer-events-none">
         <Image 
           src="/images/footer/footer-bg.png" 
           alt="Footer Background" 
@@ -19,7 +19,7 @@ export function Footer() {
       <div className="relative z-10 w-full flex flex-col">
         {/* Responsive Grid for Mobile/Tablet, Absolute for Desktop */}
         
-        {/* Desktop Layout (matches exact Figma coordinates) */}
+        {/* Desktop Layout (matches exact Figma coordinates with right-anchored form) */}
         <div className="hidden lg:block relative w-full h-[400px]">
           
           {/* Logo & Map Column */}
@@ -50,18 +50,18 @@ export function Footer() {
           </div>
 
           {/* Navigation Column */}
-          <div className="absolute left-[405px] top-0 flex flex-col gap-[31px]">
+          <div className="absolute left-[380px] xl:left-[405px] top-0 flex flex-col gap-[31px]">
             <h3 className="font-sans font-medium text-[20px] tracking-[-0.02em] text-white">NAVIGATIONS</h3>
             <div className="flex flex-col gap-[24px]">
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">FAQ</a>
+              <a href="/" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="/products" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="/services" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="/about" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">About Us</a>
             </div>
           </div>
 
-          {/* Message Form Column */}
-          <div className="absolute left-[759px] top-0 flex flex-col gap-[24px] w-[405px]">
+          {/* Message Form Column (Right Anchored) */}
+          <div className="absolute right-0 top-0 flex flex-col gap-[24px] w-[405px]">
             <div className="flex flex-col gap-[12px]">
               <h3 className="font-sans font-semibold text-[32px] text-black">Send Us a Message</h3>
               <p className="font-sans text-[14px] text-black/75 tracking-[-0.02em]">
@@ -69,17 +69,17 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-[16px]">
+            <div className="flex flex-col gap-[16px] w-full">
               {/* Row 1: First Name & Phone */}
-              <div className="flex flex-row justify-between items-start gap-[14px]">
-                <div className="flex flex-col gap-[8px] w-[195px]">
+              <div className="grid grid-cols-2 gap-[14px] w-full">
+                <div className="flex flex-col gap-[8px]">
                   <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">First name</label>
                   <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
                     <Image src="/images/footer/person.svg" alt="Person" width={13} height={13} />
                     <input type="text" placeholder="Enter first name" className="bg-transparent text-[12px] text-black outline-none w-full placeholder:text-black/25" />
                   </div>
                 </div>
-                <div className="flex flex-col gap-[8px] w-[195px]">
+                <div className="flex flex-col gap-[8px]">
                   <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Phone</label>
                   <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
                     <Image src="/images/footer/phone-outline.svg" alt="Phone" width={13} height={13} />
@@ -89,9 +89,9 @@ export function Footer() {
               </div>
 
               {/* Row 2: Email & Company (left col) | Message (right col) */}
-              <div className="flex flex-row justify-between items-stretch gap-[14px]">
+              <div className="grid grid-cols-2 gap-[14px] w-full">
                 {/* Left Col */}
-                <div className="flex flex-col gap-[16px] w-[195px]">
+                <div className="flex flex-col gap-[16px]">
                   <div className="flex flex-col gap-[8px]">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Email</label>
                     <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
@@ -109,7 +109,7 @@ export function Footer() {
                 </div>
 
                 {/* Right Col: Message */}
-                <div className="flex flex-col gap-[8px] w-[195px]">
+                <div className="flex flex-col gap-[8px] h-full">
                   <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
                   <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] flex-1">
                     <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
@@ -143,10 +143,10 @@ export function Footer() {
           <div className="flex flex-col gap-[31px]">
             <h3 className="font-sans font-medium text-[20px] tracking-[-0.02em] text-white">NAVIGATIONS</h3>
             <div className="flex flex-col gap-[24px]">
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
-              <a href="#" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">FAQ</a>
+              <a href="/" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Home</a>
+              <a href="/products" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Products</a>
+              <a href="/services" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">Services</a>
+              <a href="/about" className="font-sans text-[16px] leading-[0.82em] text-white/75 hover:text-white transition-colors">About Us</a>
             </div>
           </div>
 
@@ -170,18 +170,17 @@ export function Footer() {
               </p>
             </div>
             <div className="flex flex-col gap-[16px]">
-              {/* Form fields mobile... */}
               <div className="flex flex-col gap-[14px]">
                 {/* Row 1: First Name & Phone */}
-                <div className="flex flex-row justify-between items-start gap-[14px]">
-                  <div className="flex flex-col gap-[8px] flex-1">
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-[14px]">
+                  <div className="flex flex-col gap-[8px] flex-1 w-full">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">First name</label>
                     <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
                       <Image src="/images/footer/person.svg" alt="Person" width={13} height={13} />
                       <input type="text" placeholder="Enter first name" className="bg-transparent text-[12px] text-black outline-none w-full placeholder:text-black/25" />
                     </div>
                   </div>
-                  <div className="flex flex-col gap-[8px] flex-1">
+                  <div className="flex flex-col gap-[8px] flex-1 w-full">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Phone</label>
                     <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
                       <Image src="/images/footer/phone-outline.svg" alt="Phone" width={13} height={13} />
@@ -191,9 +190,9 @@ export function Footer() {
                 </div>
 
                 {/* Row 2: Email & Company (left) | Message (right) */}
-                <div className="flex flex-row justify-between items-stretch gap-[14px]">
+                <div className="flex flex-col sm:flex-row justify-between items-stretch gap-[14px]">
                   {/* Left Column */}
-                  <div className="flex flex-col gap-[16px] flex-1">
+                  <div className="flex flex-col gap-[16px] flex-1 w-full">
                     <div className="flex flex-col gap-[8px]">
                       <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Email</label>
                       <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
@@ -211,9 +210,9 @@ export function Footer() {
                   </div>
 
                   {/* Right Column */}
-                  <div className="flex flex-col gap-[8px] flex-1">
+                  <div className="flex flex-col gap-[8px] flex-1 w-full">
                     <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
-                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] flex-1">
+                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] flex-1 min-h-[100px]">
                       <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
                       <textarea placeholder="Enter your message" className="bg-transparent text-[12px] text-black outline-none w-full h-full resize-none placeholder:text-black/25"></textarea>
                     </div>

@@ -14,6 +14,7 @@ const partners = [
 
 export default function AboutPage() {
   return (
+    <>
     <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
       {/* Main Container */}
       <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
@@ -176,7 +177,8 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
-      <Footer />
     </main>
+    <Footer />
+    </>
   );
 }
