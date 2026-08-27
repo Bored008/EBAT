@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from './Button';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -30,7 +31,10 @@ export function Navbar() {
   ];
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={cn(
         "sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 px-[24px] md:px-[90px]",
         scrolled
@@ -79,6 +83,7 @@ export function Navbar() {
           </Link>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
+

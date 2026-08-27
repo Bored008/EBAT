@@ -1,4 +1,6 @@
+'use client';
 import React from 'react';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { Icon, IconName } from '@/components/icons/Icon';
@@ -24,8 +26,9 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<HTMLMotionProps<"button">, 'ref'>,
     VariantProps<typeof buttonVariants> {
+  children?: React.ReactNode;
   leftIcon?: IconName;
   rightIcon?: IconName;
   iconClassName?: string;
@@ -34,17 +37,21 @@ export interface ButtonProps
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, leftIcon, rightIcon, iconClassName, children, ...props }, ref) => {
     return (
-      <button
+      <motion.button
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.95 }}
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       >
         {leftIcon && <Icon name={leftIcon} className={cn("w-[18px] h-[18px]", iconClassName)} />}
-        <span>{children}</span>
+        <span>{children as React.ReactNode}</span>
         {rightIcon && <Icon name={rightIcon} className={cn("w-[18px] h-[18px]", iconClassName)} />}
-      </button>
+      </motion.button>
     );
   }
 );
 
 Button.displayName = 'Button';
+
+

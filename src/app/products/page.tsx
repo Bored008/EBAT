@@ -1,4 +1,8 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
@@ -88,6 +92,18 @@ const products: Product[] = [
 ];
 
 export default function ProductsPage() {
+  gsap.registerPlugin(ScrollTrigger);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.product-card', 
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out' }
+      );
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
   return (
     <>
     <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
@@ -326,4 +342,5 @@ export default function ProductsPage() {
     </>
   );
 }
+
 
