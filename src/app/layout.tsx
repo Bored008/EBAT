@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Oswald, Instrument_Serif, Jersey_25 } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
+import { QuoteModal } from '@/components/ui/QuoteModal';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <QuoteModal />
       </body>
     </html>
   );

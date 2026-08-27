@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export function CTA() {
@@ -19,13 +20,15 @@ export function CTA() {
 
           {/* Description */}
           <p className="font-sans text-[16px] text-black/75 leading-[24px] tracking-[-0.02em]">
-            EBAT brings together precision drones, real-time edge AI, and end-to-end service — so your fleet never has to choose between capability and reliability. From close-range FPV missions to long-range security deployments, we&apos;re the one partner built to keep you flying, mission after mission.
+            EBAT brings together precision drones, real-time edge AI, and end-to-end service - so your fleet never has to choose between capability and reliability. From close-range FPV missions to long-range security deployments, we&apos;re the one partner built to keep you flying, mission after mission.
           </p>
 
           {/* Button */}
-          <Button variant="outline" className="border-t-0 border-x-[1px] border-b-[1px] border-[#F00511] text-[#F00511] px-[24px]">
-            Request a Quote
-          </Button>
+          <Link href="?quote=true" className="inline-block">
+            <Button variant="outline" className="border-t-0 border-x-[1px] border-b-[1px] border-[#F00511] text-[#F00511] px-[24px]">
+              Request a Quote
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -18,14 +18,13 @@ export function QuoteModalContent() {
   const closeModal = () => {
     const newParams = new URLSearchParams(searchParams.toString());
     newParams.delete('quote');
-    const queryString = newParams.toString();
-    router.push(queryString ? `${pathname}?${queryString}` : pathname);
+    router.push(`${pathname}?${newParams.toString()}`);
   };
 
   if (!mounted || !isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-40 flex items-end justify-center pt-[90px] md:pt-[100px]">
       {/* Background Blur Overlay */}
       <div 
         className="absolute inset-0 bg-black/40 backdrop-blur-[12.5px]"
@@ -33,7 +32,7 @@ export function QuoteModalContent() {
       />
       
       {/* Form Container */}
-      <div className="relative w-full max-w-[833px] bg-white rounded-xl border border-black/60 p-[32px] md:p-[32px_44px] flex flex-col gap-[32px] max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-[833px] h-full bg-white rounded-t-[12px] border border-black/60 border-b-0 p-[32px] md:p-[32px_44px] flex flex-col gap-[32px] overflow-y-auto shadow-2xl pb-[120px]">
         {/* Info Section */}
         <div className="flex flex-col gap-[15px]">
           <h2 className="font-sans font-semibold text-[24px] text-[#F00511]">
@@ -46,7 +45,7 @@ export function QuoteModalContent() {
               <input 
                 type="text" 
                 placeholder="Enter your first name" 
-                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50"
+                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50"
               />
             </div>
             <div className="flex-1 flex flex-col gap-[8px]">
@@ -54,7 +53,7 @@ export function QuoteModalContent() {
               <input 
                 type="text" 
                 placeholder="Enter your last name" 
-                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50"
+                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50"
               />
             </div>
           </div>
@@ -64,7 +63,7 @@ export function QuoteModalContent() {
             <input 
               type="text" 
               placeholder="Enter your company name" 
-              className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50"
+              className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50"
             />
           </div>
 
@@ -74,7 +73,7 @@ export function QuoteModalContent() {
               <input 
                 type="email" 
                 placeholder="Enter your email address" 
-                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50"
+                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50"
               />
             </div>
             <div className="flex-1 flex flex-col gap-[8px]">
@@ -82,7 +81,7 @@ export function QuoteModalContent() {
               <input 
                 type="tel" 
                 placeholder="Enter your phone number" 
-                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50"
+                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50"
               />
             </div>
           </div>
@@ -91,8 +90,11 @@ export function QuoteModalContent() {
             <div className="flex-1 flex flex-col gap-[8px]">
               <label className="font-sans font-normal text-[15px] text-black/75">Country *</label>
               <div className="relative">
-                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                  <option value="">Choose your country</option>
+                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                  <option value="" disabled hidden className="text-black/25">Choose your country</option>
+                  <option value="usa" className="text-black">United States</option>
+                  <option value="uk" className="text-black">United Kingdom</option>
+                  <option value="ind" className="text-black">India</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,8 +106,11 @@ export function QuoteModalContent() {
             <div className="flex-1 flex flex-col gap-[8px]">
               <label className="font-sans font-normal text-[15px] text-black/75">State *</label>
               <div className="relative">
-                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                  <option value="">Choose your State</option>
+                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                  <option value="" disabled hidden className="text-black/25">Choose your State</option>
+                  <option value="ny" className="text-black">New York</option>
+                  <option value="ca" className="text-black">California</option>
+                  <option value="tx" className="text-black">Texas</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,8 +124,11 @@ export function QuoteModalContent() {
           <div className="flex flex-col gap-[8px]">
             <label className="font-sans font-normal text-[15px] text-black/75">City *</label>
             <div className="relative">
-              <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                <option value="">Choose your city</option>
+              <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                <option value="" disabled hidden className="text-black/25">Choose your city</option>
+                <option value="nyc" className="text-black">New York City</option>
+                <option value="la" className="text-black">Los Angeles</option>
+                <option value="sf" className="text-black">San Francisco</option>
               </select>
               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                 <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,8 +149,11 @@ export function QuoteModalContent() {
             <div className="flex-1 flex flex-col gap-[8px]">
               <label className="font-sans font-normal text-[15px] text-black/75">Product Category *</label>
               <div className="relative">
-                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                  <option value="">FPV / Fixed Wing / Edge AI Devices</option>
+                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                  <option value="" disabled hidden className="text-black/25">FPV / Fixed Wing / Edge AI Devices</option>
+                  <option value="fpv" className="text-black">FPV Drones</option>
+                  <option value="fixed" className="text-black">Fixed Wing</option>
+                  <option value="edge" className="text-black">Edge AI Devices</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,8 +165,12 @@ export function QuoteModalContent() {
             <div className="flex-1 flex flex-col gap-[8px]">
               <label className="font-sans font-normal text-[15px] text-black/75">Drone Model</label>
               <div className="relative">
-                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                  <option value="">Select model</option>
+                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                  <option value="" disabled hidden className="text-black/25">Select model</option>
+                  <option value="sentinel" className="text-black">Sentinel</option>
+                  <option value="vantage" className="text-black">Vantage</option>
+                  <option value="warden" className="text-black">Warden</option>
+                  <option value="eagle" className="text-black">Eagle</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,14 +187,17 @@ export function QuoteModalContent() {
               <input 
                 type="number" 
                 placeholder="Enter number of units" 
-                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50"
+                className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50"
               />
             </div>
             <div className="flex-1 flex flex-col gap-[8px]">
               <label className="font-sans font-normal text-[15px] text-black/75">Intended Use Case *</label>
               <div className="relative">
-                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                  <option value="">Commercial / Defense / Other</option>
+                <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                  <option value="" disabled hidden className="text-black/25">Commercial / Defense / Other</option>
+                  <option value="commercial" className="text-black">Commercial</option>
+                  <option value="defense" className="text-black">Defense</option>
+                  <option value="other" className="text-black">Other</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -193,8 +211,11 @@ export function QuoteModalContent() {
           <div className="flex flex-col gap-[8px]">
             <label className="font-sans font-normal text-[15px] text-black/75">Deployment Timeline *</label>
             <div className="relative">
-              <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 appearance-none bg-white outline-none focus:border-black/50">
-                <option value="">Immediate / 1-3 months / 3-6 months</option>
+              <select className="w-full px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] appearance-none bg-white outline-none focus:border-black/50 invalid:text-black/25" required defaultValue="">
+                <option value="" disabled hidden className="text-black/25">Immediate / 1-3 months / 3-6 months</option>
+                <option value="immediate" className="text-black">Immediate</option>
+                <option value="1-3" className="text-black">1-3 months</option>
+                <option value="3-6" className="text-black">3-6 months</option>
               </select>
               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                 <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -208,7 +229,7 @@ export function QuoteModalContent() {
             <label className="font-sans font-normal text-[15px] text-black/75">Project Requirement</label>
             <textarea 
               placeholder="Tell us about your mission requirements, terrain, or specific capabilities needed"
-              className="w-full h-[140px] px-[12px] py-[10px] border border-black/25 rounded-lg text-black/75 outline-none focus:border-black/50 resize-y"
+              className="w-full h-[140px] px-[12px] py-[10px] border border-black/25 rounded-lg text-black text-[12px] placeholder:text-black/25 outline-none focus:border-black/50 resize-y"
             />
           </div>
         </div>
@@ -216,7 +237,7 @@ export function QuoteModalContent() {
         {/* Submit Button */}
         <button 
           onClick={closeModal}
-          className="w-full bg-[#F00511] hover:bg-[#D0040E] transition-colors duration-200 text-white font-medium text-[14px] py-[12px] rounded-lg mt-2"
+          className="w-full bg-[#F00511] hover:bg-[#D0040E] transition-colors duration-200 text-white font-medium text-[14px] py-[12px] rounded-lg mt-2 mb-4"
         >
           Submit Quote Request
         </button>
