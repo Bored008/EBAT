@@ -8,13 +8,13 @@ export default function ServicesPage() {
     <div className="flex flex-col min-h-screen bg-black">
       <main className="flex-1 flex flex-col items-center pt-[32px]">
         {/* Header Section */}
-        <div className="flex flex-col items-center gap-[16px] w-full max-w-[1260px] px-4 md:px-0">
+        <div className="flex flex-col items-center gap-[8px] w-full max-w-[1260px] px-4 md:px-0">
           <div className="flex flex-col items-center gap-[28px] w-full">
             <p className="w-full text-left font-sans text-[16px] font-normal text-white/75 tracking-[-0.05em]">
               <span className="text-[#F00511]">/</span> Services
             </p>
             <h1 className="font-heading font-bold text-[64px] leading-[86px] tracking-[-0.05em] text-white text-center">
-              Support That Keeps You <span className="font-accent italic font-normal text-[#F00511] underline">Flying</span>
+              Support That Keeps You <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">Flying</span>
             </h1>
           </div>
           <p className="font-sans text-[16px] font-normal text-white/75 tracking-[-0.02em] text-center">
