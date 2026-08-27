@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Footer } from '@/components/sections/Footer';
 
 interface ServiceCardData {
@@ -221,7 +222,7 @@ export default function ServicesPage() {
             </section>
           </div>
 
-          {/* Section 2: Fixed Wing Support Section (Interactive State Cards) */}
+          {/* Section 2: Fixed Wing Support Section (Interactive State Cards, Figma node 426:1348) */}
           <section className="flex flex-col gap-[36px] w-full max-w-[1260px] mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.15] tracking-[-0.05em] text-white">
@@ -270,86 +271,101 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* Interactive 3-Card Deck */}
+            {/* Interactive 3-Card Deck with Smooth Crossfade and Fixed Height Container */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[31px]">
               {serviceCards.map((card) => {
                 const isActive = activeCard === card.id;
-
-                if (isActive) {
-                  return (
-                    <div
-                      key={card.id}
-                      onClick={() => setActiveCard(card.id)}
-                      className="flex flex-col justify-end p-[24px_20px] md:p-[40px_20px] bg-[#F00511] min-h-[418px] cursor-pointer transition-all duration-300"
-                    >
-                      <div className="flex flex-col gap-[15px]">
-                        <h3 className="font-heading font-bold text-[64px] leading-[1] text-white">
-                          {card.title}
-                        </h3>
-                        <p className="font-sans text-[16px] text-white tracking-[-0.02em]">
-                          {card.description}
-                        </p>
-                        <div className="font-sans text-[16px] text-white/75 tracking-[-0.02em] flex flex-col gap-1">
-                          {card.bullets.map((bullet, idx) => (
-                            <p key={idx}>- {bullet}</p>
-                          ))}
-                        </div>
-                        <div className="mt-4">
-                          <button className="w-[46px] h-[46px] rounded-full border border-white flex justify-center items-center hover:bg-white/10 transition">
-                            <svg
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="text-white"
-                            >
-                              <path d="M7 7h10v10" />
-                              <path d="M7 17 17 7" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
 
                 return (
                   <div
                     key={card.id}
                     onClick={() => setActiveCard(card.id)}
-                    className="flex flex-col gap-[5px] cursor-pointer group transition-all duration-300"
+                    className="relative h-[504px] w-full cursor-pointer select-none overflow-hidden"
                   >
-                    <div className="relative w-full h-[418px] bg-white overflow-hidden">
-                      <Image
-                        src={card.image}
-                        alt={card.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <button className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex justify-center items-center bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511] transition-all">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-white"
+                    <AnimatePresence mode="wait" initial={false}>
+                      {isActive ? (
+                        <motion.div
+                          key={`active-${card.id}`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute inset-0 flex flex-col justify-end p-[32px_24px] md:p-[40px_24px] bg-[#F00511] h-full"
                         >
-                          <path d="M7 7h10v10" />
-                          <path d="M7 17 17 7" />
-                        </svg>
-                      </button>
-                    </div>
-                    <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">
-                      {card.title}
-                    </h3>
+                          <div className="flex flex-col gap-[15px] z-10">
+                            <h3 className="font-heading font-bold text-[56px] md:text-[64px] leading-[1] text-white tracking-[-0.05em]">
+                              {card.title}
+                            </h3>
+                            <p className="font-sans text-[16px] leading-[1.4] text-white tracking-[-0.02em]">
+                              {card.description}
+                            </p>
+                            <div className="font-sans text-[16px] leading-[1.5] text-white/75 tracking-[-0.02em] flex flex-col gap-1">
+                              {card.bullets.map((bullet, idx) => (
+                                <p key={idx}>- {bullet}</p>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Arrow Positioned at Bottom-Right in Active Card (Figma node 426:1354) */}
+                          <div className="absolute bottom-[20px] right-[20px] z-20">
+                            <div className="w-[46px] h-[46px] rounded-full border border-white flex items-center justify-center hover:bg-white/10 transition-colors">
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="white"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              >
+                                <path d="M7 7h10v10" />
+                                <path d="M7 17 17 7" />
+                              </svg>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key={`inactive-${card.id}`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute inset-0 flex flex-col gap-[5px] h-full group"
+                        >
+                          <div className="relative w-full h-[418px] bg-[#1D1D1F] overflow-hidden">
+                            <Image
+                              src={card.image}
+                              alt={card.title}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 407px"
+                              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                            />
+                            {/* Arrow Positioned at Bottom-Right in Inactive Card (Figma node 426:1358 / 426:1363) */}
+                            <div className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex items-center justify-center bg-black/30 backdrop-blur-md group-hover:bg-[#F00511] transition-all duration-300 z-20">
+                              <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="text-white transition-colors"
+                              >
+                                <path d="M7 7h10v10" />
+                                <path d="M7 17 17 7" />
+                              </svg>
+                            </div>
+                          </div>
+                          <h3 className="font-heading font-bold text-[56px] md:text-[64px] leading-[1] text-[#F00511] tracking-[-0.05em] pt-[4px]">
+                            {card.title}
+                          </h3>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}
