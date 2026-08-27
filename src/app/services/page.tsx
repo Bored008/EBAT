@@ -1,13 +1,51 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Footer } from '@/components/sections/Footer';
+
+const serviceCards = [
+  {
+    id: 'repair',
+    title: 'Repair',
+    image: '/images/services/image_54-73f691.png',
+    description: 'Structural and airframe repairs to handle wear from extended flight hours.',
+    bullets: [
+      'Airframe & wing repair',
+      'Motor & propulsion servicing',
+      'Fast diagnostics turnaround',
+    ],
+  },
+  {
+    id: 'maintenance',
+    title: 'Maintenance',
+    image: '/images/services/image_63.png',
+    description: 'Routine servicing and comprehensive diagnostics to guarantee continuous operational readiness.',
+    bullets: [
+      'Scheduled pre-flight inspections',
+      'Avionics & edge-AI calibration',
+      'Battery health & power checks',
+    ],
+  },
+  {
+    id: 'parts',
+    title: 'Genuine Parts',
+    image: '/images/services/image_65-500d9f.png',
+    description: 'OEM-grade replacement components engineered specifically for EBAT endurance airframes.',
+    bullets: [
+      'Factory-certified spares in stock',
+      'High-capacity power packs',
+      'Rapid dispatch and global delivery',
+    ],
+  },
+];
 
 export default function ServicesPage() {
   const heroRef = useRef(null);
+  const [activeCard, setActiveCard] = useState('repair');
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -40,13 +78,13 @@ export default function ServicesPage() {
         </div>
 
         {/* Masonry Grid Section */}
-        <div className="flex flex-col md:flex-row gap-[20px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px] h-auto md:h-[782px]">
+        <div className="flex flex-col md:flex-row gap-[20px] w-full max-w-[1260px] px-4 md:px-0 mt-[120px]">
           {/* Left Column */}
           <div className="flex flex-col gap-[20px] w-full md:w-[407px] h-full">
             {/* FPV Repair */}
-            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
-              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
-                <Image src="/images/services/icons/wrench.svg" alt="Repair" width={22} height={22} />
+            <div className="flex flex-col gap-[33px] bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <Image src="/images/services/icons/wrench.svg" alt="Repair" width={24} height={24} />
               </div>
               <div className="flex flex-col gap-[6px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">FPV Repair</h3>
@@ -55,9 +93,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Fixed Wing Maintenance */}
-            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
-              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
-                <Image src="/images/services/icons/plane.svg" alt="Maintenance" width={25} height={25} />
+            <div className="flex flex-col gap-[34px] bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <Image src="/images/services/icons/plane.svg" alt="Maintenance" width={24} height={24} />
               </div>
               <div className="flex flex-col gap-[5px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Fixed Wing Maintenance</h3>
@@ -101,9 +139,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Genuine Parts */}
-            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
-              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
-                <Image src="/images/services/icons/certificate.svg" alt="Genuine Parts" width={25} height={25} />
+            <div className="flex flex-col gap-[33px] bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <Image src="/images/services/icons/certificate.svg" alt="Genuine Parts" width={24} height={24} />
               </div>
               <div className="flex flex-col gap-[6px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Genuine Parts</h3>
@@ -112,9 +150,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Pilot Training */}
-            <div className="flex flex-col justify-between bg-[#1D1D1F] p-[24px_27px] flex-1">
-              <div className="bg-[#333335] w-[46px] h-[46px] rounded-[26px] flex justify-center items-center">
-                <Image src="/images/services/icons/certificate.svg" alt="Pilot Training" width={25} height={25} />
+            <div className="flex flex-col gap-[33px] bg-[#1D1D1F] p-[24px_27px] flex-1">
+              <div className="bg-[#333335] w-[50px] h-[50px] rounded-full flex justify-center items-center">
+                <Image src="/images/services/icons/certificate.svg" alt="Pilot Training" width={24} height={24} />
               </div>
               <div className="flex flex-col gap-[6px]">
                 <h3 className="font-heading font-semibold text-[32px] tracking-[-0.02em] text-white">Pilot Training</h3>
@@ -146,58 +184,104 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-[31px]">
-            {/* Red Card */}
-            <div className="flex flex-col justify-end p-[24px_20px] md:p-[40px_20px] bg-[#F00511] flex-1 md:w-[384px] min-h-[418px]">
-              <div className="flex flex-col gap-[15px]">
-                <h3 className="font-heading font-bold text-[64px] leading-[1] text-white">Repair</h3>
-                <p className="font-sans text-[16px] text-white tracking-[-0.02em]">
-                  Structural and airframe repairs to handle wear from extended flight hours.
-                </p>
-                <div className="font-sans text-[16px] text-white/75 tracking-[-0.02em]">
-                  <p>- Airframe & wing repair</p>
-                  <p>- Motor & propulsion servicing</p>
-                  <p>- Fast diagnostics turnaround</p>
-                </div>
-                <div className="mt-4">
-                  <button className="w-[46px] h-[46px] rounded-full border border-white flex justify-center items-center transition-transform hover:scale-105 active:scale-95">
-                    <ArrowUpRight className="text-white" size={20} />
-                  </button>
-                </div>
-              </div>
-            </div>
+          {/* Interactive 3-Card Deck with Smooth Crossfade */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[31px]">
+            {serviceCards.map((card) => {
+              const isActive = activeCard === card.id;
 
-            {/* Maintenance Image Card */}
-            <div className="flex flex-col gap-[5px] flex-1 md:w-[406px]">
-              <div className="relative w-full h-[418px] bg-white overflow-hidden group cursor-pointer">
-                <Image 
-                  src="/images/services/image_63.png"
-                  alt="Maintenance"
-                  fill
-                  className="object-cover"
-                />
-                <button className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex justify-center items-center bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511] transition-all duration-300">
-                  <ArrowUpRight className="text-white" size={20} />
-                </button>
-              </div>
-              <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">Maintenance</h3>
-            </div>
+              return (
+                <div
+                  key={card.id}
+                  onClick={() => setActiveCard(card.id)}
+                  className="relative h-[504px] w-full cursor-pointer select-none overflow-hidden group"
+                >
+                  {/* Inactive State (Image + Bottom Title) */}
+                  <motion.div
+                    initial={false}
+                    animate={{ opacity: isActive ? 0 : 1 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    className="absolute inset-0 flex flex-col gap-[5px] z-0 pointer-events-none"
+                  >
+                    <div className="relative w-full h-[418px] overflow-hidden bg-white">
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 407px"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      {/* Inactive Arrow - Inside the image, bottom right (matches the hardcoded version) */}
+                      <div className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex items-center justify-center transition-colors duration-300 bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511]">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M7 17L17 7" />
+                          <path d="M7 7h10v10" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="px-0 relative w-full flex items-center">
+                      <h3 className="font-heading font-bold text-[56px] md:text-[64px] leading-[1] text-[#F00511] tracking-[-0.05em] pt-[4px]">
+                        {card.title}
+                      </h3>
+                    </div>
+                  </motion.div>
 
-            {/* Genuine Parts Image Card */}
-            <div className="flex flex-col gap-[5px] flex-1 md:w-[407px]">
-              <div className="relative w-full h-[418px] bg-white overflow-hidden group cursor-pointer">
-                <Image 
-                  src="/images/services/image_65-500d9f.png"
-                  alt="Genuine Parts"
-                  fill
-                  className="object-cover"
-                />
-                <button className="absolute bottom-[20px] right-[20px] w-[46px] h-[46px] rounded-full border border-[#F00511] flex justify-center items-center bg-black/20 backdrop-blur-sm group-hover:bg-[#F00511] transition-all duration-300">
-                  <ArrowUpRight className="text-white" size={20} />
-                </button>
-              </div>
-              <h3 className="font-heading font-bold text-[64px] leading-[1] text-[#F00511]">Genuine Parts</h3>
-            </div>
+                  {/* Active State (Red Background + Centered Content) */}
+                  <motion.div
+                    initial={false}
+                    animate={{ opacity: isActive ? 1 : 0 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    className="absolute inset-0 bg-[#F00511] z-10 flex flex-col justify-center px-[24px] md:px-[40px] pointer-events-none"
+                  >
+                    <motion.div
+                      initial={false}
+                      animate={{ y: isActive ? 0 : 15, opacity: isActive ? 1 : 0 }}
+                      transition={{ duration: 0.5, ease: 'easeOut', delay: isActive ? 0.1 : 0 }}
+                      className="flex flex-col gap-[15px]"
+                    >
+                      <h3 className="font-heading font-bold text-[56px] md:text-[64px] leading-[1] text-white tracking-[-0.05em]">
+                        {card.title}
+                      </h3>
+                      <p className="font-sans text-[16px] leading-[1.4] text-white tracking-[-0.02em]">
+                        {card.description}
+                      </p>
+                      <div className="font-sans text-[16px] leading-[1.5] text-white/90 tracking-[-0.02em] flex flex-col gap-[4px] mt-[10px]">
+                        {card.bullets.map((bullet, idx) => (
+                          <p key={idx}>- {bullet}</p>
+                        ))}
+                      </div>
+                    </motion.div>
+
+                    {/* Active Arrow - Bottom Left */}
+                    <div className="absolute bottom-[40px] left-[24px] md:left-[40px]">
+                      <div className="w-[46px] h-[46px] rounded-full border border-white flex items-center justify-center transition-transform hover:scale-105 active:scale-95">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M7 17L17 7" />
+                          <path d="M7 7h10v10" />
+                        </svg>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
