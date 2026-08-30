@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section className="relative w-full flex flex-col items-center pt-[84px]">
+    <section className="relative w-full flex flex-col items-center pt-[20px] md:pt-[32px]">
       {/* Background Glow */}
       <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
 
