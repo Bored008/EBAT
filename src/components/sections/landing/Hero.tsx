@@ -12,7 +12,7 @@ export function Hero() {
       <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
 
       {/* Hero Container */}
-      <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[834px] px-6 z-10 relative pb-[60px]">
+      <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[1000px] px-6 z-10 relative pb-[60px]">
         
         {/* Drone Image & Background Text */}
         <div className="relative w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-end">
@@ -47,11 +47,11 @@ export function Hero() {
           initial={{ y: 30, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center gap-[18px] w-full max-w-[813px] text-center mt-4 md:mt-0"
+          className="flex flex-col items-center gap-[18px] w-full text-center mt-4 md:mt-0"
         >
           <div className="flex flex-col items-center gap-[12px] w-full">
-            <h1 className="font-heading font-bold text-[52px] leading-[1.05] sm:text-[56px] sm:leading-[1.1] md:text-[73.33px] md:leading-[1] text-white m-0 w-full inline-block">
-              Built for the Unseen <span className="font-accent italic font-normal text-[#F00511] whitespace-nowrap">Threat.</span>
+            <h1 className="font-heading font-bold text-[52px] leading-[1.05] sm:text-[56px] sm:leading-[1.1] md:text-[73.33px] md:leading-[1] text-white m-0 w-full inline-block whitespace-normal lg:whitespace-nowrap">
+              Built for the Unseen <span className="font-accent italic font-normal text-[#F00511]">Threat.</span>
             </h1>
             <p className="font-sans text-[14px] sm:text-[16px] text-white/75 -tracking-[0.02em] w-full max-w-[400px] md:max-w-none">
               Edge AI drones that detect, track, and respond in real time — even off the grid.
