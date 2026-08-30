@@ -7,20 +7,20 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center pt-[84px]">
+    <section className="relative w-full flex flex-col items-center pt-[84px]">
       {/* Background Glow */}
       <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
 
       {/* Hero Container */}
-      <div className="flex flex-col items-center gap-[16px] w-full max-w-[834px] px-4 z-10 relative">
+      <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[834px] px-4 z-10 relative pb-[60px]">
         
         {/* Drone Image & Background Text */}
-        <div className="relative w-full h-[412px] flex flex-col items-center justify-end">
+        <div className="relative w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-end">
           
           {/* EBAT Text (Masked) */}
-          <div className="absolute top-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none w-[834px] h-[293.63px]"
+          <div className="absolute top-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
                style={{ WebkitMaskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)', maskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)' }}>
-            <span className="font-display text-[432.22px] leading-[293.63px] text-white/90">
+            <span className="font-display text-[210px] sm:text-[280px] md:text-[432.22px] leading-[180px] sm:leading-[220px] md:leading-[293.63px] text-white/90">
               EBAT
             </span>
           </div>
@@ -30,7 +30,7 @@ export function Hero() {
             initial={{ y: 50, opacity: 1 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-full max-w-[833px] h-[297px]"
+            className="relative w-full max-w-[833px] h-[160px] sm:h-[220px] md:h-[297px]"
           >
             <Image 
               src="/images/products/hero-drone-62b94a.png" 
@@ -47,25 +47,29 @@ export function Hero() {
           initial={{ y: 30, opacity: 1 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center gap-[18px] w-full max-w-[813px] text-center"
+          className="flex flex-col items-center gap-[18px] w-full max-w-[813px] text-center mt-4 md:mt-0"
         >
           <div className="flex flex-col items-center gap-[12px] w-full">
-            <h1 className="font-heading font-bold text-[73.33px] leading-[64px] h-[64px] text-white m-0 flex items-center justify-center w-full">
-              Built for the Unseen <span className="font-accent italic font-normal text-[#F00511] ml-3">Threat.</span>
+            <h1 className="font-heading font-bold text-[52px] leading-[1.05] sm:text-[56px] sm:leading-[1.1] md:text-[73.33px] md:leading-[1] text-white m-0 w-full inline-block">
+              Built for the Unseen <span className="font-accent italic font-normal text-[#F00511] whitespace-nowrap">Threat.</span>
             </h1>
-            <p className="font-sans text-[16px] text-white/75 -tracking-[0.02em] w-full">
+            <p className="font-sans text-[14px] sm:text-[16px] text-white/75 -tracking-[0.02em] w-full max-w-[400px] md:max-w-none">
               Edge AI drones that detect, track, and respond in real time — even off the grid.
             </p>
           </div>
 
           {/* Buttons Container */}
-          <div className="flex flex-row items-center justify-center gap-[12px]">
-            <Button variant="filled">
-              Explore Solutions
-            </Button>
-            <Button variant="outline" rightIcon="talk-filled">
-              Talk to an Expert
-            </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-[12px] w-full sm:w-auto mt-4 md:mt-0 px-4 sm:px-0">
+            <div className="w-full sm:w-auto flex justify-center">
+              <Button variant="filled" className="w-full sm:w-auto">
+                Explore Solutions
+              </Button>
+            </div>
+            <div className="w-full sm:w-auto flex justify-center">
+              <Button variant="outline" rightIcon="talk-filled" className="w-full sm:w-auto">
+                Talk to an Expert
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>

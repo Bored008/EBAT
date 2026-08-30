@@ -14,7 +14,6 @@ export default function ServicesPage() {
         <FixedWingSupport />
         <CertificationSection />
       </main>
-      
       <Footer />
     </div>
   );

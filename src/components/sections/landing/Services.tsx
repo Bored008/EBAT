@@ -47,7 +47,7 @@ export function Services() {
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between w-full gap-8 lg:gap-0">
           {/* Heading Container */}
-          <div className="flex flex-col gap-[22px] max-w-[215px]">
+          <div className="flex flex-col gap-[22px] w-full md:max-w-[215px]">
             <p className="font-sans text-[16px] text-white/75 tracking-[-0.05em] flex items-center gap-1">
               <span className="text-[#F00511]">/</span> Services We Offer
             </p>
@@ -78,13 +78,16 @@ export function Services() {
         </div>
 
         {/* Services Cards */}
-        <div className="flex flex-row flex-wrap justify-center xl:justify-between items-center gap-[24px] xl:gap-0 w-full">
+        <div className="flex flex-col md:flex-row md:flex-wrap justify-center xl:justify-between items-center gap-[24px] xl:gap-0 w-full">
           {services.map((service, idx) => {
             const isFirst = idx === 0;
+            // Zigzag on mobile: intersect 50% of card width by translating 25% from center
+            const mobileAlign = idx % 2 === 0 ? 'self-center -translate-x-[25%] md:translate-x-0' : 'self-center translate-x-[25%] md:translate-x-0';
+
             return (
               <div 
                 key={service.id}
-                className="group relative w-[232px] h-[278px] cursor-pointer"
+                className={`group relative w-[232px] h-[278px] cursor-pointer ${mobileAlign} md:self-auto`}
               >
                 {/* Clipped Background Layer */}
                 <div 
@@ -126,7 +129,7 @@ export function Services() {
         </div>
         
         {/* Decorative Line */}
-        <div className="w-full flex justify-center mt-[-20px]">
+        <div className="w-full hidden md:flex justify-center mt-[-20px]">
           <div className="relative w-[685px] h-[3px]">
             <Image src="/images/services/services-line.svg" alt="line" fill sizes="685px" className="object-contain" />
           </div>

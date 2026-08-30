@@ -41,11 +41,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable} ${jersey25.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
+        className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable} ${jersey25.variable} font-sans antialiased bg-black text-white`}
       >
-        <Navbar />
-        {children}
-        <QuoteModal />
+        <div className="w-full overflow-x-hidden relative flex flex-col min-h-screen">
+          <Navbar />
+          {children}
+          <QuoteModal />
+        </div>
       </body>
     </html>
   );

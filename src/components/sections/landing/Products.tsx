@@ -71,13 +71,14 @@ export function Products() {
             From close-range recon to long-range defense - proven across every mission type.
           </p>
         </div>
-<div className='flex flex-col items-center gap-[32px] w-full'>
+        
+        <div className='flex flex-col items-center gap-[32px] w-full'>
   
-          {/* Cards Row */}
-          <div className="flex flex-col lg:flex-row items-center lg:items-end gap-[20px] w-full justify-center">
+          {/* DESKTOP View (Original Mixed Sizes) */}
+          <div className="hidden lg:flex flex-row items-end gap-[20px] w-full justify-center">
             {products.map((product) => (
               <div
-                key={product.id}
+                key={`desktop-${product.id}`}
                 className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
                 style={{
                   width: product.width,
@@ -85,32 +86,17 @@ export function Products() {
                   backgroundImage: `url('${product.bgImage}')`,
                 }}
               >
-                {/* Product Image */}
-                <div
-                  className="absolute overflow-hidden"
-                  style={product.imageStyle}
-                >
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="absolute overflow-hidden" style={product.imageStyle}>
+                  <Image src={product.image} alt={product.title} fill className="object-cover" />
                 </div>
-  
-                {/* Product Title */}
                 <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em]" style={product.titleStyle}>
                   {product.title}
                 </h3>
-  
-                {/* Product Features */}
                 <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2]" style={product.featuresStyle}>
                   {product.features.map((feature, idx) => (
                     <span key={idx} className="whitespace-nowrap">{feature}</span>
                   ))}
                 </div>
-  
-                {/* Absolute Positioned Button */}
                 {product.isLarge ? (
                   <Button variant="filled" rightIcon="top-right-arrow" className="absolute" style={product.buttonStyle}>
                     View Product
@@ -123,6 +109,49 @@ export function Products() {
               </div>
             ))}
           </div>
+
+          {/* MOBILE View (All Cards Equal Size = 300x394) */}
+          <div className="flex flex-col lg:hidden items-center gap-[40px] w-full justify-center">
+            {products.map((product) => {
+              // Override UCAV to use the small card properties on mobile
+              const isUcav = product.id === 'ucav';
+              const mWidth = 300;
+              const mHeight = 394;
+              const mBg = '/images/products/fpv-card-bg.svg';
+              const mImageStyle = { left: 9, top: 8.76, width: 282, height: 298, borderRadius: '12px' };
+              const mTitleStyle = { left: 8.87, top: 314.76, width: 280 };
+              const mFeaturesStyle = { left: 5, top: 343, width: 269 };
+              const mButtonStyle = { left: 198.02, top: 369 };
+
+              return (
+                <div
+                  key={`mobile-${product.id}`}
+                  className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
+                  style={{
+                    width: isUcav ? mWidth : product.width,
+                    height: isUcav ? mHeight : product.height,
+                    backgroundImage: `url('${isUcav ? mBg : product.bgImage}')`,
+                  }}
+                >
+                  <div className="absolute overflow-hidden" style={isUcav ? mImageStyle : product.imageStyle}>
+                    <Image src={product.image} alt={product.title} fill className="object-cover" />
+                  </div>
+                  <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em] whitespace-nowrap overflow-hidden text-ellipsis" style={isUcav ? mTitleStyle : product.titleStyle}>
+                    {product.title}
+                  </h3>
+                  <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[10px] leading-[1.2]" style={isUcav ? mFeaturesStyle : product.featuresStyle}>
+                    {product.features.map((feature, idx) => (
+                      <span key={idx} className="whitespace-nowrap">{feature}</span>
+                    ))}
+                  </div>
+                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={isUcav ? mButtonStyle : product.buttonStyle}>
+                    View Product
+                  </Button>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
     </section>
