@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { ContactFooter } from '@/components/sections/ContactFooter';
+import { Footer } from '@/components/sections/Footer';
 
 export default function ContactPage() {
   return (
@@ -204,7 +205,12 @@ export default function ContactPage() {
         </div>
       </div>
     </main>
-    <ContactFooter />
+    <div className="hidden lg:block w-full">
+      <ContactFooter />
+    </div>
+    <div className="block lg:hidden w-full">
+      <Footer />
+    </div>
     </>
   );
 }
