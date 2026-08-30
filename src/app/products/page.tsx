@@ -7,9 +7,9 @@ import { ProductsList } from '@/components/sections/products/ProductsList';
 export default function ProductsPage() {
   return (
     <>
-      <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[120px] px-[24px] md:px-[90px]">
+      <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[60px] md:pt-[120px] px-6 md:px-[90px]">
         {/* Main Container */}
-        <div className="flex flex-col gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
+        <div className="flex flex-col gap-[80px] md:gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
           <ProductsHeader />
           <ProductsList />
         </div>
