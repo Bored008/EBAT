@@ -140,10 +140,10 @@ export function ProductsList() {
           </div>
 
           {/* Showcase & Tactical HUD Container */}
-          <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex items-center justify-center">
+          <div className="relative w-full min-h-[460px] lg:min-h-[500px] flex flex-col items-center justify-start lg:justify-center">
             {/* Background Ambient Glow */}
             <div 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white rounded-full blur-[200px] z-0 pointer-events-none opacity-20" 
+              className="absolute top-[20%] lg:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-white rounded-full blur-[150px] lg:blur-[200px] z-0 pointer-events-none opacity-20" 
             />
 
             {/* Left Side Arrow Accent */}
@@ -170,10 +170,10 @@ export function ProductsList() {
             <div
               className={`relative w-full z-10 flex items-center justify-center ${
                 product.id === 'vantage'
-                  ? 'max-w-[720px] h-[320px] md:h-[380px] lg:h-[420px]'
+                  ? 'max-w-[720px] h-[220px] md:h-[380px] lg:h-[420px]'
                   : product.id === 'warden'
-                  ? 'max-w-[860px] h-[240px] md:h-[280px] lg:h-[300px]'
-                  : 'max-w-[620px] h-[260px] md:h-[320px] lg:h-[340px]'
+                  ? 'max-w-[860px] h-[180px] md:h-[280px] lg:h-[300px]'
+                  : 'max-w-[620px] h-[200px] md:h-[320px] lg:h-[340px]'
               }`}
             >
               <Image
@@ -241,45 +241,45 @@ export function ProductsList() {
               </div>
             </div>
 
-            {/* Mobile / Tablet Responsive Fallback Grid */}
-            <div className="lg:hidden w-full grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 z-20">
-              <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
-                <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
-                  Operating Temp
+            {/* Mobile / Tablet Stats (Desktop Style) */}
+            <div className="lg:hidden w-full grid grid-cols-2 gap-y-[32px] gap-x-[16px] mt-[32px] z-20 px-4 md:px-12">
+              <div className="flex flex-col gap-[4px] text-left">
+                <span className="font-sans font-medium text-[18px] md:text-[20px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                  OPERATING<br />TEMP
                 </span>
-                <span className="font-sans font-normal text-[14px] text-white">
+                <span className="font-sans font-normal text-[15px] md:text-[16px] tracking-[-0.05em] text-white leading-tight">
                   {product.operatingTemp}
                 </span>
               </div>
-              <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
-                <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
-                  Max Flight Time
+              <div className="flex flex-col gap-[4px] text-left">
+                <span className="font-sans font-medium text-[18px] md:text-[20px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                  MAX FLIGHT<br />TIME
                 </span>
-                <span className="font-sans font-normal text-[14px] text-white">
+                <span className="font-sans font-normal text-[15px] md:text-[16px] tracking-[-0.05em] text-white leading-tight">
                   {product.flightTime}
                 </span>
               </div>
-              <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
-                <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
-                  Service Ceiling
+              <div className="flex flex-col gap-[4px] text-left">
+                <span className="font-sans font-medium text-[18px] md:text-[20px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                  SERVICE<br />CEILING
                 </span>
-                <span className="font-sans font-normal text-[14px] text-white">
+                <span className="font-sans font-normal text-[15px] md:text-[16px] tracking-[-0.05em] text-white leading-tight">
                   {product.serviceCeiling}
                 </span>
               </div>
-              <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3">
-                <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
-                  Max Range
+              <div className="flex flex-col gap-[4px] text-left">
+                <span className="font-sans font-medium text-[18px] md:text-[20px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                  MAX<br />RANGE
                 </span>
-                <span className="font-sans font-normal text-[14px] text-white">
+                <span className="font-sans font-normal text-[15px] md:text-[16px] tracking-[-0.05em] text-white leading-tight">
                   {product.maxRange}
                 </span>
               </div>
-              <div className="flex flex-col gap-1 text-left bg-white/[0.02] border border-white/10 p-3 col-span-2 sm:col-span-1">
-                <span className="font-sans font-medium text-[14px] text-[#F00511] uppercase">
-                  Payload Capacity
+              <div className="flex flex-col gap-[4px] text-left col-span-2">
+                <span className="font-sans font-medium text-[18px] md:text-[20px] tracking-[-0.05em] text-[#F00511] uppercase leading-tight">
+                  PAYLOAD CAPACITY
                 </span>
-                <span className="font-sans font-normal text-[14px] text-white">
+                <span className="font-sans font-normal text-[15px] md:text-[16px] tracking-[-0.05em] text-white leading-tight">
                   {product.payloadCapacity}
                 </span>
               </div>
