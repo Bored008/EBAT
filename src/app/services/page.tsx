@@ -8,11 +8,14 @@ import { CertificationSection } from '@/components/sections/services/Certificati
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      <main className="flex-1 flex flex-col items-center pt-[32px]">
-        <ServicesHeader />
-        <MasonryGrid />
-        <FixedWingSupport />
-        <CertificationSection />
+      <main className="w-full flex-1 flex flex-col items-center pt-[60px] md:pt-[120px] px-6 md:px-[90px]">
+        {/* Main Container */}
+        <div className="flex flex-col gap-[80px] md:gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
+          <ServicesHeader />
+          <MasonryGrid />
+          <FixedWingSupport />
+          <CertificationSection />
+        </div>
       </main>
       <Footer />
     </div>

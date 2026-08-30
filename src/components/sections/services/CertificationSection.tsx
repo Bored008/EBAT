@@ -43,7 +43,7 @@ export function CertificationSection() {
   const [activeStep, setActiveStep] = useState<number>(1);
 
   return (
-    <div className="flex flex-col gap-[36px] w-full max-w-[1260px] px-6 md:px-0 mt-[120px] mb-[120px]">
+    <div className="flex flex-col gap-[36px] w-full">
       <div className="flex flex-col md:flex-row justify-between items-end gap-6">
         <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
           From First <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">Flight</span>,<br />

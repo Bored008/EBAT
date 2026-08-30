@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export function MasonryGrid() {
   return (
-    <div className="flex flex-col md:flex-row gap-[20px] w-full max-w-[1260px] px-6 md:px-0 mt-[120px]">
+    <div className="flex flex-col md:flex-row gap-[20px] w-full">
           {/* Left Column */}
           <div className="flex flex-col gap-[20px] w-full md:w-[407px] h-full">
             {/* FPV Repair */}
