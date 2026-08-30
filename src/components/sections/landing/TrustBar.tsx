@@ -10,7 +10,7 @@ const stats = [
 
 export function TrustBar() {
   return (
-    <section className="w-full flex justify-center px-4 overflow-hidden">
+    <section className="w-full flex justify-center px-6 overflow-hidden">
       
       {/* Desktop View (Static Row) */}
       <div className="hidden md:flex flex-row items-stretch w-full max-w-[1259px] rounded-[13px]">

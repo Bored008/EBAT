@@ -45,14 +45,14 @@ export function FAQ() {
   };
 
   return (
-    <section className="w-full flex justify-center px-4 md:px-8">
+    <section className="w-full flex justify-center px-6 md:px-8">
       <div className="flex flex-col lg:flex-row items-stretch justify-between w-full max-w-[1260px] gap-[40px] lg:gap-[117px]">
         
         {/* Left Column - General Questions */}
         <div className="flex flex-col justify-between w-full lg:w-[513px] gap-8 lg:gap-0">
           <div className="max-w-[470px]">
             <h2 className="font-heading font-bold text-[48px] lg:text-[64px] leading-tight lg:leading-[72px] tracking-[-0.02em] text-white">
-              General Questions asked by <span className="font-accent italic font-normal text-[#F00511]/75">customers</span>
+              General Questions asked by <span className="font-accent italic font-normal text-[#F00511]/75 underline decoration-1 underline-offset-4">customers</span>
               <span className="font-accent font-normal text-[#F00511]/75">.</span>
             </h2>
           </div>

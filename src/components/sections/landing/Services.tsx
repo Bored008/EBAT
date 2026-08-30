@@ -42,8 +42,8 @@ const services = [
 
 export function Services() {
   return (
-    <section className="w-full flex flex-col items-center px-4">
-      <div className="flex flex-col items-center gap-[76px] w-full max-w-[1260px]">
+    <section className="w-full flex flex-col items-center px-6">
+      <div className="flex flex-col items-center gap-[40px] md:gap-[76px] w-full max-w-[1260px]">
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between w-full gap-8 lg:gap-0">
           {/* Heading Container */}
@@ -51,7 +51,7 @@ export function Services() {
             <p className="font-sans text-[16px] text-white/75 tracking-[-0.05em] flex items-center gap-1">
               <span className="text-[#F00511]">/</span> Services We Offer
             </p>
-            <h2 className="font-heading font-bold text-[64px] leading-[86px] tracking-[-0.05em] text-white m-0">
+            <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-tight md:leading-[86px] tracking-[-0.05em] text-white m-0">
               <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-4">Certified</span><br />
               Reliability
             </h2>

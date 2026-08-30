@@ -12,7 +12,7 @@ export function Hero() {
       <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
 
       {/* Hero Container */}
-      <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[834px] px-4 z-10 relative pb-[60px]">
+      <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[834px] px-6 z-10 relative pb-[60px]">
         
         {/* Drone Image & Background Text */}
         <div className="relative w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-end">
@@ -59,7 +59,7 @@ export function Hero() {
           </div>
 
           {/* Buttons Container */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-[12px] w-full sm:w-auto mt-4 md:mt-0 px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-[12px] w-full sm:w-auto mt-4 md:mt-0 px-6 sm:px-0">
             <div className="w-full sm:w-auto flex justify-center">
               <Button variant="filled" className="w-full sm:w-auto">
                 Explore Solutions

@@ -49,7 +49,7 @@ export function WhyChoose() {
       </div>
 
       {/* Features Grid - Mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] w-full mt-[100px] lg:hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] w-full mt-[40px] md:mt-[100px] lg:hidden">
         {features.map((feature, index) => (
           <div key={index} className="flex flex-col items-center text-center gap-2 max-w-[320px] mx-auto">
             {/* Icon */}

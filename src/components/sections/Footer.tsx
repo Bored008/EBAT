@@ -161,67 +161,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Form */}
-          <div className="flex flex-col gap-[24px] w-full max-w-[405px]">
-            <div className="flex flex-col gap-[12px]">
-              <h3 className="font-sans font-semibold text-[32px] text-black">Send Us a Message</h3>
-              <p className="font-sans text-[14px] text-black/75 tracking-[-0.02em]">
-                Fill up the form and our team will get back to you with in 24 hours.
-              </p>
-            </div>
-            <div className="flex flex-col gap-[16px]">
-              <div className="flex flex-col gap-[14px]">
-                {/* Row 1: First Name & Phone */}
-                <div className="flex flex-col sm:flex-row justify-between items-start gap-[14px]">
-                  <div className="flex flex-col gap-[8px] flex-1 w-full">
-                    <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">First name</label>
-                    <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
-                      <Image src="/images/footer/person.svg" alt="Person" width={13} height={13} />
-                      <input type="text" placeholder="Enter first name" className="bg-transparent text-[12px] text-black outline-none w-full placeholder:text-black/25" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-[8px] flex-1 w-full">
-                    <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Phone</label>
-                    <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
-                      <Image src="/images/footer/phone-outline.svg" alt="Phone" width={13} height={13} />
-                      <input type="text" placeholder="Enter phone" className="bg-transparent text-[12px] text-black outline-none w-full placeholder:text-black/25" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Row 2: Email & Company (left) | Message (right) */}
-                <div className="flex flex-col sm:flex-row justify-between items-stretch gap-[14px]">
-                  {/* Left Column */}
-                  <div className="flex flex-col gap-[16px] flex-1 w-full">
-                    <div className="flex flex-col gap-[8px]">
-                      <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Email</label>
-                      <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
-                        <Image src="/images/footer/email.svg" alt="Email" width={13} height={13} />
-                        <input type="email" placeholder="Enter email" className="bg-transparent text-[12px] text-black outline-none w-full placeholder:text-black/25" />
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-[8px]">
-                      <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Company Name</label>
-                      <div className="flex flex-row items-center gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px]">
-                        <Image src="/images/footer/building.svg" alt="Company" width={13} height={13} />
-                        <input type="text" placeholder="Enter Company Name" className="bg-transparent text-[12px] text-black outline-none w-full placeholder:text-black/25" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Column */}
-                  <div className="flex flex-col gap-[8px] flex-1 w-full">
-                    <label className="font-sans font-medium text-[14px] tracking-[-0.02em] text-black/75">Message</label>
-                    <div className="flex flex-row items-start gap-[7px] border border-black/25 rounded-[5px] px-[8px] py-[6px] flex-1 min-h-[100px]">
-                      <div className="mt-1 flex-shrink-0"><Image src="/images/footer/notebook.svg" alt="Message" width={13} height={13} /></div>
-                      <textarea placeholder="Enter your message" className="bg-transparent text-[12px] text-black outline-none w-full h-full resize-none placeholder:text-black/25"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <Button variant="filled" className="w-full rounded-[5px] py-[7px]">Submit</Button>
-          </div>
+          {/* Form is hidden on mobile */}
         </div>
 
         {/* Bottom Line & Copyright */}

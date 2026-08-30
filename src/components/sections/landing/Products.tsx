@@ -49,7 +49,7 @@ const products = [
 
 export function Products() {
   return (
-    <section className="relative w-full flex flex-col items-center px-4">
+    <section className="relative w-full flex flex-col items-center px-6">
       {/* Background Glow */}
       <div 
         className="absolute z-[-20] pointer-events-none w-[939px] h-[693px] max-w-none"
@@ -64,7 +64,7 @@ export function Products() {
       <div className="flex flex-col items-center gap-[51px] w-full max-w-[1046px]">
         {/* Title Container */}
         <div className="flex flex-col items-center gap-[8px] text-center">
-          <h2 className="font-heading font-bold text-[64px] leading-tight text-white m-0">
+          <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-tight text-white m-0">
             Our Best Selling <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-4">Drones</span>
           </h2>
           <p className="font-sans text-[16px] text-white/75 -tracking-[0.02em]">

@@ -43,7 +43,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={cn(
-        "sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 px-4 md:px-[90px]",
+        "sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 px-6 md:px-[90px]",
         scrolled || mobileMenuOpen
           ? "bg-black/85 backdrop-blur-xl border-b border-white/[0.08] py-[16px] shadow-[0_12px_32px_rgba(0,0,0,0.85)]"
           : "bg-transparent pt-[32px] pb-[16px]"

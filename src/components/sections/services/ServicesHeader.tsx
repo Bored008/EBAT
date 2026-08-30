@@ -19,7 +19,7 @@ export function ServicesHeader() {
   }, []);
 
   return (
-    <div ref={heroRef} className="flex flex-col items-center gap-[8px] w-full max-w-[1260px] px-4 md:px-0">
+    <div ref={heroRef} className="flex flex-col items-center gap-[8px] w-full max-w-[1260px] px-6 md:px-0">
           <div className="flex flex-col items-center gap-[28px] w-full">
             <p className="hero-text w-full text-left font-sans text-[16px] font-normal text-white/75 tracking-[-0.05em]">
               <span className="text-[#F00511]">/</span> Services

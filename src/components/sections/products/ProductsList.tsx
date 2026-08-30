@@ -287,7 +287,7 @@ export function ProductsList() {
           </div>
 
           {/* Product Description */}
-          <p className="font-sans font-normal text-[16px] leading-[1.6] tracking-[-0.02em] text-white/75 text-center max-w-[940px] px-4">
+          <p className="font-sans font-normal text-[16px] leading-[1.6] tracking-[-0.02em] text-white/75 text-center max-w-[940px] px-6">
             {product.id === 'warden' ? (
               <>
                 Built as EBAT&apos;s{' '}

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 
 export function CTA() {
   return (
-    <section className="w-full flex justify-center px-4 md:px-8">
+    <section className="w-full flex justify-center px-6 md:px-8">
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
