@@ -45,6 +45,7 @@ export default function RootLayout({
       >
         <div className="w-full overflow-x-hidden relative flex flex-col min-h-screen">
           <Navbar />
+          <div className="w-full h-[96px] shrink-0"></div>
           {children}
           <QuoteModal />
         </div>
