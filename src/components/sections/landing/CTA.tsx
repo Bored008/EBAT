@@ -30,7 +30,7 @@ export function CTA() {
           </p>
 
           {/* Button */}
-          <Link href="?quote=true" className="inline-block">
+          <Link href="?quote=true" className="hidden md:inline-block">
             <Button variant="outline" className="border-t-0 border-x-[1px] border-b-[1px] border-[#F00511] text-[#F00511] px-[24px]">
               Request a Quote
             </Button>
