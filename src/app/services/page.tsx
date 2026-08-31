@@ -10,7 +10,7 @@ export default function ServicesPage() {
     <div className="flex flex-col min-h-screen bg-black">
       <main className="w-full flex-1 flex flex-col items-center pt-[60px] md:pt-[120px] px-6 md:px-[90px]">
         {/* Main Container */}
-        <div className="flex flex-col gap-[80px] md:gap-[120px] w-full max-w-[1260px] mx-auto pb-[86px]">
+        <div className="flex flex-col gap-[150px] w-full max-w-[1260px] mx-auto pb-[86px]">
           <div className="flex flex-col gap-[40px] md:gap-[60px] w-full">
             <ServicesHeader />
             <MasonryGrid />

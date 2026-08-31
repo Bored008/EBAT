@@ -3,6 +3,7 @@ import { Inter, Oswald, Instrument_Serif, Jersey_25 } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { QuoteModal } from '@/components/ui/QuoteModal';
+import LenisProvider from '@/components/LenisProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,7 +31,7 @@ const jersey25 = Jersey_25({
 
 export const metadata: Metadata = {
   title: 'EBAT | Edge AI Drones',
-  description: 'Edge AI drones that detect, track, and respond in real time — even off the grid.',
+  description: 'Edge AI drones that detect, track, and respond in real time - even off the grid.',
 };
 
 export default function RootLayout({
@@ -43,12 +44,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable} ${jersey25.variable} font-sans antialiased bg-black text-white`}
       >
-        <div className="w-full overflow-x-hidden relative flex flex-col min-h-screen">
-          <Navbar />
-          <div className="w-full h-[96px] shrink-0"></div>
-          {children}
-          <QuoteModal />
-        </div>
+        <LenisProvider>
+          <div className="w-full overflow-x-hidden relative flex flex-col min-h-screen">
+            <Navbar />
+            <div className="w-full h-[96px] shrink-0"></div>
+            {children}
+            <QuoteModal />
+          </div>
+        </LenisProvider>
       </body>
     </html>
   );

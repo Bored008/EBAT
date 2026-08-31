@@ -11,7 +11,7 @@ import { Footer } from '@/components/sections/Footer';
 export default function Home() {
   return (
     <>
-    <main className="flex min-h-screen flex-col items-center gap-[80px] md:gap-[120px]">
+    <main className="flex min-h-screen flex-col items-center gap-[150px]">
       <div className="w-full flex flex-col items-center gap-[36px]">
         <Hero />
         <TrustBar />
