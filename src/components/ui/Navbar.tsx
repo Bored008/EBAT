@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 import { Button } from './Button';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -58,7 +57,18 @@ export function Navbar() {
             className="text-white p-2 hover:bg-white/10 rounded-md transition-colors"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            ) : (
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+            )}
           </button>
         </div>
 

@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const serviceCards = [
@@ -56,10 +55,10 @@ export function FixedWingSupport() {
               </p>
               <div className="flex items-center gap-[12px]">
                 <div className="w-[44px] h-[44px] rounded-full bg-[#F00511] flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95">
-                  <ArrowLeft className="text-white" size={20} />
+                  <Image src="/images/services/slider-btn-prev.svg" alt="Previous" width={20} height={20} />
                 </div>
                 <div className="w-[44px] h-[44px] rounded-full border border-[#F00511] flex items-center justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95">
-                  <ArrowRight className="text-white" size={20} />
+                  <Image src="/images/services/slider-btn-next.svg" alt="Next" width={20} height={20} />
                 </div>
               </div>
             </div>
