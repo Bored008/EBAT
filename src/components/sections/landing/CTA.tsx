@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 
 export function CTA() {
   return (
-    <section className="w-full flex justify-center px-6 md:px-8">
+    <section className="w-full hidden md:flex justify-center px-6 md:px-8">
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export function CTA() {
           </p>
 
           {/* Button */}
-          <Link href="?quote=true" className="hidden md:inline-block">
+          <Link href="?quote=true" className="inline-block">
             <Button variant="outline" className="border-t-0 border-x-[1px] border-b-[1px] border-[#F00511] text-[#F00511] px-[24px]">
               Request a Quote
             </Button>
