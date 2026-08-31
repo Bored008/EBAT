@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="w-full max-w-[1260px] mx-auto mt-[120px] bg-white rounded-t-[24px] relative overflow-hidden flex flex-col pt-[41px] px-[24px] md:px-[48px] pb-[24px] z-10">
       {/* Background Image */}
-      <div className="absolute top-0 left-0 w-full h-[450px] md:h-full lg:h-[497px] -z-10 pointer-events-none overflow-hidden rounded-t-[24px]">
+      <div className="absolute top-0 left-0 w-full h-[550px] md:h-full lg:h-[497px] -z-10 pointer-events-none overflow-hidden rounded-t-[24px]">
         <Image 
           src="/images/footer/footer-bg.png" 
           alt="Footer Background" 
@@ -17,7 +17,6 @@ export function Footer() {
       </div>
 
       <div className="relative z-10 w-full flex flex-col">
-        {/* Responsive Grid for Mobile/Tablet, Absolute for Desktop */}
         
         {/* Desktop Layout (matches exact Figma coordinates with right-anchored form) */}
         <div className="hidden lg:block relative w-full h-[400px]">
