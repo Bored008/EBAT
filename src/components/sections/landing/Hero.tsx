@@ -28,7 +28,7 @@ export function Hero() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ 
                     duration: 0.8, 
-                    delay: 1.2 + (i * 0.15), 
+                    delay: 0.2 + (i * 0.15), 
                     ease: "easeOut" 
                   }}
                   className="inline-block"
@@ -72,7 +72,7 @@ export function Hero() {
             <motion.h1 
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
               className="font-heading font-bold text-[52px] leading-[1.05] sm:text-[56px] sm:leading-[1.1] md:text-[73.33px] md:leading-[1] text-white m-0 w-full inline-block whitespace-normal lg:whitespace-nowrap"
             >
               Built for the Unseen <span className="font-accent italic font-normal text-[#F00511]">Threat.</span>
@@ -80,7 +80,7 @@ export function Hero() {
             <motion.p 
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 2.0, ease: "easeOut" }}
+              transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
               className="font-sans text-[14px] sm:text-[16px] text-white/75 -tracking-[0.02em] w-full max-w-[400px] md:max-w-none"
             >
               Edge AI drones that detect, track, and respond in real time - even off the grid.
@@ -91,7 +91,7 @@ export function Hero() {
           <motion.div 
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.2, ease: "easeOut" }}
+            transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
             className="flex flex-col sm:flex-row items-center justify-center gap-[12px] w-full sm:w-auto mt-4 md:mt-0 px-6 sm:px-0"
           >
             <div className="w-full sm:w-auto flex justify-center">
