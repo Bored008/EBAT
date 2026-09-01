@@ -27,9 +27,9 @@ export function Hero() {
 
           {/* Drone Image placeholder */}
           <motion.div 
-            initial={{ y: 50, opacity: 1 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             className="relative w-full max-w-[833px] h-[160px] sm:h-[220px] md:h-[297px]"
           >
             <Image 
