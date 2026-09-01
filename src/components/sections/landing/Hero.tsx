@@ -20,16 +20,40 @@ export function Hero() {
           {/* EBAT Text (Masked) */}
           <div className="absolute top-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
                style={{ WebkitMaskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)', maskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)' }}>
-            <span className="font-display text-[210px] sm:text-[280px] md:text-[432.22px] leading-[180px] sm:leading-[220px] md:leading-[293.63px] text-white/90">
-              EBAT
-            </span>
+            <div className="font-display text-[210px] sm:text-[280px] md:text-[432.22px] leading-[180px] sm:leading-[220px] md:leading-[293.63px] text-white/90 flex">
+              {['E', 'B', 'A', 'T'].map((letter, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ y: -100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 1.2 + (i * 0.15), 
+                    ease: "easeOut" 
+                  }}
+                  className="inline-block"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
           </div>
 
           {/* Drone Image placeholder */}
           <motion.div 
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            initial={{ scale: 0, opacity: 0, y: 0, x: 0 }}
+            animate={{ 
+              scale: 1, 
+              opacity: 1,
+              y: [0, -12, 0, 12, 0],
+              x: [0, 8, 0, -8, 0]
+            }}
+            transition={{ 
+              scale: { duration: 1.2, ease: "easeOut" },
+              opacity: { duration: 1.2, ease: "easeOut" },
+              y: { delay: 1.2, duration: 6, repeat: Infinity, ease: "easeInOut" },
+              x: { delay: 1.2, duration: 8, repeat: Infinity, ease: "easeInOut" }
+            }}
             className="relative w-full max-w-[833px] h-[160px] sm:h-[220px] md:h-[297px]"
           >
             <Image 
