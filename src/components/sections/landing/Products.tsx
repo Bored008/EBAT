@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
+import { motion } from 'framer-motion';
 
 const products = [
   {
@@ -63,58 +64,74 @@ export function Products() {
 
       <div className="flex flex-col items-center gap-[51px] w-full max-w-[1046px]">
         {/* Title Container */}
-        <div className="flex flex-col items-center gap-[8px] text-center">
+        <motion.div 
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center gap-[8px] text-center"
+        >
           <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-tight text-white m-0">
             Our Best Selling <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-4">Drones</span>
           </h2>
           <p className="font-sans text-[16px] text-white/75 -tracking-[0.02em]">
             From close-range recon to long-range defense - proven across every mission type.
           </p>
-        </div>
+        </motion.div>
         
         <div className='flex flex-col items-center gap-[32px] w-full'>
   
           {/* DESKTOP View (Original Mixed Sizes) */}
           <div className="hidden lg:flex flex-row items-end gap-[20px] w-full justify-center">
-            {products.map((product) => (
-              <div
-                key={`desktop-${product.id}`}
-                className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
-                style={{
-                  width: product.width,
-                  height: product.height,
-                  backgroundImage: `url('${product.bgImage}')`,
-                }}
-              >
-                <div className="absolute overflow-hidden" style={product.imageStyle}>
-                  <Image src={product.image} alt={product.title} fill className="object-cover" />
-                </div>
-                <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em]" style={product.titleStyle}>
-                  {product.title}
-                </h3>
-                <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2]" style={product.featuresStyle}>
-                  {product.features.map((feature, idx) => (
-                    <span key={idx} className="whitespace-nowrap">{feature}</span>
-                  ))}
-                </div>
-                {product.isLarge ? (
-                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute" style={product.buttonStyle}>
-                    View Product
-                  </Button>
-                ) : (
-                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={product.buttonStyle}>
-                    View Product
-                  </Button>
-                )}
-              </div>
-            ))}
+            {products.map((product) => {
+              const isCenter = product.id === 'ucav';
+              return (
+                <motion.div
+                  key={`desktop-${product.id}`}
+                  initial={{ y: 150, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: isCenter ? 0.2 : 0.6,
+                    ease: "easeOut" 
+                  }}
+                  className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
+                  style={{
+                    width: product.width,
+                    height: product.height,
+                    backgroundImage: `url('${product.bgImage}')`,
+                  }}
+                >
+                  <div className="absolute overflow-hidden" style={product.imageStyle}>
+                    <Image src={product.image} alt={product.title} fill className="object-cover" />
+                  </div>
+                  <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em]" style={product.titleStyle}>
+                    {product.title}
+                  </h3>
+                  <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[11px] leading-[1.2]" style={product.featuresStyle}>
+                    {product.features.map((feature, idx) => (
+                      <span key={idx} className="whitespace-nowrap">{feature}</span>
+                    ))}
+                  </div>
+                  {product.isLarge ? (
+                    <Button variant="filled" rightIcon="top-right-arrow" className="absolute" style={product.buttonStyle}>
+                      View Product
+                    </Button>
+                  ) : (
+                    <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={product.buttonStyle}>
+                      View Product
+                    </Button>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* MOBILE View (All Cards Equal Size = 300x394) */}
           <div className="flex flex-col lg:hidden items-center gap-[40px] w-full justify-center">
             {products.map((product) => {
-              // Override UCAV to use the small card properties on mobile
-              const isUcav = product.id === 'ucav';
+              const isCenter = product.id === 'ucav';
               const mWidth = 300;
               const mHeight = 394;
               const mBg = '/images/products/fpv-card-bg.svg';
@@ -124,30 +141,38 @@ export function Products() {
               const mButtonStyle = { left: 198.02, top: 369 };
 
               return (
-                <div
+                <motion.div
                   key={`mobile-${product.id}`}
+                  initial={{ y: 100, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.2, // On mobile, they just stack and trigger as they scroll in
+                    ease: "easeOut" 
+                  }}
                   className="text-black relative bg-transparent bg-no-repeat bg-center bg-cover shrink-0"
                   style={{
-                    width: isUcav ? mWidth : product.width,
-                    height: isUcav ? mHeight : product.height,
-                    backgroundImage: `url('${isUcav ? mBg : product.bgImage}')`,
+                    width: isCenter ? mWidth : product.width,
+                    height: isCenter ? mHeight : product.height,
+                    backgroundImage: `url('${isCenter ? mBg : product.bgImage}')`,
                   }}
                 >
-                  <div className="absolute overflow-hidden" style={isUcav ? mImageStyle : product.imageStyle}>
+                  <div className="absolute overflow-hidden" style={isCenter ? mImageStyle : product.imageStyle}>
                     <Image src={product.image} alt={product.title} fill className="object-cover" />
                   </div>
-                  <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em] whitespace-nowrap overflow-hidden text-ellipsis" style={isUcav ? mTitleStyle : product.titleStyle}>
+                  <h3 className="absolute font-sans font-medium text-[20px] leading-[1.2] -tracking-[0.02em] whitespace-nowrap overflow-hidden text-ellipsis" style={isCenter ? mTitleStyle : product.titleStyle}>
                     {product.title}
                   </h3>
-                  <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[10px] leading-[1.2]" style={isUcav ? mFeaturesStyle : product.featuresStyle}>
+                  <div className="absolute grid grid-cols-2 gap-x-1 gap-y-[4.2px] text-black/75 text-[10px] leading-[1.2]" style={isCenter ? mFeaturesStyle : product.featuresStyle}>
                     {product.features.map((feature, idx) => (
                       <span key={idx} className="whitespace-nowrap">{feature}</span>
                     ))}
                   </div>
-                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={isUcav ? mButtonStyle : product.buttonStyle}>
+                  <Button variant="filled" rightIcon="top-right-arrow" className="absolute h-[25px] px-[10px] py-[5px] !text-[10px] !rounded-[17px] gap-[3px]" iconClassName="!w-[13px] !h-[13px]" style={isCenter ? mButtonStyle : product.buttonStyle}>
                     View Product
                   </Button>
-                </div>
+                </motion.div>
               );
             })}
           </div>
