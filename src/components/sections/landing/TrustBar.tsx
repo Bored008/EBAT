@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 const stats = [
   { value: '500+', label: 'Units Deployed' },
@@ -22,7 +23,7 @@ export function TrustBar() {
             }`}
           >
             <span className="font-sans font-medium text-[48px] leading-none text-[#F00511]">
-              {stat.value}
+              <AnimatedCounter value={stat.value} />
             </span>
             <span className="font-sans font-normal text-[16px] text-white/75 px-2 text-center">
               {stat.label}
@@ -41,7 +42,7 @@ export function TrustBar() {
               className="flex flex-col items-center justify-center min-w-[160px] gap-[3px]"
             >
               <span className="font-sans font-medium text-[40px] leading-none text-[#F00511]">
-                {stat.value}
+                <AnimatedCounter value={stat.value} />
               </span>
               <span className="font-sans font-normal text-[14px] text-white/75 text-center">
                 {stat.label}
@@ -58,7 +59,7 @@ export function TrustBar() {
               className="flex flex-col items-center justify-center min-w-[160px] gap-[3px]"
             >
               <span className="font-sans font-medium text-[40px] leading-none text-[#F00511]">
-                {stat.value}
+                <AnimatedCounter value={stat.value} />
               </span>
               <span className="font-sans font-normal text-[14px] text-white/75 text-center">
                 {stat.label}
