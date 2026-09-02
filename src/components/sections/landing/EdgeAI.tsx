@@ -10,7 +10,7 @@ export function EdgeAI() {
       <motion.div 
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col gap-2 max-w-[816px]"
       >
@@ -31,7 +31,7 @@ export function EdgeAI() {
         <motion.div 
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative group overflow-hidden rounded-[12px] border-[0.5px] border-white/50 lg:col-span-2 lg:row-span-1 z-10 flex flex-col justify-end p-[27px]"
         >
@@ -53,9 +53,9 @@ export function EdgeAI() {
 
         {/* Card 2: Secure On-Device Processing (spans 1 col, 2 rows) */}
         <motion.div 
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="relative group overflow-hidden rounded-[12px] border-[0.5px] border-white/50 lg:col-span-1 lg:row-span-2 z-10 flex flex-col justify-end p-[27px]"
         >
@@ -81,7 +81,7 @@ export function EdgeAI() {
         <motion.div 
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="relative group overflow-hidden rounded-[12px] border-[0.5px] border-white/50 lg:col-span-1 lg:row-span-1 z-10 flex flex-col justify-end p-[27px]"
         >
@@ -107,7 +107,7 @@ export function EdgeAI() {
         <motion.div 
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="relative group overflow-hidden rounded-[12px] border-[0.5px] border-white/50 lg:col-span-1 lg:row-span-1 z-10 flex flex-col justify-end p-[27px]"
         >
