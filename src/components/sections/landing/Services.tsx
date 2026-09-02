@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import { Icon } from '@/components/icons/Icon';
+import { motion } from 'framer-motion';
 
 const services = [
   { 
@@ -42,12 +45,18 @@ const services = [
 
 export function Services() {
   return (
-    <section className="w-full flex flex-col items-center px-6">
+    <section className="w-full flex flex-col items-center px-6 overflow-hidden">
       <div className="flex flex-col items-center gap-[40px] md:gap-[76px] w-full max-w-[1260px]">
         {/* Header Row */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between w-full gap-8 lg:gap-0">
           {/* Heading Container */}
-          <div className="flex flex-col gap-[22px] w-full md:max-w-[215px]">
+          <motion.div 
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ margin: "10000px 0px -100px 0px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col gap-[22px] w-full md:max-w-[215px]"
+          >
             <p className="font-sans text-[16px] text-white/75 tracking-[-0.05em] flex items-center gap-1">
               <span className="text-[#F00511]">/</span> Services We Offer
             </p>
@@ -55,16 +64,37 @@ export function Services() {
               <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-4">Certified</span><br />
               Reliability
             </h2>
-          </div>
+          </motion.div>
 
           {/* Description Container */}
-          <div className="flex flex-col justify-between w-full lg:max-w-[407px] h-full lg:h-[100px] gap-6 lg:gap-0">
-            <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] leading-snug">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "10000px 0px -100px 0px" }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.2, delayChildren: 0.2 } },
+              hidden: {}
+            }}
+            className="flex flex-col justify-between w-full lg:max-w-[407px] h-full lg:h-[100px] gap-6 lg:gap-0"
+          >
+            <motion.p 
+              variants={{
+                hidden: { y: 50, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="font-sans text-[16px] text-white/75 tracking-[-0.02em] leading-snug"
+            >
               From repairs and part replacements to pilot training, we keep every drone mission-ready. Choose uptime, choose EBAT.
-            </p>
+            </motion.p>
             
             {/* Links */}
-            <div className="flex items-center gap-[29px]">
+            <motion.div 
+              variants={{
+                hidden: { y: 50, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="flex items-center gap-[29px]"
+            >
               <a href="#" className="flex items-center gap-[2px] group">
                 <span className="font-sans text-[16px] tracking-[-0.02em] text-[#F00511]/75 group-hover:text-[#F00511] transition-colors">View All Services</span>
                 <Icon name="right-arrow-head" className="w-[18px] h-[18px] text-[#F00511]/75 group-hover:text-[#F00511] transition-colors" />
@@ -73,20 +103,33 @@ export function Services() {
                 <span className="font-sans text-[16px] tracking-[-0.02em] text-[#F00511]/75 group-hover:text-[#F00511] transition-colors">Book a Service</span>
                 <Icon name="right-arrow-head" className="w-[18px] h-[18px] text-[#F00511]/75 group-hover:text-[#F00511] transition-colors" />
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Services Cards */}
-        <div className="flex flex-col md:flex-row md:flex-wrap justify-center xl:justify-between items-center gap-[24px] xl:gap-0 w-full">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "10000px 0px -100px 0px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } }
+          }}
+          className="flex flex-col md:flex-row md:flex-wrap justify-center xl:justify-between items-center gap-[24px] xl:gap-0 w-full"
+        >
           {services.map((service, idx) => {
             const isFirst = idx === 0;
             // Zigzag on mobile: intersect 50% of card width by translating 25% from center
             const mobileAlign = idx % 2 === 0 ? 'self-center -translate-x-[25%] md:translate-x-0' : 'self-center translate-x-[25%] md:translate-x-0';
 
             return (
-              <div 
+              <motion.div 
                 key={service.id}
+                variants={{
+                  hidden: { x: "100vw", opacity: 0 },
+                  visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                }}
                 className={`group relative w-[232px] h-[278px] cursor-pointer ${mobileAlign} md:self-auto`}
               >
                 {/* Clipped Background Layer */}
@@ -123,10 +166,10 @@ export function Services() {
                 <button className={`absolute right-[0px] bottom-[2px] w-[46px] h-[46px] rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg z-10 ${isFirst ? 'bg-[#F00511]' : 'bg-white group-hover:bg-[#F00511]'}`}>
                   <Icon name="top-right-arrow" className={`w-[26.46px] h-[26.46px] transition-colors duration-300 ${isFirst ? 'text-white' : 'text-black group-hover:text-white'}`} />
                 </button>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
         
         {/* Decorative Line */}
         <div className="w-full hidden md:flex justify-center mt-[-20px]">
