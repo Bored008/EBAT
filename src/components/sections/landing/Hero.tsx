@@ -101,7 +101,7 @@ export function Hero() {
             </div>
             <div className="w-full sm:w-auto flex justify-center">
               <Button variant="outline" rightIcon="talk-filled" className="w-full sm:w-auto">
-                Talk to an Expert
+                Talk 
               </Button>
             </div>
           </motion.div>
