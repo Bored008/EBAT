@@ -4,6 +4,7 @@ import React from 'react';
 import { Button } from '@/components/ui/Button';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import InteractiveHeroCanvas from '@/components/ui/InteractiveHeroCanvas';
 
 export function Hero() {
   return (
@@ -17,6 +18,16 @@ export function Hero() {
         {/* Drone Image & Background Text */}
         <div className="relative w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-end">
           
+          {/* Interactive Wave Arcs Canvas (behind EBAT text) */}
+          <div className="absolute top-[-20px] sm:top-[-30px] md:top-[-40px] left-1/2 -translate-x-1/2 w-full max-w-[950px] h-[260px] sm:h-[320px] md:h-[380px] -z-20 pointer-events-none overflow-hidden">
+            <InteractiveHeroCanvas
+              backgroundColor="transparent"
+              lineColor="rgb(255, 255, 255)"
+              speed={5}
+              glow={10}
+            />
+          </div>
+
           {/* EBAT Text (Masked) */}
           <div className="absolute top-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
                style={{ WebkitMaskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)', maskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)' }}>
