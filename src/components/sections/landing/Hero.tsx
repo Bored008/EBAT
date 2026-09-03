@@ -8,9 +8,25 @@ import InteractiveHeroCanvas from '@/components/ui/InteractiveHeroCanvas';
 
 export function Hero() {
   return (
-    <section className="relative w-full flex flex-col items-center pt-[20px] md:pt-[32px]">
+    <section className="relative w-full flex flex-col items-center pt-[20px] md:pt-[32px] overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-20 pointer-events-none" />
+      <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-10 pointer-events-none" />
+
+      {/* Screen-width Wave Arcs Canvas (behind EBAT text and Drone) */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-[460px] sm:h-[530px] md:h-[620px] z-0 pointer-events-none overflow-hidden"
+        style={{
+          WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 1) 12%, rgba(0, 0, 0, 1) 85%, transparent 100%)',
+          maskImage: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 1) 12%, rgba(0, 0, 0, 1) 85%, transparent 100%)'
+        }}
+      >
+        <InteractiveHeroCanvas
+          backgroundColor="transparent"
+          lineColor="rgb(255, 255, 255)"
+          speed={5}
+          glow={10}
+        />
+      </div>
 
       {/* Hero Container */}
       <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[1000px] px-6 z-10 relative pb-[60px]">
@@ -18,18 +34,8 @@ export function Hero() {
         {/* Drone Image & Background Text */}
         <div className="relative w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-end">
           
-          {/* Interactive Wave Arcs Canvas (behind EBAT text) */}
-          <div className="absolute top-[-20px] sm:top-[-30px] md:top-[-40px] left-1/2 -translate-x-1/2 w-full max-w-[950px] h-[260px] sm:h-[320px] md:h-[380px] -z-20 pointer-events-none overflow-hidden">
-            <InteractiveHeroCanvas
-              backgroundColor="transparent"
-              lineColor="rgb(255, 255, 255)"
-              speed={5}
-              glow={10}
-            />
-          </div>
-
-          {/* EBAT Text (Masked) */}
-          <div className="absolute top-0 flex items-center justify-center -z-10 overflow-hidden select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
+          {/* EBAT Text (Masked) - z-10 so it renders in front of Canvas */}
+          <div className="absolute top-0 flex items-center justify-center z-10 overflow-hidden select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
                style={{ WebkitMaskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)', maskImage: 'linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)' }}>
             <div className="font-display text-[210px] sm:text-[280px] md:text-[432.22px] leading-[180px] sm:leading-[220px] md:leading-[293.63px] text-white/90 flex">
               {['E', 'B', 'A', 'T'].map((letter, i) => (
@@ -50,7 +56,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Drone Image placeholder */}
+          {/* Drone Image placeholder - z-20 so it floats in front of EBAT text */}
           <motion.div 
             initial={{ scale: 0, opacity: 0, y: 0, x: 0 }}
             animate={{ 
@@ -65,7 +71,7 @@ export function Hero() {
               y: { delay: 1.2, duration: 6, repeat: Infinity, ease: "easeInOut" },
               x: { delay: 1.2, duration: 8, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="relative w-full max-w-[833px] h-[160px] sm:h-[220px] md:h-[297px]"
+            className="relative z-20 w-full max-w-[833px] h-[160px] sm:h-[220px] md:h-[297px]"
           >
             <Image 
               src="/images/products/hero-drone-62b94a.png" 
@@ -78,7 +84,7 @@ export function Hero() {
         </div>
 
         {/* Hero Description Container */}
-        <div className="flex flex-col items-center gap-[18px] w-full text-center mt-4 md:mt-0">
+        <div className="flex flex-col items-center gap-[18px] w-full text-center mt-4 md:mt-0 relative z-20">
           <div className="flex flex-col items-center gap-[12px] w-full">
             <motion.h1 
               initial={{ y: 30, opacity: 0 }}
