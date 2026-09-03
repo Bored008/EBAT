@@ -8,9 +8,9 @@ import InteractiveHeroCanvas from '@/components/ui/InteractiveHeroCanvas';
 
 export function Hero() {
   return (
-    <section className="relative w-full flex flex-col items-center pt-[20px] md:pt-[32px] overflow-hidden">
+    <section className="relative w-full flex flex-col items-center pt-[20px] md:pt-[32px] overflow-x-clip">
       {/* Background Glow */}
-      <div className="absolute top-[-327px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-10 pointer-events-none" />
+      <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[519px] h-[526px] bg-[rgba(255,255,255,0.52)] rounded-full blur-[111.2px] -z-10 pointer-events-none" />
 
       {/* Screen-width Wave Arcs Canvas (behind EBAT text and Drone) */}
       <div 
