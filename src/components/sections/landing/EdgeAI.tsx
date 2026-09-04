@@ -82,7 +82,7 @@ export function EdgeAI() {
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ margin: "10000px 0px -250px 0px" }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative group overflow-hidden rounded-[12px] border-[0.5px] border-white/50 lg:col-span-1 lg:row-span-1 z-10 flex flex-col justify-end p-[27px]"
         >
           <Image
@@ -108,7 +108,7 @@ export function EdgeAI() {
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ margin: "10000px 0px -250px 0px" }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="relative group overflow-hidden rounded-[12px] border-[0.5px] border-white/50 lg:col-span-1 lg:row-span-1 z-10 flex flex-col justify-end p-[27px]"
         >
           <Image
