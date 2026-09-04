@@ -33,6 +33,9 @@ const jersey25 = Jersey_25({
 export const metadata: Metadata = {
   title: 'EBAT | Edge AI Drones',
   description: 'Edge AI drones that detect, track, and respond in real time - even off the grid.',
+  icons: {
+    icon: '/images/logoIcon.svg',
+  },
 };
 
 export default function RootLayout({
