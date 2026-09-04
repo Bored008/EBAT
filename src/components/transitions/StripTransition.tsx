@@ -39,7 +39,7 @@ export function StripTransition({ phase }: StripTransitionProps) {
           transition={{
             duration: STRIP_DURATION,
             delay: i * STRIP_STAGGER,
-            ease: [0.76, 0, 0.24, 1], // custom cubic-bezier for snappy feel
+            ease: "easeInOut",
           }}
           style={{
             backgroundColor: color,
