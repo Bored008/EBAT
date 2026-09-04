@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 const STRIP_COLORS = [
   "#FFFFFF",
-  "#8B0000",
+  "#A80410",
   "#FFFFFF",
-  "#8B0000",
+  "#A80410",
   "#FFFFFF",
-  "#8B0000",
+  "#A80410",
 ];
 
 const STRIP_DURATION = 0.4; // seconds

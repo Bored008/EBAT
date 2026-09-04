@@ -53,7 +53,7 @@ export function Services() {
           <motion.div 
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ margin: "10000px 0px -100px 0px" }}
+            viewport={{ margin: "10000px 0px -250px 0px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col gap-[22px] w-full md:max-w-[215px]"
           >
@@ -70,7 +70,7 @@ export function Services() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ margin: "10000px 0px -100px 0px" }}
+            viewport={{ margin: "10000px 0px -250px 0px" }}
             variants={{
               visible: { transition: { staggerChildren: 0.2, delayChildren: 0.2 } },
               hidden: {}
@@ -111,7 +111,7 @@ export function Services() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ margin: "10000px 0px -100px 0px" }}
+          viewport={{ margin: "10000px 0px -250px 0px" }}
           variants={{
             hidden: {},
             visible: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } }
