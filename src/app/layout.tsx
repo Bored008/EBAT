@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { QuoteModal } from '@/components/ui/QuoteModal';
 import LenisProvider from '@/components/LenisProvider';
+import { TransitionProvider } from '@/context/TransitionContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -45,12 +46,14 @@ export default function RootLayout({
         className={`${inter.variable} ${oswald.variable} ${instrumentSerif.variable} ${jersey25.variable} font-sans antialiased bg-black text-white`}
       >
         <LenisProvider>
-          <div className="w-full overflow-x-hidden relative flex flex-col min-h-screen">
-            <Navbar />
-            <div className="w-full h-[96px] shrink-0"></div>
-            {children}
-            <QuoteModal />
-          </div>
+          <TransitionProvider>
+            <div className="w-full overflow-x-hidden relative flex flex-col min-h-screen">
+              <Navbar />
+              <div className="w-full h-[96px] shrink-0"></div>
+              {children}
+              <QuoteModal />
+            </div>
+          </TransitionProvider>
         </LenisProvider>
       </body>
     </html>

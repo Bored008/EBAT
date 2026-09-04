@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { TransitionLink } from '@/components/transitions/TransitionLink';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Button } from './Button';
@@ -77,7 +77,7 @@ export function Navbar() {
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <Link
+              <TransitionLink
                 key={link.name}
                 href={link.href}
                 className={cn(
@@ -88,23 +88,23 @@ export function Navbar() {
                 )}
               >
                 {link.name}
-              </Link>
+              </TransitionLink>
             );
           })}
         </div>
 
         {/* Center Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] md:w-[152px] h-[32px] md:h-[48px] flex items-center justify-center pointer-events-none z-50">
-          <Link href="/" className="pointer-events-auto transition-transform duration-200 hover:scale-105 flex items-center justify-center w-full h-full">
+          <TransitionLink href="/" className="pointer-events-auto transition-transform duration-200 hover:scale-105 flex items-center justify-center w-full h-full">
             <div className="relative w-full h-full">
               <Image src="/images/logo.svg" alt="EBAT Logo" fill className="object-contain" priority />
             </div>
-          </Link>
+          </TransitionLink>
         </div>
 
         {/* Right Action */}
         <div className="z-50">
-          <Link href="/contact">
+          <TransitionLink href="/contact">
             <Button 
               variant={pathname === '/contact' ? 'filled' : 'white'} 
               leftIcon="phone-outline"
@@ -112,7 +112,7 @@ export function Navbar() {
             >
               Contact<span className="hidden sm:inline">&nbsp;Us</span>
             </Button>
-          </Link>
+          </TransitionLink>
         </div>
       </nav>
 
@@ -130,7 +130,7 @@ export function Navbar() {
               {links.map((link) => {
                 const isActive = pathname === link.href;
                 return (
-                  <Link
+                  <TransitionLink
                     key={link.name}
                     href={link.href}
                     className={cn(
@@ -139,7 +139,7 @@ export function Navbar() {
                     )}
                   >
                     {link.name}
-                  </Link>
+                  </TransitionLink>
                 );
               })}
             </div>
