@@ -68,8 +68,8 @@ export function Products() {
         <motion.div 
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ margin: "10000px 0px -250px 0px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ margin: "10000px 0px -150px 0px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex flex-col items-center gap-[8px] text-center"
         >
           <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-tight text-white m-0">
@@ -91,7 +91,7 @@ export function Products() {
                   key={`desktop-${product.id}`}
                   initial={{ y: 150, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ margin: "10000px 0px -250px 0px" }}
+                  viewport={{ margin: "10000px 0px -50px 0px" }}
                   transition={{ 
                     duration: 0.8, 
                     delay: isCenter ? 0.2 : 0.6,
@@ -146,7 +146,7 @@ export function Products() {
                   key={`mobile-${product.id}`}
                   initial={{ y: 100, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ margin: "10000px 0px -250px 0px" }}
+                  viewport={{ margin: "10000px 0px -50px 0px" }}
                   transition={{ 
                     duration: 0.8, 
                     delay: 0.2, // On mobile, they just stack and trigger as they scroll in

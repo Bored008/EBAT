@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { useLenis } from "lenis/react";
 import { StripTransition } from "@/components/transitions/StripTransition";
 
 interface TransitionContextType {
@@ -28,6 +29,7 @@ const HOLD_DURATION = 200;
 export function TransitionProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
+  const lenis = useLenis();
   const [phase, setPhase] = useState<"idle" | "cover" | "reveal">("idle");
   const lockRef = useRef(false);
 
@@ -43,8 +45,12 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
       setTimeout(() => {
         router.push(href);
         window.scrollTo({ top: 0, behavior: "instant" });
+        lenis?.scrollTo(0, { immediate: true });
+
         // Small extra delay to let Next.js swap the page content
         setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "instant" });
+          lenis?.scrollTo(0, { immediate: true });
           setPhase("reveal");
 
           // After reveal completes, reset to idle
@@ -55,7 +61,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
         }, HOLD_DURATION);
       }, COVER_TOTAL);
     },
-    [pathname, router]
+    [pathname, router, lenis]
   );
 
   return (
