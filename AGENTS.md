@@ -12,8 +12,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Scroll to Top on Navigation
 - Every page navigation MUST scroll to the top of the page (hero section).
-- This is handled in `src/context/TransitionContext.tsx` via `window.scrollTo({ top: 0, behavior: "instant" })` during the transition's covered phase.
-- Do NOT rely on Next.js default scroll restoration — always explicitly scroll to top.
+- Because Lenis smooth-scroll maintains its own virtual scroll position, you MUST call both `window.scrollTo({ top: 0, behavior: "instant" })` and `lenis?.scrollTo(0, { immediate: true })`.
+- Handled at 3 levels:
+  1. `TransitionContext.tsx`: during covered transition phase and before reveal.
+  2. `LenisProvider.tsx`: in `ScrollReset` watching `pathname`.
+  3. `template.tsx`: on page component mount.
+- Same-page links (e.g., clicking Home/Logo while already on Home): `TransitionLink.tsx` intercepts same-page clicks and smoothly scrolls to top via `lenis.scrollTo(0, { duration: 1.2 })`.
 
 ## Page Transitions
 - All internal navigation links MUST use `<TransitionLink>` from `src/components/transitions/TransitionLink.tsx` instead of Next.js `<Link>`.
