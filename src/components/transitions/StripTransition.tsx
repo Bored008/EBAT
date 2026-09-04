@@ -12,8 +12,8 @@ const STRIP_COLORS = [
   "#A80410",
 ];
 
-const STRIP_DURATION = 0.4; // seconds
-const STRIP_STAGGER = 0.08; // seconds
+const STRIP_DURATION = 0.3; // seconds
+const STRIP_STAGGER = 0.05; // seconds
 
 interface StripTransitionProps {
   phase: "idle" | "cover" | "reveal";

@@ -19,11 +19,11 @@ export function usePageTransition() {
 }
 
 // Timing constants (ms)
-const STRIP_DURATION = 400;
-const STRIP_STAGGER = 80;
+const STRIP_DURATION = 300;
+const STRIP_STAGGER = 50;
 const STRIP_COUNT = 6;
-const COVER_TOTAL = STRIP_DURATION + STRIP_STAGGER * (STRIP_COUNT - 1); // ~800ms
-const HOLD_DURATION = 250;
+const COVER_TOTAL = STRIP_DURATION + STRIP_STAGGER * (STRIP_COUNT - 1); // ~550ms
+const HOLD_DURATION = 200;
 
 export function TransitionProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
