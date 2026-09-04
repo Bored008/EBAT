@@ -7,3 +7,20 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Navigation Rules
+
+## Scroll to Top on Navigation
+- Every page navigation MUST scroll to the top of the page (hero section).
+- This is handled in `src/context/TransitionContext.tsx` via `window.scrollTo({ top: 0, behavior: "instant" })` during the transition's covered phase.
+- Do NOT rely on Next.js default scroll restoration — always explicitly scroll to top.
+
+## Page Transitions
+- All internal navigation links MUST use `<TransitionLink>` from `src/components/transitions/TransitionLink.tsx` instead of Next.js `<Link>`.
+- The strip transition overlay lives in `src/components/transitions/StripTransition.tsx`.
+- Transition timing is defined in `src/context/TransitionContext.tsx`.
+- Never use bare `<Link>` for page navigation in the Navbar or any primary navigation component.
+
+## Page Content Entrance
+- `src/app/template.tsx` handles the fade-in + slide-up animation for new page content after transition.
+- `template.tsx` remounts on every route change — do not move this logic to `layout.tsx`.

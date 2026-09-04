@@ -42,7 +42,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
       // After strips fully cover the screen, navigate and start reveal
       setTimeout(() => {
         router.push(href);
-
+        window.scrollTo({ top: 0, behavior: "instant" });
         // Small extra delay to let Next.js swap the page content
         setTimeout(() => {
           setPhase("reveal");
