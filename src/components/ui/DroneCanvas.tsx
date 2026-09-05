@@ -6,8 +6,8 @@ import { useGLTF, Center } from "@react-three/drei";
 import * as THREE from "three";
 
 function DroneModel() {
-  const { nodes, materials } = useGLTF("/models/FixedWing.glb") as any;
-  const { scene } = useGLTF("/models/FixedWing.glb");
+  const { nodes, materials } = useGLTF("/models/FixedWing-Draco.glb") as any;
+
   const droneRef = useRef<THREE.Group>(null);
   const progressRef = useRef(0);
   const leftPropRef = useRef<THREE.Mesh>(null);
@@ -47,11 +47,30 @@ function DroneModel() {
       // Gentle vertical floating centered around Y = -0.3
       droneRef.current.position.y = -0.9 + Math.sin(time * 1.5) * 0.08;
 
-      // Subtle wing banking (roll)
-      droneRef.current.rotation.z = Math.sin(time * 1.0) * 0.04;
+      // Calculate target rotation based on mouse coordinates (state.pointer ranges from -1 to 1)
+      const targetPitch = -(state.pointer.y * 0.3); // Inverted: Look up/down (X axis)
+      const targetYaw = (state.pointer.x * 0.5); // Turn left/right (Y axis)
+      const targetRoll = -(state.pointer.x * 0.2); // Bank wings when turning (Z axis)
 
-      // Subtle nose pitch (tilt up & down)
-      droneRef.current.rotation.x = Math.sin(time * 1.2) * 0.02;
+      // Smoothly LERP (Linear Interpolation) from current rotation to target rotation
+      // We also add the subtle sine wave wobble to keep it feeling alive while tracking
+      droneRef.current.rotation.x = THREE.MathUtils.lerp(
+        droneRef.current.rotation.x,
+        targetPitch + Math.sin(time * 1.2) * 0.02,
+        0.05
+      );
+      
+      droneRef.current.rotation.y = THREE.MathUtils.lerp(
+        droneRef.current.rotation.y,
+        targetYaw,
+        0.05
+      );
+
+      droneRef.current.rotation.z = THREE.MathUtils.lerp(
+        droneRef.current.rotation.z,
+        targetRoll + Math.sin(time * 1.0) * 0.04,
+        0.05
+      );
     }
   });
 
@@ -68,7 +87,7 @@ function DroneModel() {
   );
 }
 
-useGLTF.preload("/models/FixedWing.glb");
+useGLTF.preload("/models/FixedWing-Draco.glb");
 
 export default function DroneCanvas() {
   return (
