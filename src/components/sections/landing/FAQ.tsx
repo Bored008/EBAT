@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { TransitionLink } from '@/components/transitions/TransitionLink';
 import { Button } from '@/components/ui/Button';
 import { Icon } from '@/components/icons/Icon';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const faqs = [
   {
@@ -45,28 +46,40 @@ export function FAQ() {
   };
 
   return (
-    <section className="w-full flex justify-center px-6 md:px-8">
+    <section className="w-full flex justify-center px-6 md:px-8 overflow-hidden">
       <div className="flex flex-col lg:flex-row items-stretch justify-between w-full max-w-[1260px] gap-[40px] lg:gap-[117px]">
         
         {/* Left Column - General Questions */}
         <div className="flex flex-col justify-between w-full lg:w-[513px] gap-8 lg:gap-0">
-          <div className="max-w-[470px]">
+          <motion.div 
+            initial={{ x: -80, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ margin: "10000px 0px -120px 0px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-[470px]"
+          >
             <h2 className="font-heading font-bold text-[48px] lg:text-[64px] leading-tight lg:leading-[72px] tracking-[-0.02em] text-white">
               General Questions asked by <span className="font-accent italic font-normal text-[#F00511]/75 underline decoration-1 underline-offset-4">customers</span>
               <span className="font-accent font-normal text-[#F00511]/75">.</span>
             </h2>
-          </div>
+          </motion.div>
           
-          <div className="flex flex-col w-full gap-[15px]">
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ margin: "10000px 0px -120px 0px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="flex flex-col w-full gap-[15px]"
+          >
             <p className="font-sans text-[16px] text-white/75 leading-snug tracking-[-0.02em]">
               Our friendly team is always here to help you with quick, clear, and reliable answers whenever needed.
             </p>
             <div className="self-start">
-              <Link href="/contact">
+              <TransitionLink href="/contact">
                 <Button variant="filled">Contact Us</Button>
-              </Link>
+              </TransitionLink>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Column - Accordion */}
@@ -74,8 +87,16 @@ export function FAQ() {
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div 
+              <motion.div 
                 key={index} 
+                initial={{ x: 80, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ margin: "10000px 0px -60px 0px" }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.07, 
+                  ease: "easeOut" 
+                }}
                 className={cn(
                   "flex flex-col w-full rounded-[8px] py-[20px] px-[18px] transition-colors duration-300 cursor-pointer overflow-hidden",
                   isOpen ? "bg-[#F00511]" : "bg-white hover:bg-gray-50"
@@ -122,7 +143,7 @@ export function FAQ() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
