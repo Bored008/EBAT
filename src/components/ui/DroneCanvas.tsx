@@ -30,22 +30,29 @@ function DroneModel() {
       // Ease out cubic: snappy start, smooth settle
       const t = 1 - Math.pow(1 - progressRef.current, 3);
 
-      // Scale up to 7.0 so wingspan spans across the EBAT text
-      const targetScale = 7.0 * t;
+      // Responsive scale: 5.8 on mobile so wings fit cleanly inside viewport, 7.0 on desktop
+      const isMobile = state.viewport.width < 8;
+      const baseScale = isMobile ? 5.8 : 7.0;
+      const targetScale = baseScale * t;
       droneRef.current.scale.set(targetScale, targetScale, targetScale);
 
       // Fly forward from Z = -7 (instantly visible) to resting Z = 0
       droneRef.current.position.z = -7 * (1 - t);
 
       // Settle down to Y = -0.3 to align right over the horizon line
-      droneRef.current.position.y = -0.9 * t;
+      droneRef.current.position.y = -0.3 * t;
     } 
     // 2. Idle Flight Hovering (Once landed at Z=0)
     else {
       const time = state.clock.getElapsedTime();
 
+      // Ensure base scale is maintained responsively
+      const isMobile = state.viewport.width < 8;
+      const baseScale = isMobile ? 5.8 : 7.0;
+      droneRef.current.scale.set(baseScale, baseScale, baseScale);
+
       // Gentle vertical floating centered around Y = -0.3
-      droneRef.current.position.y = -0.9 + Math.sin(time * 1.5) * 0.08;
+      droneRef.current.position.y = -0.3 + Math.sin(time * 1.5) * 0.08;
 
       // Calculate target rotation based on mouse coordinates (state.pointer ranges from -1 to 1)
       const targetPitch = -(state.pointer.y * 0.3); // Inverted: Look up/down (X axis)

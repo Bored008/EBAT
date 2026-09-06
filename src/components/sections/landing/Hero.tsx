@@ -33,11 +33,11 @@ export function Hero() {
 
       {/* Hero Container */}
       <div className="flex flex-col items-center gap-[16px] md:gap-[24px] w-full max-w-[1000px] px-6 z-10 relative pb-[60px]">
-        {/* Drone Image & Background Text */}
-        <div className="relative w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-end">
+        {/* Drone Image & Background Text - breakout on mobile so neither EBAT nor drone wings are clipped */}
+        <div className="relative -mx-6 w-[calc(100%+48px)] md:mx-0 md:w-full h-[250px] sm:h-[320px] md:h-[412px] flex flex-col items-center justify-center overflow-visible">
           {/* EBAT Text (Masked) - z-10 so it renders in front of Canvas */}
           <div
-            className="absolute top-0 flex items-center justify-center z-10 overflow-hidden select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
+            className="absolute top-0 flex items-center justify-center z-10 overflow-visible select-none pointer-events-none w-full h-[200px] sm:h-[220px] md:h-[293.63px]"
             style={{
               WebkitMaskImage:
                 "linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)",
@@ -45,7 +45,7 @@ export function Hero() {
                 "linear-gradient(180deg, rgba(255, 255, 255, 1) 6%, rgba(255, 255, 255, 0) 100%)",
             }}
           >
-            <div className="font-display text-[210px] sm:text-[280px] md:text-[432.22px] leading-[180px] sm:leading-[220px] md:leading-[293.63px] text-white/90 flex">
+            <div className="font-display text-[180px] sm:text-[280px] md:text-[432.22px] leading-[160px] sm:leading-[220px] md:leading-[293.63px] text-white/90 flex">
               {["E", "B", "A", "T"].map((letter, i) => (
                 <motion.span
                   key={i}
@@ -64,15 +64,14 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Drone Image placeholder - z-20 so it floats in front of EBAT text */}
-          {/* Drone 3D Canvas - z-20 so it floats in front of EBAT text */}
-          <div className="relative z-20 w-full max-w-[833px] h-[250px] sm:h-[300px] md:h-[360px] flex items-center justify-center">
+          {/* Drone 3D Canvas - centered vertically & horizontally with ample room for banking wings */}
+          <div className="relative z-20 w-full h-[280px] sm:h-[350px] md:h-[440px] -mb-[90px] sm:-mb-[120px] md:-mb-[140px] flex items-center justify-center overflow-visible">
             <DroneCanvas />
           </div>
         </div>
 
-        {/* Hero Description Container */}
-        <div className="flex flex-col items-center gap-[18px] w-full text-center mt-4 md:mt-0 relative z-20">
+        {/* Hero Description Container - z-30 ensures text & CTA buttons remain fully clickable */}
+        <div className="flex flex-col items-center gap-[18px] w-full text-center mt-4 md:mt-0 relative z-30">
           <div className="flex flex-col items-center gap-[12px] w-full">
             <motion.h1
               initial={{ y: 30, opacity: 0 }}
