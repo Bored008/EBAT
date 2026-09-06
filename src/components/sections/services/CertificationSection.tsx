@@ -16,7 +16,7 @@ const certificationSteps = [
     number: "02",
     title: "Ground Training",
     description: "Learn drone systems, flight regulations, safety protocols, and mission planning fundamentals before ever taking the controls.",
-    image: "/images/services/image_66-151826.png" // Using the same image for demonstration as no other specific images were provided
+    image: "/images/services/image_66-151826.png"
   },
   {
     id: 3,
@@ -43,24 +43,48 @@ export function CertificationSection() {
   const [activeStep, setActiveStep] = useState<number>(1);
 
   return (
-    <div className="flex flex-col gap-[36px] w-full">
-      <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-        <h2 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white">
-          From First <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">Flight</span>,<br />
-          to Full <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">Certification</span>
-        </h2>
-        <p className="font-sans text-[16px] text-white/75 tracking-[-0.02em] font-medium">
+    <div className="flex flex-col gap-[36px] w-full overflow-hidden">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <motion.h2 
+          initial={{ x: -80, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ margin: "10000px 0px -100px 0px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] tracking-[-0.05em] text-white"
+        >
+          From First{' '}
+          <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
+            Flight
+          </span>
+          ,<br />
+          to Full{' '}
+          <span className="font-accent italic font-normal text-[#F00511] underline decoration-1 underline-offset-8">
+            Certification
+          </span>
+        </motion.h2>
+
+        <motion.p 
+          initial={{ x: 60, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ margin: "10000px 0px -100px 0px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="font-sans text-[16px] text-white/75 tracking-[-0.02em] font-medium"
+        >
           A structured path to mission-ready pilot certification.
-        </p>
+        </motion.p>
       </div>
 
       <div className="flex flex-col gap-[20px]">
-        {certificationSteps.map((step) => {
+        {certificationSteps.map((step, index) => {
           const isActive = activeStep === step.id;
 
           return (
-            <div 
+            <motion.div 
               key={step.id} 
+              initial={{ x: 80, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ margin: "10000px 0px -60px 0px" }}
+              transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
               className="relative w-full min-h-[234px] cursor-pointer"
               onMouseEnter={() => setActiveStep(step.id)}
             >
@@ -114,7 +138,7 @@ export function CertificationSection() {
                     }}
                     transition={{ duration: 0.5, ease: 'easeOut', delay: isActive ? 0.05 : 0 }}
                   >
-                    <Image src={step.image} alt={step.title} fill className="object-cover" />
+                    <Image src={step.image} alt={step.title} fill sizes="255px" className="object-cover" />
                   </motion.div>
 
                   {/* Title moving from right (+x) */}
@@ -144,7 +168,7 @@ export function CertificationSection() {
                   </motion.p>
                 </div>
               </motion.div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
