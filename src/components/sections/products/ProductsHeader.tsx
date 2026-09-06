@@ -2,11 +2,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import { motion } from 'framer-motion';
 
 export function ProductsHeader() {
   return (
-    <section className="flex flex-col md:flex-row md:items-end justify-between w-full gap-[32px]">
-      <div className="flex flex-col gap-[16px] max-w-[806px]">
+    <section className="flex flex-col md:flex-row md:items-end justify-between w-full gap-[32px] overflow-hidden">
+      <motion.div 
+        initial={{ x: -80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-col gap-[16px] max-w-[806px]"
+      >
         <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
           <span className="text-[#F00511]">/</span> Products
         </span>
@@ -22,15 +28,20 @@ export function ProductsHeader() {
             From close-range precision to long-range defense - explore the EBAT fleet, built on real-time edge AI.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="shrink-0 pb-1">
+      <motion.div 
+        initial={{ y: 35, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+        className="shrink-0 pb-1"
+      >
         <Link href="?quote=true">
           <Button variant="filled" rightIcon="top-right-arrow">
             Request a Quote
           </Button>
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 }
