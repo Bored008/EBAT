@@ -97,17 +97,37 @@ export function Hero() {
 
           {/* Buttons Container */}
           <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 1.2,
+                }
+              }
+            }}
+            initial="hidden"
+            animate="visible"
             className="flex flex-col sm:flex-row items-center justify-center gap-[12px] w-full sm:w-auto mt-4 md:mt-0 px-6 sm:px-0"
           >
-            <div className="w-full sm:w-auto flex justify-center">
+            <motion.div
+              variants={{
+                hidden: { y: 30, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } }
+              }}
+              className="w-full sm:w-auto flex justify-center"
+            >
               <Button variant="filled" className="w-full sm:w-auto">
                 Explore Solutions
               </Button>
-            </div>
-            <div className="w-full sm:w-auto flex justify-center">
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { y: 30, opacity: 0 },
+                visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } }
+              }}
+              className="w-full sm:w-auto flex justify-center"
+            >
               <Button
                 variant="outline"
                 rightIcon="talk-filled"
@@ -115,7 +135,7 @@ export function Hero() {
               >
                 Talk to an Expert
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
