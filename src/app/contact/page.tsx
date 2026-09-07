@@ -1,12 +1,14 @@
+'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { ContactFooter } from '@/components/sections/ContactFooter';
 import { Footer } from '@/components/sections/Footer';
+import { motion } from 'framer-motion';
 
 export default function ContactPage() {
   return (
     <>
-    <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[60px] md:pt-[120px] px-[24px] md:px-[90px]">
+    <main className="w-full min-h-screen bg-black flex flex-col items-center pt-[60px] md:pt-[120px] px-[24px] md:px-[90px] overflow-x-hidden">
       
       {/* Main Container */}
       <div className="flex flex-col gap-[86px] w-full max-w-[1260px] mx-auto pb-[86px]">
@@ -20,20 +22,30 @@ export default function ContactPage() {
             {/* Header Container */}
             <div className="flex flex-col gap-[8px] max-w-[842px]">
               
-              {/* Title Container (304:1434) */}
-              <div className="flex flex-col gap-[28px] max-w-[613px]">
+              {/* Title Container */}
+              <motion.div 
+                initial={{ x: -80, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="flex flex-col gap-[28px] max-w-[613px]"
+              >
                 <span className="font-sans font-normal text-[16px] tracking-[-0.05em] text-white/75">
                   <span className="text-[#F00511]">/</span> Contact Us
                 </span>
                 <h1 className="font-heading font-bold text-[48px] md:text-[64px] leading-[1.2] md:leading-[86px] tracking-[-0.05em] text-white">
                   Get in Touch with <span className="font-accent italic font-normal underline decoration-[1px] underline-offset-[8px] text-[#F00511]">Our Team</span>
                 </h1>
-              </div>
+              </motion.div>
 
               {/* Subheading */}
-              <p className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white max-w-[613px]">
+              <motion.p 
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+                className="font-sans font-normal text-[16px] leading-[1.5] tracking-[-0.02em] text-white max-w-[613px]"
+              >
                 Whether you&apos;re scaling commercial operations or securing critical ground, our team is ready to help you find the right drone solution.
-              </p>
+              </motion.p>
 
             </div>
 
@@ -41,7 +53,12 @@ export default function ContactPage() {
             <div className="flex flex-col xl:flex-row w-full gap-[40px] xl:gap-[87px]">
               
               {/* Form Container (Left) */}
-              <div className="flex flex-col p-[32px] items-center gap-[28px] bg-white rounded-[12px] w-full xl:max-w-[640px]">
+              <motion.div 
+                initial={{ x: -60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                className="flex flex-col p-[32px] items-center gap-[28px] bg-white rounded-[12px] w-full xl:max-w-[640px]"
+              >
                 <div className="flex flex-col w-full gap-[8px]">
                   <h2 className="font-sans font-semibold text-[24px] leading-[28px] text-[#0A0A0A]">Send us a message</h2>
                   <p className="font-sans text-[14px] leading-[20px] text-[#737373]">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
@@ -101,10 +118,15 @@ export default function ContactPage() {
                     <Button variant="filled" className="w-full rounded-[6px] py-[9px] h-auto">Submit</Button>
                   </div>
                 </form>
-              </div>
+              </motion.div>
 
               {/* Direct Approach Container (Right) */}
-              <div className="flex flex-col flex-1 gap-[40px] justify-between">
+              <motion.div 
+                initial={{ x: 60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+                className="flex flex-col flex-1 gap-[40px] justify-between"
+              >
                 
                 {/* Contact Methods */}
                 <div className="flex flex-col w-full gap-[15px]">
@@ -150,12 +172,18 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Contact Bottom Section */}
-          <div className="flex flex-col w-full max-w-[1260px] gap-[32px]">
+          <motion.div 
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ margin: "10000px 0px -80px 0px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col w-full max-w-[1260px] gap-[32px]"
+          >
             <div className="w-full h-[1px] bg-white/50"></div>
             
             {/* Red Box with Info */}
@@ -200,7 +228,7 @@ export default function ContactPage() {
               </div>
               
             </div>
-          </div>
+          </motion.div>
           
         </div>
       </div>
