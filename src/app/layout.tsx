@@ -31,8 +31,41 @@ const jersey25 = Jersey_25({
 });
 
 export const metadata: Metadata = {
-  title: 'EBAT | Edge AI Drones',
-  description: 'Edge AI drones that detect, track, and respond in real time - even off the grid.',
+  metadataBase: new URL('https://ebat-omega.vercel.app'),
+  title: {
+    default: 'EBAT | EnlivenBot AI - Autonomous Edge AI Drones',
+    template: '%s | EBAT',
+  },
+  description: 'EBAT (EnlivenBot AI) builds autonomous Edge AI drones that detect, track, and respond in real time - even off the grid. Commercial operations, FPV repair, and defense-grade aerospace systems.',
+  keywords: [
+    'EBAT',
+    'EBAT drone',
+    'EBAT EnlivenBot',
+    'EnlivenBot AI',
+    'Edge AI Drones',
+    'Autonomous Drones',
+    'Surveillance UAV',
+    'FPV Drone Repair',
+    'Pilot Training',
+  ],
+  authors: [{ name: 'EBAT - EnlivenBot AI' }],
+  creator: 'Himanshu Dahiya',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://ebat-omega.vercel.app',
+    siteName: 'EBAT - EnlivenBot AI',
+    title: 'EBAT | Autonomous Edge AI Drones',
+    description: 'Autonomous Edge AI drones engineered for defense, tactical surveillance, and enterprise missions.',
+  },
   icons: {
     icon: '/images/logoIcon.svg',
   },
