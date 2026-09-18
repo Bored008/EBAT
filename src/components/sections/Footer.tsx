@@ -36,15 +36,16 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Map */}
-            <div className="relative w-full h-[186.94px] rounded-[10px] overflow-hidden">
-              <Image src="/images/footer/map-bg.png" alt="Map" fill sizes="(max-width: 1260px) 100vw, 416px" className="object-cover" />
-              <div className="absolute top-[11px] left-[16px] bg-white px-[10.5px] py-[4.4px] flex items-center justify-center">
-                <span className="font-sans text-[#1475EF] text-[7px]">View larger map</span>
-              </div>
-              <div className="absolute bottom-[20px] right-[20px]">
-                <Image src="/images/footer/location.svg" alt="Location" width={21} height={21} />
-              </div>
+            {/* Live Google Map */}
+            <div className="relative w-full h-[186.94px] rounded-[10px] overflow-hidden border border-black/10">
+              <iframe
+                title="EBAT Office Map"
+                src="https://maps.google.com/maps?q=Sonipat,%20Murthal%20Khas,%20Haryana%20131039&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
@@ -149,15 +150,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Map */}
-          <div className="relative w-full h-[186.94px] rounded-[10px] overflow-hidden max-w-[400px]">
-            <Image src="/images/footer/map-bg.png" alt="Map" fill sizes="(max-width: 1260px) 100vw, 416px" className="object-cover" />
-            <div className="absolute top-[11px] left-[16px] bg-white px-[10.5px] py-[4.4px] flex items-center justify-center">
-              <span className="font-sans text-[#1475EF] text-[7px]">View larger map</span>
-            </div>
-            <div className="absolute bottom-[20px] right-[20px]">
-              <Image src="/images/footer/location.svg" alt="Location" width={21} height={21} />
-            </div>
+          {/* Live Google Map */}
+          <div className="relative w-full h-[186.94px] rounded-[10px] overflow-hidden max-w-[400px] border border-black/10">
+            <iframe
+              title="EBAT Office Map Mobile"
+              src="https://maps.google.com/maps?q=Sonipat,%20Murthal%20Khas,%20Haryana%20131039&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full border-0"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
 
           {/* Form is hidden on mobile */}
