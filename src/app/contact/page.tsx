@@ -150,25 +150,32 @@ export default function ContactPage() {
                 </div>
 
                 {/* Map Container */}
-                <div className="relative w-full min-h-[300px] flex-1 rounded-[12px] overflow-hidden bg-white mt-auto">
-                  <Image src="/images/contact/map.png" alt="Map" fill sizes="(max-width: 1280px) 100vw, 640px" className="object-cover" />
-                  
-                  {/* Map Icon inside map */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <Image src="/images/contact/location.svg" alt="Map Marker" width={39} height={39} className="scale-[2.1]" />
-                  </div>
+                <div className="relative w-full min-h-[350px] flex-1 rounded-[12px] overflow-hidden bg-[#1D1D1F] mt-auto">
+                  <iframe
+                    title="EBAT Office Location"
+                    src="https://maps.google.com/maps?q=Sonipat,%20Murthal%20Khas,%20Haryana%20131039&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                    className="w-full h-full min-h-[350px] border-0"
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
 
                   {/* Office Visit Container */}
-                  <div className="absolute bottom-[18px] left-[18px] right-[18px] flex flex-col p-[16px] gap-[10px] bg-white rounded-[12px] shadow-lg">
+                  <div className="absolute bottom-[18px] left-[18px] right-[18px] flex flex-col p-[16px] gap-[10px] bg-white/95 backdrop-blur-md rounded-[12px] shadow-lg z-10">
                     <h3 className="font-sans font-medium text-[18px] text-black">Visit our Office</h3>
                     <div className="flex flex-row items-center gap-[4px]">
                       <Image src="/images/contact/location-red.svg" alt="Location" width={14} height={14} />
                       <span className="font-sans text-[12px] tracking-[-0.02em] text-black/75">Sonipat, Murthal Khas, Haryana 131039</span>
                     </div>
-                    <button className="flex flex-row items-center justify-center gap-[3px] border border-black/50 rounded-[4px] py-[6px] px-[12px] w-[116px] text-black/50 hover:bg-black/5 transition-colors">
-                      <span className="font-sans text-[10.5px]">Get a direction</span>
-                      <Image src="/images/contact/right-arrow.svg" alt="Arrow" width={13.5} height={13.5} />
-                    </button>
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=Murthal+Khas,+Sonipat,+Haryana+131039"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-row items-center justify-center gap-[6px] border border-black/50 rounded-[4px] py-[6px] px-[12px] w-[130px] text-black/80 hover:bg-black hover:text-white transition-colors text-[11px]"
+                    >
+                      <span className="font-sans text-[10.5px]">Get directions</span>
+                      <Image src="/images/contact/right-arrow.svg" alt="Arrow" width={13.5} height={13.5} className="brightness-0" />
+                    </a>
                   </div>
                 </div>
 
